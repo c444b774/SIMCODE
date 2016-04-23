@@ -1,0 +1,41 @@
+*************Support Message*************
+
+TesterDevice supported :CMW500,A8960,8820
+
+Project supported       :PONYO.N86E,N610E,EA58
+*************V2.1.3************
+1.Fix a8960 gsm test bug
+*************V2.1.1************
+1.add tdscdma cal 8820 loss function
+2.check shopfloor before write sn.
+*************V2.1.1************
+1 add Enhanced sweep cal for 8x30 wtr1605 series
+2 new cableloss method
+*************V2.0************
+1 CDMA6500 suport CMW&CMU
+2 Support DIAG Port auto detect
+3 release for EA58 PVT
+*************V1.3************
+1  Fix GFT finish enter online fail issue
+
+2  Fix CFT DataBase fail issue
+
+3  Increase comport wait time 
+
+4  Fix wireless retest issue
+
+5  Update UI for SN run and Is DB
+
+*************V1.2************
+1  add  support for RTR6500 calibration
+
+
+
+*************V1.1************
+1  Fix memory leak bug
+2  Add Write EFS On test over
+
+
+
+*************V1.0************
+Init Version

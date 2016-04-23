@@ -1,0 +1,17 @@
+[SFCSetting]
+ServerAddr = 172.23.1.116
+password = abc@123
+UID = sa
+Catalog = CSATS
+Result = OK
+StationID = WRITE SN
+Fixture = 1
+Line = 1
+Creator = 2
+
+
+[DataBaseSetting]
+DSN=SIM_RFTest
+USER=sa
+PASSWORD=abc123
+

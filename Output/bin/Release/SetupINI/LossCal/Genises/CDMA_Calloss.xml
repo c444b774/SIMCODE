@@ -1,0 +1,230 @@
+<Configurations>
+	<PreObjects>
+		<DeviceObject ClassName="A8960" Name="A8960">
+			<RFin Editable="TRUE" Type="Integer">10</RFin>
+			<RFout Editable="TRUE" Type="Integer">10</RFout>
+			<ScreenOff Editable="TRUE" Type="Integer">1</ScreenOff>
+		</DeviceObject>
+		<DeviceObject ClassName="CCMW500" Name="CMW500">
+			<RFin Editable="TRUE" Type="Integer">1</RFin>
+			<RFout Editable="TRUE" Type="Integer">1</RFout>
+			<RFChannel Editable="TRUE" Type="Integer">1</RFChannel>
+		</DeviceObject>
+		<DeviceObject ClassName="N5182A" Name="N5182A">
+			<RFin Editable="TRUE" Type="Integer">1</RFin>
+			<RFout Editable="TRUE" Type="Integer">1</RFout>
+		</DeviceObject>
+		<DeviceObject ClassName="MT8820" Name="MT8820">
+			<RFin Editable="TRUE" Type="Integer">1</RFin>
+			<RFout Editable="TRUE" Type="Integer">1</RFout>
+			<ScreenOff Editable="TRUE" Type="Integer">1</ScreenOff>
+		</DeviceObject>
+		<DeviceObject ClassName="MT8820" Name="MT8820">
+			<RFin Editable="TRUE" Type="Integer">2</RFin>
+			<RFout Editable="TRUE" Type="Integer">2</RFout>
+			<ScreenOff Editable="TRUE" Type="Integer">1</ScreenOff>
+			<RFChannel Editable="TRUE" Type="Integer">15</RFChannel>
+		</DeviceObject>
+		<DeviceObject ClassName="CPowerSupply" Name="GeneralPly">
+		</DeviceObject>
+		<PhoneObject ClassName="CRFNVItems" Name="CRFNVItemsObj">
+		</PhoneObject>
+		<PhoneObject ClassName="CQualPhone" Name="QualPhone">
+			<RFNVItemObject Editable="TRUE" Type="Integer">CRFNVItemsObj</RFNVItemObject>
+		</PhoneObject>
+	</PreObjects>
+	<MainObject>
+		<RFNVItem Editable="TRUE" Type="String">GeneralNV</RFNVItem>
+		<Phone Editable="TRUE" Type="String">QualPhone</Phone>
+		<TesterDeviceCommon Editable="TRUE" Type="String">CMW500</TesterDeviceCommon>
+		<TesterDevice1 Editable="TRUE" Type="String">dummy</TesterDevice1>
+		<PowerSupplyCommon Editable="TRUE" Type="String">dummy</PowerSupplyCommon>
+		<PowerSupplyCommonPort Editable="TRUE" Type="String">1</PowerSupplyCommonPort>
+		<PowerSupply1 Editable="TRUE" Type="String">dummy</PowerSupply1>
+		<PowerSupply1Port Editable="TRUE" Type="String">2</PowerSupply1Port>
+		<List>
+			<Item Name="ReadSN" Enabled="True"/>
+			<Item Name="CDMAStartcall" Enabled="True"/>
+			<Item Name="CDMAtestBC0" Enabled="True"/>
+			<Item Name="CDMAEndcall" Enabled="True"/></List>
+		<ALLItems>
+			<Item Name="StartPowerSupply"/>
+			<Item Name="StopPowerSupply"/>
+			<Item Name="ReadSN"/>
+			<Item Name="ClearCDMATestFlag"/>
+			<Item Name="CDMAStartcall"/>
+			<Item Name="CDMAtestBC0"/>
+			<Item Name="CDMAtestBC1"/>
+			<Item Name="CDMAEndcall"/>
+			<Item Name="WriteCDMATestFlag"/>
+		</ALLItems>
+	</MainObject>
+	<ProcessObjectSet>
+		<CommonProcessObjects>
+			<ProcessObject ClassName="CBaseBandTestProc" Name="ReadSN">
+				<!--Main Function is necessary-->
+				<MainFunc Editable="TRUE" Type="String">CommonTestMainFunc</MainFunc>
+				<!--Parameters-->
+				<List>
+					<Item Name="ReadSNFunc" Enabled="TRUE"/>
+				</List>
+				<NVID1 Editable="TRUE" Type="Integer">567</NVID1>
+				<NVID2 Editable="TRUE" Type="Integer">569</NVID2>
+				<DelayForNextItemMs Editable="TRUE" Type="Integer">0</DelayForNextItemMs>
+				<!--End of Parameters-->
+			</ProcessObject>
+			<ProcessObject ClassName="CBaseBandTestProc" Name="ClearCDMATestFlag">
+				<!--Main Function is necessary-->
+				<MainFunc Editable="TRUE" Type="String">CommonTestMainFunc</MainFunc>
+				<!--Parameters-->
+				<List>
+					<Item Name="WriteFlagFunc" Enabled="true"/>
+				</List>
+				<FlagNVID Editable="TRUE" Type="Integer">570</FlagNVID>
+				<StationFlag Editable="TRUE" Type="Integer">25</StationFlag>
+				<IsSetFlag Editable="TRUE" Type="Integer">0</IsSetFlag>
+				<!--End of Parameters-->
+			</ProcessObject>
+			<ProcessObject ClassName="CBaseBandTestProc" Name="WriteCDMATestFlag">
+				<!--Main Function is necessary-->
+				<MainFunc Editable="TRUE" Type="String">CommonTestMainFunc</MainFunc>
+				<!--Parameters-->
+				<List>
+					<Item Name="WriteFlagFunc" Enabled="true"/>
+				</List>
+				<FlagNVID Editable="TRUE" Type="Integer">570</FlagNVID>
+				<StationFlag Editable="TRUE" Type="Integer">25</StationFlag>
+				<IsSetFlag Editable="TRUE" Type="Integer">1</IsSetFlag>
+				<!--End of Parameters-->
+			</ProcessObject>
+			<ProcessObject ClassName="CPowerSlyControl" Name="StartPowerSupply">
+				<!--Main Function is necessary-->
+				<MainFunc Editable="TRUE" Type="String">PlyControlMainFunc</MainFunc>
+				<!--Parameters-->
+				<List>
+					<Item Name="StartPly" Enabled="TRUE"/>
+				</List>
+				<Voltage Editable="TRUE" Type="Integer">3.8</Voltage>
+				<CurrentLimit Editable="TRUE" Type="Integer">3</CurrentLimit>
+				<CurrentMode Editable="TRUE" Type="Integer">1</CurrentMode>
+				<!--1 : A  0 mA-->
+				<!--End of Parameters-->
+			</ProcessObject>
+			<ProcessObject ClassName="CPowerSlyControl" Name="StopPowerSupply">
+				<!--Main Function is necessary-->
+				<MainFunc Editable="TRUE" Type="String">PlyControlMainFunc</MainFunc>
+				<!--Parameters-->
+				<List>
+					<Item Name="StopPly" Enabled="TRUE"/>
+				</List>
+				<!--End of Parameters-->
+			</ProcessObject>
+			<ProcessObject ClassName="CBaseBandTestProc" Name="ReadSN">
+				<!--Main Function is necessary-->
+				<MainFunc Editable="TRUE" Type="String">CommonTestMainFunc</MainFunc>
+				<!--Parameters-->
+				<List>
+					<Item Name="ReadSNFunc" Enabled="TRUE"/>
+				</List>
+				<NVID1 Editable="TRUE" Type="Integer">567</NVID1>
+				<NVID2 Editable="TRUE" Type="Integer">569</NVID2>
+				<DelayForNextItemMs Editable="TRUE" Type="Integer">0</DelayForNextItemMs>
+				<!--End of Parameters-->
+			</ProcessObject>
+		</CommonProcessObjects>
+		<CDMATestProcessObjects>
+			<ProcessObject ClassName="CCDMATestStartCall" Name="CDMAStartcall">
+				<!--Main Function is necessary-->
+				<MainFunc Editable="TRUE" Type="String">CDMACallMainFunc</MainFunc>
+				<!--Parameters-->
+				<List>
+					<Item Name="CDMA_NS_Call" Enabled="TRUE"/>
+				</List>
+				<CALLBand Editable="TRUE" Type="Integer">800</CALLBand>
+				<CALLChannel Editable="TRUE" Type="String">777</CALLChannel>
+				<RadioConfig Editable="TRUE" Type="String">1</RadioConfig>
+				<CellPower Editable="TRUE" Type="String">-75</CellPower>
+				<TargetPower Editable="TRUE" Type="String">-10</TargetPower>
+				<BERSessionTimeOut Editable="TRUE" Type="String">2000</BERSessionTimeOut>
+				<RegistTimeOut Editable="TRUE" Type="String">30</RegistTimeOut>
+				<!--End of Parameters-->
+			</ProcessObject>
+			<ProcessObject ClassName="CCDMATestEnd" Name="CDMAEndcall">
+				<!--Main Function is necessary-->
+				<MainFunc Editable="TRUE" Type="String">CDMAEndCallMainFunc</MainFunc>
+				<!--Parameters-->
+				<List>
+					<Item Name="CDMAEndCall" Enabled="FALSE"/>
+				</List>
+				<!--End of Parameters-->
+			</ProcessObject>
+			<ProcessObject ClassName="CCDMACableLossCal" Name="CDMAtestBC0">
+				<!--Main Function is necessary-->
+				<MainFunc Editable="TRUE" Type="String">CDMAMeasMainFunc</MainFunc>
+				<!--Parameters-->
+				<List>
+					<Item Name="CDMAMaxpower" Enabled="TRUE"/>
+					<Item Name="CDMAMeasLoop" Enabled="TRUE"/>
+				</List>
+				<TestBand Editable="TRUE" Type="Integer">800</TestBand>
+				<IsSaveToIni Editable="TRUE" Type="Integer">0</IsSaveToIni>
+				<UseFollowPara Editable="TRUE" Type="String">1</UseFollowPara>
+				<TestChan Editable="TRUE" Type="String">384,777,1013</TestChan>
+				<CellPwr Editable="TRUE" Type="String">-75,-101,-30,-105,-65</CellPwr>
+				<!--CellPwr ONLY USE [1] for loss-->
+				<MaxPower Editable="TRUE" Type="String">23,25</MaxPower>
+				<!--End of Parameters-->
+			</ProcessObject>
+			<ProcessObject ClassName="CCDMACableLossCal" Name="CDMAtestBC1">
+				<!--Main Function is necessary-->
+				<MainFunc Editable="TRUE" Type="String">CDMAMeasMainFunc</MainFunc>
+				<!--Parameters-->
+				<List>
+					<Item Name="CDMAMaxpower" Enabled="TRUE"/>
+					<Item Name="CDMAMeasLoop" Enabled="TRUE"/>
+				</List>
+				<TestBand Editable="TRUE" Type="Integer">1900</TestBand>
+				<IsSaveToIni Editable="TRUE" Type="Integer">0</IsSaveToIni>
+				<UseFollowPara Editable="TRUE" Type="String">1</UseFollowPara>
+				<TestChan Editable="TRUE" Type="String">25,600,1175</TestChan>
+				<CellPwr Editable="TRUE" Type="String">-75,-101,-30,-105,-65</CellPwr>
+				<!--CellPwr ONLY USE [1] for loss-->
+				<MaxPower Editable="TRUE" Type="String">23,25</MaxPower>
+				<!--End of Parameters-->
+			</ProcessObject>
+		</CDMATestProcessObjects>
+		<WCDMATestProcessObjects>
+			<ProcessObject ClassName="CWCDMATestStartCall" Name="WCDMAStartcall">
+				<!--Main Function is necessary-->
+				<MainFunc Editable="TRUE" Type="String">WCDMACallMainFunc</MainFunc>
+				<!--Parameters-->
+				<List>
+					<Item Name="WCDMACall" Enabled="FALSE"/>
+					<Item Name="WCDMA_NS_Call" Enabled="TRUE"/>
+				</List>
+				<CALLBand Editable="TRUE" Type="Integer">2100</CALLBand>
+				<CALLChannel Editable="TRUE" Type="Integer">9750</CALLChannel>
+				<!--End of Parameters-->
+			</ProcessObject>
+			<ProcessObject ClassName="CWCDMATestEnd" Name="WCDMAEndcall">
+				<!--Main Function is necessary-->
+				<MainFunc Editable="TRUE" Type="String">WCDMAEndCallMainFunc</MainFunc>
+				<!--Parameters-->
+				<List>
+					<Item Name="WCDMAEndCall" Enabled="FALSE"/>
+				</List>
+				<!--End of Parameters-->
+			</ProcessObject>
+			<ProcessObject ClassName="CWCDMATestMeasureLoop" Name="WCDMAtest2100">
+				<!--Main Function is necessary-->
+				<MainFunc Editable="TRUE" Type="String">WCDMAMeasMainFunc</MainFunc>
+				<!--Parameters-->
+				<List>
+					<Item Name="MaxPower" Enabled="FALSE"/>
+				</List>
+				<TestBand Editable="TRUE" Type="Integer">2100</TestBand>
+				<!--End of Parameters-->
+			</ProcessObject>
+		</WCDMATestProcessObjects>
+	</ProcessObjectSet>
+</Configurations>

@@ -1,0 +1,774 @@
+<Configurations>
+	<PreObjects>
+		<DeviceObject ClassName="A8960" Name="A8960">
+			<RFin Editable="TRUE" Type="Integer">10</RFin>
+			<RFout Editable="TRUE" Type="Integer">10</RFout>
+			<ScreenOff Editable="TRUE" Type="Integer">1</ScreenOff>
+		</DeviceObject>
+		<DeviceObject ClassName="CCMU200" Name="CMU200">
+			<RFin Editable="TRUE" Type="Integer">2</RFin>
+			<RFout Editable="TRUE" Type="Integer">2</RFout>
+		</DeviceObject>
+		<DeviceObject ClassName="CCMW500" Name="CMW500">
+			<RFin Editable="TRUE" Type="Integer">1</RFin>
+			<RFout Editable="TRUE" Type="Integer">1</RFout>
+			<RFChannel Editable="TRUE" Type="Integer">1</RFChannel>
+		</DeviceObject>
+		<DeviceObject ClassName="N5182A" Name="N5182A">
+			<RFin Editable="TRUE" Type="Integer">1</RFin>
+			<RFout Editable="TRUE" Type="Integer">1</RFout>
+			<RFChannel Editable="TRUE" Type="Integer">1</RFChannel>
+		</DeviceObject>
+		<DeviceObject ClassName="MT8820" Name="MT8820">
+			<RFin Editable="TRUE" Type="Integer">2</RFin>
+			<RFout Editable="TRUE" Type="Integer">2</RFout>
+			<ScreenOff Editable="TRUE" Type="Integer">1</ScreenOff>
+			<RFChannel Editable="TRUE" Type="Integer">15</RFChannel>
+		</DeviceObject>
+		<DeviceObject ClassName="CPowerSupply" Name="GeneralPly">
+		</DeviceObject>
+		<PhoneObject ClassName="CRFNVItems" Name="CRFNVItemsObj">
+		</PhoneObject>
+		<PhoneObject ClassName="CQualPhone" Name="QualPhone">
+			<RFNVItemObject Editable="TRUE" Type="Integer">CRFNVItemsObj</RFNVItemObject>
+		</PhoneObject>
+	</PreObjects>
+	<MainObject>
+		<RFNVItem Editable="TRUE" Type="String">GeneralNV</RFNVItem>
+		<Phone Editable="TRUE" Type="String">QualPhone</Phone>
+		<TesterDeviceCommon Editable="TRUE" Type="String">A8960</TesterDeviceCommon>
+		<TesterDevice1 Editable="TRUE" Type="String">N5182A</TesterDevice1>
+		<PowerSupplyCommon Editable="TRUE" Type="String">GeneralPly</PowerSupplyCommon>
+		<PowerSupplyCommonPort Editable="TRUE" Type="String">1</PowerSupplyCommonPort>
+		<PowerSupply1 Editable="TRUE" Type="String">dummy</PowerSupply1>
+		<PowerSupply1Port Editable="TRUE" Type="String">2</PowerSupply1Port>
+		<List>
+			<Item Name="ReadSN" Enabled="True"/>
+			<Item Name="ClearGSMCALFlag" Enabled="True"/>
+			<Item Name="InitGSMCal" Enabled="True"/>
+			<Item Name="KVCOCal" Enabled="True"/>
+			<Item Name="GSMTXCAL_850" Enabled="True"/>
+			<Item Name="GSMTXCAL_900" Enabled="True"/>
+			<Item Name="GSMTXCAL_1800" Enabled="True"/>
+			<Item Name="GSMTXCAL_1900" Enabled="True"/>
+			<Item Name="GSMRXCAL_850" Enabled="True"/>
+			<Item Name="GSMRXCAL_900" Enabled="True"/>
+			<Item Name="GSMRXCAL_1800" Enabled="True"/>
+			<Item Name="GSMRXCAL_1900" Enabled="True"/>
+			<Item Name="EndGSMCal" Enabled="True"/>
+			<Item Name="WriteGSMCALFlag" Enabled="True"/>
+			<Item Name="ClearGNSFTFlag" Enabled="True"/>
+			<Item Name="GNSFTStartCall" Enabled="True"/>
+			<Item Name="GSM850Test" Enabled="True"/>
+			<Item Name="EGSMTest" Enabled="True"/>
+			<Item Name="DCSTest" Enabled="True"/>
+			<Item Name="PCSTest" Enabled="True"/>
+			<Item Name="GNSFTEndCall" Enabled="True"/>
+			<Item Name="WriteGNSFTFlag" Enabled="True"/>
+		</List>
+		<ALLItems>
+			<Item Name="ReadSN"/>
+			<Item Name="ClearGSMCALFlag"/>
+			<Item Name="InitGSMCal"/>
+			<Item Name="KVCOCal"/>
+			<Item Name="GSMTXCAL_850"/>
+			<Item Name="GSMTXCAL_900"/>
+			<Item Name="GSMTXCAL_1800"/>
+			<Item Name="GSMTXCAL_1900"/>
+			<Item Name="GSMRXCAL_850"/>
+			<Item Name="GSMRXCAL_900"/>
+			<Item Name="GSMRXCAL_1800"/>
+			<Item Name="GSMRXCAL_1900"/>
+			<Item Name="EndGSMCal"/>
+			<Item Name="WriteGSMCALFlag"/>
+			<Item Name="StartPowerSupply"/>
+			<Item Name="StopPowerSupply"/>
+			<Item Name="GNSFTStartCall"/>
+			<Item Name="GNSFTEndCall"/>
+			<Item Name="EGSMTest"/>
+			<Item Name="DCSTest"/>
+			<Item Name="GSM850Test"/>
+			<Item Name="PCSTest"/>
+			<Item Name="Edge_GNSFTStartCall"/>
+			<Item Name="Edge_GNSFTEndCall"/>
+			<Item Name="Edge_EGSMTest"/>
+			<Item Name="Edge_DCSTest"/>
+			<Item Name="Edge_GSM850Test"/>
+			<Item Name="Edge_PCSTest"/>
+			<Item Name="ClearGNSFTFlag"/>
+			<Item Name="WriteGNSFTFlag"/>
+		</ALLItems>
+	</MainObject>
+	<ProcessObjectSet>
+		<CommonProcessObjects>
+			<ProcessObject ClassName="CBaseBandTestProc" Name="ReadSN">
+				<!--Main Function is necessary-->
+				<MainFunc Editable="TRUE" Type="String">CommonTestMainFunc</MainFunc>
+				<!--Parameters-->
+				<List>
+					<Item Name="ReadSNFunc" Enabled="TRUE"/>
+				</List>
+				<NVID1 Editable="TRUE" Type="Integer">567</NVID1>
+				<NVID2 Editable="TRUE" Type="Integer">569</NVID2>
+				<!--End of Parameters-->
+			</ProcessObject>
+			<ProcessObject ClassName="CBaseBandTestProc" Name="ClearGNSFTFlag">
+				<!--Main Function is necessary-->
+				<MainFunc Editable="TRUE" Type="String">CommonTestMainFunc</MainFunc>
+				<!--Parameters-->
+				<List>
+					<Item Name="WriteFlagFunc" Enabled="TRUE"/>
+				</List>
+				<FlagNVID Editable="TRUE" Type="Integer">570</FlagNVID>
+				<StationFlag Editable="TRUE" Type="Integer">9</StationFlag>
+				<IsSetFlag Editable="TRUE" Type="Integer">0</IsSetFlag>
+				<!--End of Parameters-->
+			</ProcessObject>
+			<ProcessObject ClassName="CBaseBandTestProc" Name="WriteGNSFTFlag">
+				<!--Main Function is necessary-->
+				<MainFunc Editable="TRUE" Type="String">CommonTestMainFunc</MainFunc>
+				<!--Parameters-->
+				<List>
+					<Item Name="WriteFlagFunc" Enabled="TRUE"/>
+				</List>
+				<FlagNVID Editable="TRUE" Type="Integer">570</FlagNVID>
+				<StationFlag Editable="TRUE" Type="Integer">9</StationFlag>
+				<IsSetFlag Editable="TRUE" Type="Integer">1</IsSetFlag>
+				<!--End of Parameters-->
+			</ProcessObject>
+			<ProcessObject ClassName="CBaseBandTestProc" Name="ClearGSMCALFlag">
+				<!--Main Function is necessary-->
+				<MainFunc Editable="TRUE" Type="String">CommonTestMainFunc</MainFunc>
+				<!--Parameters-->
+				<List>
+					<Item Name="WriteFlagFunc" Enabled="TRUE"/>
+				</List>
+				<FlagNVID Editable="TRUE" Type="Integer">570</FlagNVID>
+				<StationFlag Editable="TRUE" Type="Integer">8</StationFlag>
+				<IsSetFlag Editable="TRUE" Type="Integer">0</IsSetFlag>
+				<!--End of Parameters-->
+			</ProcessObject>
+			<ProcessObject ClassName="CBaseBandTestProc" Name="WriteGSMCALFlag">
+				<!--Main Function is necessary-->
+				<MainFunc Editable="TRUE" Type="String">CommonTestMainFunc</MainFunc>
+				<!--Parameters-->
+				<List>
+					<Item Name="WriteFlagFunc" Enabled="TRUE"/>
+				</List>
+				<FlagNVID Editable="TRUE" Type="Integer">570</FlagNVID>
+				<StationFlag Editable="TRUE" Type="Integer">8</StationFlag>
+				<IsSetFlag Editable="TRUE" Type="Integer">1</IsSetFlag>
+				<!--End of Parameters-->
+			</ProcessObject>
+			<ProcessObject ClassName="CPowerSlyControl" Name="StartPowerSupply">
+				<!--Main Function is necessary-->
+				<MainFunc Editable="TRUE" Type="String">PlyControlMainFunc</MainFunc>
+				<!--Parameters-->
+				<List>
+					<Item Name="StartPly" Enabled="TRUE"/>
+				</List>
+				<Voltage Editable="TRUE" Type="Integer">3.8</Voltage>
+				<CurrentLimit Editable="TRUE" Type="Integer">3</CurrentLimit>
+				<CurrentMode Editable="TRUE" Type="Integer">1</CurrentMode>
+				<!--1 : A  0 mA-->
+				<!--End of Parameters-->
+			</ProcessObject>
+			<ProcessObject ClassName="CPowerSlyControl" Name="StopPowerSupply">
+				<!--Main Function is necessary-->
+				<MainFunc Editable="TRUE" Type="String">PlyControlMainFunc</MainFunc>
+				<!--Parameters-->
+				<List>
+					<Item Name="StopPly" Enabled="TRUE"/>
+				</List>
+				<!--End of Parameters-->
+			</ProcessObject>
+		</CommonProcessObjects>
+		<GSMCalibrationProcessObjects>
+			<ProcessObject ClassName="CInitCGSMCal" Name="InitGSMCal">
+				<!--Main Function is necessary-->
+				<MainFunc Editable="TRUE" Type="String">InitGSMCalMainFunc</MainFunc>
+				<!--Parameters-->
+				<List>
+					<Item Name="InitGSMCalFunc" Enabled="TRUE"/>
+				</List>
+				<GSMCalDevicePort Editable="TRUE" Type="Integer">1</GSMCalDevicePort>
+				<!--End of Parameters-->
+			</ProcessObject>
+			<ProcessObject ClassName="CEndGSMCal" Name="EndGSMCal">
+				<!--Main Function is necessary-->
+				<MainFunc Editable="TRUE" Type="String">EndGSMCalMainFunc</MainFunc>
+				<!--Parameters-->
+				<List>
+					<Item Name="EndGSMCal" Enabled="TRUE"/>
+				</List>
+				<EnterOnline Editable="TRUE" Type="Integer">1</EnterOnline>
+				<!--End of Parameters-->
+			</ProcessObject>
+			<ProcessObject ClassName="CKVCOCal" Name="KVCOCal">
+				<!--Main Function is necessary-->
+				<MainFunc Editable="TRUE" Type="String">KVCOCalMainFunc</MainFunc>
+				<!--Parameters-->
+				<List>
+					<Item Name="KVCOCal_850" Enabled="TRUE"/>
+					<Item Name="KVCOCal_900" Enabled="true"/>
+					<Item Name="KVCOCal_1800" Enabled="TRUE"/>
+					<Item Name="KVCOCal_1900" Enabled="true"/>
+				</List>
+				<!--0 :CMDA  1:WCDMA-->
+				<ChannelList_850 Editable="TRUE" Type="Integer">128,251</ChannelList_850>
+				<ChannelList_900 Editable="TRUE" Type="Integer">975,124</ChannelList_900>
+				<ChannelList_1800 Editable="TRUE" Type="Integer">512,885</ChannelList_1800>
+				<ChannelList_1900 Editable="TRUE" Type="Integer">542,810</ChannelList_1900>
+				<!--End of Parameters-->
+			</ProcessObject>
+			<ProcessObject ClassName="CGSMRXCal" Name="GSMRXCAL_850">
+				<!--Main Function is necessary-->
+				<MainFunc Editable="TRUE" Type="String">GSMRXCalMainFunc</MainFunc>
+				<!--Parameters-->
+				<List>
+					<Item Name="GSMRXCal" Enabled="true"/>
+				</List>
+				<Band Editable="TRUE" Type="Integer">850</Band>
+				<RXCalPowerList Editable="TRUE" Type="Integer">-90,-90,-50,-50,-50</RXCalPowerList>
+				<ChannelList Editable="TRUE" Type="Integer">128,145,163,180,198,215,233,251</ChannelList>
+				<BitMask Editable="TRUE" Type="Integer">1,2,4,8,16</BitMask>
+				<RXLimitUp Editable="TRUE" Type="Integer">2800,2500,2100,1800,1800</RXLimitUp>
+				<RXLimitLow Editable="TRUE" Type="Integer">0,0,0,0,0</RXLimitLow>
+				<GainRangeCount Editable="TRUE" Type="Integer">5</GainRangeCount>
+				<!--End of Parameters-->
+			</ProcessObject>
+			<ProcessObject ClassName="CGSMRXCal" Name="GSMRXCAL_900">
+				<!--Main Function is necessary-->
+				<MainFunc Editable="TRUE" Type="String">GSMRXCalMainFunc</MainFunc>
+				<!--Parameters-->
+				<List>
+					<Item Name="GSMRXCal" Enabled="true"/>
+				</List>
+				<Band Editable="TRUE" Type="Integer">900</Band>
+				<RXCalPowerList Editable="TRUE" Type="Integer">-90,-90,-50,-50,-50</RXCalPowerList>
+				<ChannelList Editable="TRUE" Type="Integer">1,31,62,92,124,975,1000,1023</ChannelList>
+				<BitMask Editable="TRUE" Type="Integer">1,2,4,8,16</BitMask>
+				<RXLimitUp Editable="TRUE" Type="Integer">2800,2500,2100,1800,1800</RXLimitUp>
+				<RXLimitLow Editable="TRUE" Type="Integer">0,0,0,0,0</RXLimitLow>
+				<GainRangeCount Editable="TRUE" Type="Integer">5</GainRangeCount>
+				<!--End of Parameters-->
+			</ProcessObject>
+			<ProcessObject ClassName="CGSMRXCal" Name="GSMRXCAL_1800">
+				<!--Main Function is necessary-->
+				<MainFunc Editable="TRUE" Type="String">GSMRXCalMainFunc</MainFunc>
+				<!--Parameters-->
+				<List>
+					<Item Name="GSMRXCal" Enabled="true"/>
+				</List>
+				<Band Editable="TRUE" Type="Integer">1800</Band>
+				<RXCalPowerList Editable="TRUE" Type="Integer">-90,-90,-50,-50,-50</RXCalPowerList>
+				<ChannelList Editable="TRUE" Type="Integer">512,537,562,587,612,637,662,687,712,737,762,787,812,837,862,885</ChannelList>
+				<BitMask Editable="TRUE" Type="Integer">1,2,4,8,16</BitMask>
+				<RXLimitUp Editable="TRUE" Type="Integer">2800,2500,2100,1800,1800</RXLimitUp>
+				<RXLimitLow Editable="TRUE" Type="Integer">0,0,0,0,0</RXLimitLow>
+				<GainRangeCount Editable="TRUE" Type="Integer">5</GainRangeCount>
+				<!--End of Parameters-->
+			</ProcessObject>
+			<ProcessObject ClassName="CGSMRXCal" Name="GSMRXCAL_1900">
+				<!--Main Function is necessary-->
+				<MainFunc Editable="TRUE" Type="String">GSMRXCalMainFunc</MainFunc>
+				<!--Parameters-->
+				<List>
+					<Item Name="GSMRXCal" Enabled="true"/>
+				</List>
+				<Band Editable="TRUE" Type="Integer">1900</Band>
+				<RXCalPowerList Editable="TRUE" Type="Integer">-90,-90,-50,-50,-50</RXCalPowerList>
+				<ChannelList Editable="TRUE" Type="Integer">512,532,552,572,592,612,632,652,672,692,712,732,752,772,792,810</ChannelList>
+				<BitMask Editable="TRUE" Type="Integer">1,2,4,8,16</BitMask>
+				<RXLimitUp Editable="TRUE" Type="Integer">2800,2500,2100,1800,1800</RXLimitUp>
+				<RXLimitLow Editable="TRUE" Type="Integer">0,0,0,0,0</RXLimitLow>
+				<GainRangeCount Editable="TRUE" Type="Integer">5</GainRangeCount>
+				<!--End of Parameters-->
+			</ProcessObject>
+			<ProcessObject ClassName="CGSMTXCal" Name="GSMTXCAL_850">
+				<!--Main Function is necessary-->
+				<MainFunc Editable="TRUE" Type="String">GSMTXCalMainFunc</MainFunc>
+				<!--Parameters-->
+				<List>
+					<Item Name="TXDACal" Enabled="true"/>
+					<Item Name="TXPredisCal" Enabled="false"/>
+				</List>
+				<Band Editable="TRUE" Type="Integer">850</Band>
+				<ChannelList Editable="TRUE" Type="Integer">128,190,251</ChannelList>
+				<ListSize Editable="TRUE" Type="Integer">257</ListSize>
+				<PARangeNum Editable="TRUE" Type="Integer">4</PARangeNum>
+				<SegmentTime Editable="TRUE" Type="Integer">273</SegmentTime>
+				<MeasLenUS Editable="TRUE" Type="Integer">600</MeasLenUS>
+				<GainParaNVID Editable="TRUE" Type="Integer">6475</GainParaNVID>
+				<PreDistRGIPower Editable="TRUE" Type="Integer">26</PreDistRGIPower>
+				<DATriggerPower Editable="TRUE" Type="Integer">32.5</DATriggerPower>
+				<!--End of Parameters-->
+			</ProcessObject>
+			<ProcessObject ClassName="CGSMTXCal" Name="GSMTXCAL_900">
+				<!--Main Function is necessary-->
+				<MainFunc Editable="TRUE" Type="String">GSMTXCalMainFunc</MainFunc>
+				<!--Parameters-->
+				<List>
+					<Item Name="TXDACal" Enabled="true"/>
+					<Item Name="TXPredisCal" Enabled="false"/>
+				</List>
+				<Band Editable="TRUE" Type="Integer">900</Band>
+				<ChannelList Editable="TRUE" Type="Integer">975,37,124</ChannelList>
+				<ListSize Editable="TRUE" Type="Integer">257</ListSize>
+				<PARangeNum Editable="TRUE" Type="Integer">4</PARangeNum>
+				<SegmentTime Editable="TRUE" Type="Integer">273</SegmentTime>
+				<MeasLenUS Editable="TRUE" Type="Integer">600</MeasLenUS>
+				<GainParaNVID Editable="TRUE" Type="Integer">5478</GainParaNVID>
+				<PreDistRGIPower Editable="TRUE" Type="Integer">26</PreDistRGIPower>
+				<DATriggerPower Editable="TRUE" Type="Integer">32.5</DATriggerPower>
+				<!--End of Parameters-->
+			</ProcessObject>
+			<ProcessObject ClassName="CGSMTXCal" Name="GSMTXCAL_1800">
+				<!--Main Function is necessary-->
+				<MainFunc Editable="TRUE" Type="String">GSMTXCalMainFunc</MainFunc>
+				<!--Parameters-->
+				<List>
+					<Item Name="TXDACal" Enabled="true"/>
+					<Item Name="TXPredisCal" Enabled="false"/>
+				</List>
+				<Band Editable="TRUE" Type="Integer">1800</Band>
+				<ChannelList Editable="TRUE" Type="Integer">512,700,885</ChannelList>
+				<ListSize Editable="TRUE" Type="Integer">193</ListSize>
+				<PARangeNum Editable="TRUE" Type="Integer">3</PARangeNum>
+				<SegmentTime Editable="TRUE" Type="Integer">273</SegmentTime>
+				<MeasLenUS Editable="TRUE" Type="Integer">600</MeasLenUS>
+				<GainParaNVID Editable="TRUE" Type="Integer">6476</GainParaNVID>
+				<PreDistRGIPower Editable="TRUE" Type="Integer">25</PreDistRGIPower>
+				<DATriggerPower Editable="TRUE" Type="Integer">29.5</DATriggerPower>
+				<!--End of Parameters-->
+			</ProcessObject>
+			<ProcessObject ClassName="CGSMTXCal" Name="GSMTXCAL_1900">
+				<!--Main Function is necessary-->
+				<MainFunc Editable="TRUE" Type="String">GSMTXCalMainFunc</MainFunc>
+				<!--Parameters-->
+				<List>
+					<Item Name="TXDACal" Enabled="true"/>
+					<Item Name="TXPredisCal" Enabled="false"/>
+				</List>
+				<Band Editable="TRUE" Type="Integer">1900</Band>
+				<ChannelList Editable="TRUE" Type="Integer">512,661,810</ChannelList>
+				<ListSize Editable="TRUE" Type="Integer">193</ListSize>
+				<PARangeNum Editable="TRUE" Type="Integer">3</PARangeNum>
+				<SegmentTime Editable="TRUE" Type="Integer">273</SegmentTime>
+				<MeasLenUS Editable="TRUE" Type="Integer">600</MeasLenUS>
+				<GainParaNVID Editable="TRUE" Type="Integer">6477</GainParaNVID>
+				<PreDistRGIPower Editable="TRUE" Type="Integer">25</PreDistRGIPower>
+				<DATriggerPower Editable="TRUE" Type="Integer">29.5</DATriggerPower>
+				<!--End of Parameters-->
+			</ProcessObject>
+		</GSMCalibrationProcessObjects>
+		<GNSFTProcessObjects>
+			<ProcessObject ClassName="CGSM_EDGE_NSFT_Call" Name="GNSFTStartCall">
+				<!--Main Function is necessary-->
+				<MainFunc Editable="TRUE" Type="String">GSM_NoSignal_TestCallMainFunc</MainFunc>
+				<!--Parameters-->
+				<List>
+					<Item Name="GSM_Nosignal_StartcallFunc" Enabled="TRUE"/>
+				</List>
+				<TesterDeviceUse Editable="TRUE" Type="String">MT8820</TesterDeviceUse>
+				<IsEdge Editable="FALSE" Type="Integer">0</IsEdge>
+				<ScreenOFF Editable="TRUE" Type="Integer">0</ScreenOFF>
+				<CallBand Editable="TRUE" Type="String">900</CallBand>
+				<CALLChannel Editable="TRUE" Type="String">975</CALLChannel>
+				<CALLPcl Editable="TRUE" Type="String">5</CALLPcl>
+				<!--End of Parameters-->
+			</ProcessObject>
+			<ProcessObject ClassName="CGSM_EDGE_NSFT_MeasLoop" Name="EGSMTest">
+				<!--Main Function is necessary-->
+				<MainFunc Editable="TRUE" Type="String">GSM_NoSignal_TestMainFunc</MainFunc>
+				<!--Parameters-->
+				<List>
+					<Item Name="GSM_NoSignal_TestFunc" Enabled="TRUE"/>
+				</List>
+				<TestBand Editable="TRUE" Type="String">EGSM</TestBand>
+				<IsEdge Editable="FALSE" Type="Integer">0</IsEdge>
+				<UseFollowPara Editable="TRUE" Type="String">1</UseFollowPara>
+				<FailRunList Editable="TRUE" Type="String">GNSFTEndCall</FailRunList>
+				<TestChan Editable="TRUE" Type="String">37</TestChan>
+				<TestPCL_CH1 Editable="TRUE" Type="String">5</TestPCL_CH1>
+				<TestPCL_CH2 Editable="TRUE" Type="String">5,19</TestPCL_CH2>
+				<TestPCL_CH3 Editable="TRUE" Type="String">5,19</TestPCL_CH3>
+				<TestItem_CH1_PCL1 Editable="TRUE" Type="String">A1B1C1D1E1F1G1H1I1R1X1</TestItem_CH1_PCL1>
+				<TestItem_CH1_PCL2 Editable="TRUE" Type="String">A1B1C1D1E1F1G1H1I1R0X0</TestItem_CH1_PCL2>
+				<TestItem_CH1_PCL3 Editable="TRUE" Type="String">A1B1C1D1E1F1G1H1I1R0X0</TestItem_CH1_PCL3>
+				<TestItem_CH2_PCL1 Editable="TRUE" Type="String">A1B1C1D1E1F1G1H1I1R1X1</TestItem_CH2_PCL1>
+				<TestItem_CH2_PCL2 Editable="TRUE" Type="String">A1B1C1D1E1F1G1H1I1R0X0</TestItem_CH2_PCL2>
+				<TestItem_CH2_PCL3 Editable="TRUE" Type="String">A1B1C1D1E1F1G1H1I1R0X0</TestItem_CH2_PCL3>
+				<TestItem_CH3_PCL1 Editable="TRUE" Type="String">A1B1C1D1E1F1G1H1I1R0X0</TestItem_CH3_PCL1>
+				<TestItem_CH3_PCL2 Editable="TRUE" Type="String">A1B1C1D1E1F1G1H1I1R0X0</TestItem_CH3_PCL2>
+				<TestItem_CH3_PCL3 Editable="TRUE" Type="String">A1B1C1D1E1F1G1H1I1R0X0</TestItem_CH3_PCL3>
+				<!--TestItem AVG_TXPWR-A;MAX_PPHASEERR-B;AVG_PHASEERR-C;AVG_CARRFERR-D;AVG_PWRTEMP-E;ORFSSW_JUDGE-F;AVG_SWPWR-G;ORFSMD_JUDGE-H;AVG_MODPWR-I;-->
+				<RxLevel Editable="TRUE" Type="String">-105</RxLevel>
+				<EGSMCallCurrentLimit Editable="TRUE" Type="String">550</EGSMCallCurrentLimit>
+				<PwrRangMax Editable="TRUE" Type="String">33.5,9,33.5,9,33.5,9</PwrRangMax>
+				<PwrRangMin Editable="TRUE" Type="String">31.5,-1,31.5,-1,31.5,-1</PwrRangMin>
+				<SwiMHz Editable="TRUE" Type="String">1800,1200,600,400,400,600,1200,1800</SwiMHz>
+				<SwiLimHighPcl Editable="TRUE" Type="String">-25,-22,-22,-20,-20,-22,-22,-25</SwiLimHighPcl>
+				<SwiLimLowPcl Editable="TRUE" Type="String">-37,-33,-27,-24,-24,-27,-33,-37</SwiLimLowPcl>
+				<ModMHz Editable="TRUE" Type="String">1000,600,400,250,200,100,100,200,250,400,600,1000</ModMHz>
+				<ModLimHighPcl Editable="TRUE" Type="String">-61,-61,-37,-34,-30,0.5,0.5,-30,-34,-37,-61,-61</ModLimHighPcl>
+				<ModLimLowPcl Editable="TRUE" Type="String">-61,-61,-37,-34,-30,0.5,0.5,-30,-34,-37,-61,-61</ModLimLowPcl>
+				<PhaseErrAvg Editable="TRUE" Type="String">4.5</PhaseErrAvg>
+				<PhaseErrMax Editable="TRUE" Type="String">22</PhaseErrMax>
+				<FreqErr Editable="TRUE" Type="String">80</FreqErr>
+				<RxLevelRang Editable="TRUE" Type="String">27,33</RxLevelRang>
+				<RxBerRang Editable="TRUE" Type="String">0,0.024</RxBerRang>
+				<!--End of Parameters-->
+			</ProcessObject>
+			<ProcessObject ClassName="CGSM_EDGE_NSFT_MeasLoop" Name="DCSTest">
+				<!--Main Function is necessary-->
+				<MainFunc Editable="TRUE" Type="String">GSM_NoSignal_TestMainFunc</MainFunc>
+				<!--Parameters-->
+				<List>
+					<Item Name="GSM_NoSignal_TestFunc" Enabled="TRUE"/>
+				</List>
+				<TestBand Editable="TRUE" Type="String">DCS</TestBand>
+				<IsEdge Editable="FALSE" Type="Integer">0</IsEdge>
+				<UseFollowPara Editable="TRUE" Type="String">1</UseFollowPara>
+				<FailRunList Editable="TRUE" Type="String">GNSFTEndCall</FailRunList>
+				<TestChan Editable="TRUE" Type="String">698</TestChan>
+				<TestPCL_CH1 Editable="TRUE" Type="String">0</TestPCL_CH1>
+				<TestPCL_CH2 Editable="TRUE" Type="String">0,15</TestPCL_CH2>
+				<TestPCL_CH3 Editable="TRUE" Type="String">0,15</TestPCL_CH3>
+				<TestItem_CH1_PCL1 Editable="TRUE" Type="String">A1B1C1D1E1F1G1H1I1R1X1</TestItem_CH1_PCL1>
+				<TestItem_CH1_PCL2 Editable="TRUE" Type="String">A1B1C1D1E1F1G1H1I1R0X0</TestItem_CH1_PCL2>
+				<TestItem_CH1_PCL3 Editable="TRUE" Type="String">A1B1C1D1E1F1G1H1I1R0X0</TestItem_CH1_PCL3>
+				<TestItem_CH2_PCL1 Editable="TRUE" Type="String">A1B1C1D1E1F1G1H1I1R0X0</TestItem_CH2_PCL1>
+				<TestItem_CH2_PCL2 Editable="TRUE" Type="String">A1B1C1D1E1F1G1H1I1R0X0</TestItem_CH2_PCL2>
+				<TestItem_CH2_PCL3 Editable="TRUE" Type="String">A1B1C1D1E1F1G1H1I1R0X0</TestItem_CH2_PCL3>
+				<TestItem_CH3_PCL1 Editable="TRUE" Type="String">A1B1C1D1E1F1G1H1I1R0X0</TestItem_CH3_PCL1>
+				<TestItem_CH3_PCL2 Editable="TRUE" Type="String">A1B1C1D1E1F1G1H1I1R0X0</TestItem_CH3_PCL2>
+				<TestItem_CH3_PCL3 Editable="TRUE" Type="String">A1B1C1D1E1F1G1H1I1R0X0</TestItem_CH3_PCL3>
+				<!--TestItem AVG_TXPWR-A;MAX_PPHASEERR-B;AVG_PHASEERR-C;AVG_CARRFERR-D;AVG_PWRTEMP-E;ORFSSW_JUDGE-F;AVG_SWPWR-G;ORFSMD_JUDGE-H;AVG_MODPWR-I;-->
+				<RxLevel Editable="TRUE" Type="String">-104</RxLevel>
+				<EGSMCallCurrentLimit Editable="TRUE" Type="String">550</EGSMCallCurrentLimit>
+				<PwrRangMax Editable="TRUE" Type="String">31.5,4,31.5,4,31.5,4</PwrRangMax>
+				<PwrRangMin Editable="TRUE" Type="String">28.5,-4,28.5,-4,28.5,-4</PwrRangMin>
+				<SwiMHz Editable="TRUE" Type="String">1800,1200,600,400,400,600,1200,1800</SwiMHz>
+				<SwiLimHighPcl Editable="TRUE" Type="String">-28,-25,-25,-23,-23,-25,-25,-28</SwiLimHighPcl>
+				<SwiLimLowPcl Editable="TRUE" Type="String">-37,-33,-27,-24,-24,-27,-33,-37</SwiLimLowPcl>
+				<ModMHz Editable="TRUE" Type="String">1000,600,400,250,200,100,100,200,250,400,600,1000</ModMHz>
+				<ModLimHighPcl Editable="TRUE" Type="String">-61,-61,-37,-34,-30,0.5,0.5,-30,-34,-37,-61,-61</ModLimHighPcl>
+				<ModLimLowPcl Editable="TRUE" Type="String">-61,-61,-37,-34,-30,0.5,0.5,-30,-34,-37,-61,-61</ModLimLowPcl>
+				<PhaseErrAvg Editable="TRUE" Type="String">4.5</PhaseErrAvg>
+				<PhaseErrMax Editable="TRUE" Type="String">22</PhaseErrMax>
+				<FreqErr Editable="TRUE" Type="String">160</FreqErr>
+				<RxLevelRang Editable="TRUE" Type="String">27,33</RxLevelRang>
+				<RxBerRang Editable="TRUE" Type="String">0,0.024</RxBerRang>
+				<!--End of Parameters-->
+			</ProcessObject>
+			<ProcessObject ClassName="CGSM_EDGE_NSFT_MeasLoop" Name="PCSTest">
+				<!--Main Function is necessary-->
+				<MainFunc Editable="TRUE" Type="String">GSM_NoSignal_TestMainFunc</MainFunc>
+				<!--Parameters-->
+				<List>
+					<Item Name="GSM_NoSignal_TestFunc" Enabled="TRUE"/>
+				</List>
+				<TestBand Editable="TRUE" Type="String">PCS</TestBand>
+				<IsEdge Editable="FALSE" Type="Integer">0</IsEdge>
+				<UseFollowPara Editable="TRUE" Type="String">1</UseFollowPara>
+				<FailRunList Editable="TRUE" Type="String">GNSFTEndCall</FailRunList>
+				<TestChan Editable="TRUE" Type="String">661</TestChan>
+				<TestPCL_CH1 Editable="TRUE" Type="String">0</TestPCL_CH1>
+				<TestPCL_CH2 Editable="TRUE" Type="String">0,15</TestPCL_CH2>
+				<TestPCL_CH3 Editable="TRUE" Type="String">0,15</TestPCL_CH3>
+				<TestItem_CH1_PCL1 Editable="TRUE" Type="String">A1B1C1D1E1F1G1H1I1R1X1</TestItem_CH1_PCL1>
+				<TestItem_CH1_PCL2 Editable="TRUE" Type="String">A1B1C1D1E1F1G1H1I1R0X0</TestItem_CH1_PCL2>
+				<TestItem_CH1_PCL3 Editable="TRUE" Type="String">A1B1C1D1E1F1G1H1I1R0X0</TestItem_CH1_PCL3>
+				<TestItem_CH2_PCL1 Editable="TRUE" Type="String">A1B1C1D1E1F1G1H1I1R0X0</TestItem_CH2_PCL1>
+				<TestItem_CH2_PCL2 Editable="TRUE" Type="String">A1B1C1D1E1F1G1H1I1R0X0</TestItem_CH2_PCL2>
+				<TestItem_CH2_PCL3 Editable="TRUE" Type="String">A1B1C1D1E1F1G1H1I1R0X0</TestItem_CH2_PCL3>
+				<TestItem_CH3_PCL1 Editable="TRUE" Type="String">A1B1C1D1E1F1G1H1I1R0X0</TestItem_CH3_PCL1>
+				<TestItem_CH3_PCL2 Editable="TRUE" Type="String">A1B1C1D1E1F1G1H1I1R0X0</TestItem_CH3_PCL2>
+				<TestItem_CH3_PCL3 Editable="TRUE" Type="String">A1B1C1D1E1F1G1H1I1R0X0</TestItem_CH3_PCL3>
+				<!--TestItem AVG_TXPWR-A;MAX_PPHASEERR-B;AVG_PHASEERR-C;AVG_CARRFERR-D;AVG_PWRTEMP-E;ORFSSW_JUDGE-F;AVG_SWPWR-G;ORFSMD_JUDGE-H;AVG_MODPWR-I;-->
+				<RxLevel Editable="TRUE" Type="String">-104</RxLevel>
+				<EGSMCallCurrentLimit Editable="TRUE" Type="String">550</EGSMCallCurrentLimit>
+				<PwrRangMax Editable="TRUE" Type="String">31.5,4,31.5,4,31.5,4</PwrRangMax>
+				<PwrRangMin Editable="TRUE" Type="String">28.5,-4,28.5,-4,28.5,-4</PwrRangMin>
+				<SwiMHz Editable="TRUE" Type="String">1800,1200,600,400,400,600,1200,1800</SwiMHz>
+				<SwiLimHighPcl Editable="TRUE" Type="String">-28,-25,-25,-23,-23,-25,-25,-28</SwiLimHighPcl>
+				<SwiLimLowPcl Editable="TRUE" Type="String">-37,-33,-27,-24,-24,-27,-33,-37</SwiLimLowPcl>
+				<ModMHz Editable="TRUE" Type="String">1000,600,400,250,200,100,100,200,250,400,600,1000</ModMHz>
+				<ModLimHighPcl Editable="TRUE" Type="String">-61,-61,-37,-34,-30,0.5,0.5,-30,-34,-37,-61,-61</ModLimHighPcl>
+				<ModLimLowPcl Editable="TRUE" Type="String">-61,-61,-37,-34,-30,0.5,0.5,-30,-34,-37,-61,-61</ModLimLowPcl>
+				<PhaseErrAvg Editable="TRUE" Type="String">4.5</PhaseErrAvg>
+				<PhaseErrMax Editable="TRUE" Type="String">22</PhaseErrMax>
+				<FreqErr Editable="TRUE" Type="String">160</FreqErr>
+				<RxLevelRang Editable="TRUE" Type="String">27,33</RxLevelRang>
+				<RxBerRang Editable="TRUE" Type="String">0,0.024</RxBerRang>
+				<!--End of Parameters-->
+			</ProcessObject>
+			<ProcessObject ClassName="CGSM_EDGE_NSFT_MeasLoop" Name="GSM850Test">
+				<!--Main Function is necessary-->
+				<MainFunc Editable="TRUE" Type="String">GSM_NoSignal_TestMainFunc</MainFunc>
+				<!--Parameters-->
+				<List>
+					<Item Name="GSM_NoSignal_TestFunc" Enabled="TRUE"/>
+				</List>
+				<TestBand Editable="TRUE" Type="String">GSM850</TestBand>
+				<IsEdge Editable="FALSE" Type="Integer">0</IsEdge>
+				<UseFollowPara Editable="TRUE" Type="String">1</UseFollowPara>
+				<FailRunList Editable="TRUE" Type="String">GNSFTEndCall</FailRunList>
+				<TestChan Editable="TRUE" Type="String">190</TestChan>
+				<TestPCL_CH1 Editable="TRUE" Type="String">5</TestPCL_CH1>
+				<TestPCL_CH2 Editable="TRUE" Type="String">5,19</TestPCL_CH2>
+				<TestPCL_CH3 Editable="TRUE" Type="String">5,19</TestPCL_CH3>
+				<TestItem_CH1_PCL1 Editable="TRUE" Type="String">A1B1C1D1E1F1G1H1I1R1X1</TestItem_CH1_PCL1>
+				<TestItem_CH1_PCL2 Editable="TRUE" Type="String">A1B1C1D1E1F1G1H1I1R0X0</TestItem_CH1_PCL2>
+				<TestItem_CH1_PCL3 Editable="TRUE" Type="String">A1B1C1D1E1F1G1H1I1R0X0</TestItem_CH1_PCL3>
+				<TestItem_CH2_PCL1 Editable="TRUE" Type="String">A1B1C1D1E1F1G1H1I1R0X0</TestItem_CH2_PCL1>
+				<TestItem_CH2_PCL2 Editable="TRUE" Type="String">A1B1C1D1E1F1G1H1I1R0X0</TestItem_CH2_PCL2>
+				<TestItem_CH2_PCL3 Editable="TRUE" Type="String">A1B1C1D1E1F1G1H1I1R0X0</TestItem_CH2_PCL3>
+				<TestItem_CH3_PCL1 Editable="TRUE" Type="String">A1B1C1D1E1F1G1H1I1R0X0</TestItem_CH3_PCL1>
+				<TestItem_CH3_PCL2 Editable="TRUE" Type="String">A1B1C1D1E1F1G1H1I1R0X0</TestItem_CH3_PCL2>
+				<TestItem_CH3_PCL3 Editable="TRUE" Type="String">A1B1C1D1E1F1G1H1I1R0X0</TestItem_CH3_PCL3>
+				<!--TestItem AVG_TXPWR-A;MAX_PPHASEERR-B;AVG_PHASEERR-C;AVG_CARRFERR-D;AVG_PWRTEMP-E;ORFSSW_JUDGE-F;AVG_SWPWR-G;ORFSMD_JUDGE-H;AVG_MODPWR-I;-->
+				<RxLevel Editable="TRUE" Type="String">-105</RxLevel>
+				<EGSMCallCurrentLimit Editable="TRUE" Type="String">550</EGSMCallCurrentLimit>
+				<PwrRangMax Editable="TRUE" Type="String">33.5,9,33.5,9,33.5,9</PwrRangMax>
+				<PwrRangMin Editable="TRUE" Type="String">31.5,-1,31.5,-1,31.5,-1</PwrRangMin>
+				<SwiMHz Editable="TRUE" Type="String">1800,1200,600,400,400,600,1200,1800</SwiMHz>
+				<SwiLimHighPcl Editable="TRUE" Type="String">-25,-22,-22,-20,-20,-22,-22,-25</SwiLimHighPcl>
+				<SwiLimLowPcl Editable="TRUE" Type="String">-37,-33,-27,-24,-24,-27,-33,-37</SwiLimLowPcl>
+				<ModMHz Editable="TRUE" Type="String">1000,600,400,250,200,100,100,200,250,400,600,1000</ModMHz>
+				<ModLimHighPcl Editable="TRUE" Type="String">-61,-61,-37,-34,-30,0.5,0.5,-30,-34,-37,-61,-61</ModLimHighPcl>
+				<ModLimLowPcl Editable="TRUE" Type="String">-61,-61,-37,-34,-30,0.5,0.5,-30,-34,-37,-61,-61</ModLimLowPcl>
+				<PhaseErrAvg Editable="TRUE" Type="String">4.5</PhaseErrAvg>
+				<PhaseErrMax Editable="TRUE" Type="String">22</PhaseErrMax>
+				<FreqErr Editable="TRUE" Type="String">80</FreqErr>
+				<RxLevelRang Editable="TRUE" Type="String">27,33</RxLevelRang>
+				<RxBerRang Editable="TRUE" Type="String">0,0.024</RxBerRang>
+				<!--End of Parameters-->
+			</ProcessObject>
+			<ProcessObject ClassName="CGSM_EDGE_NSFT_EndCall" Name="GNSFTEndCall">
+				<!--Main Function is necessary-->
+				<MainFunc Editable="TRUE" Type="String">GNSFTestEndCallMainFunc</MainFunc>
+				<!--Parameters-->
+				<List>
+					<Item Name="GNSFTestFunc" Enabled="TRUE"/>
+				</List>
+				<IsEdge Editable="FALSE" Type="Integer">0</IsEdge>
+				<EnterOnline Editable="TRUE" Type="Integer">1</EnterOnline>
+				<!--End of Parameters-->
+			</ProcessObject>
+		</GNSFTProcessObjects>
+		<ENSFTProcessObjects>
+			<ProcessObject ClassName="CGSM_EDGE_NSFT_Call" Name="Edge_GNSFTStartCall">
+				<!--Main Function is necessary-->
+				<MainFunc Editable="TRUE" Type="String">GSM_NoSignal_TestCallMainFunc</MainFunc>
+				<!--Parameters-->
+				<List>
+					<Item Name="GSM_Nosignal_StartcallFunc" Enabled="TRUE"/>
+				</List>
+				<TesterDeviceUse Editable="TRUE" Type="String">MT8820</TesterDeviceUse>
+				<IsEdge Editable="FALSE" Type="Integer">1</IsEdge>
+				<ScreenOFF Editable="TRUE" Type="Integer">0</ScreenOFF>
+				<CallBand Editable="TRUE" Type="String">900</CallBand>
+				<CALLChannel Editable="TRUE" Type="String">975</CALLChannel>
+				<CALLPcl Editable="TRUE" Type="String">5</CALLPcl>
+				<!--End of Parameters-->
+			</ProcessObject>
+			<ProcessObject ClassName="CGSM_EDGE_NSFT_MeasLoop" Name="Edge_EGSMTest">
+				<!--Main Function is necessary-->
+				<MainFunc Editable="TRUE" Type="String">GSM_NoSignal_TestMainFunc</MainFunc>
+				<!--Parameters-->
+				<List>
+					<Item Name="GSM_NoSignal_TestFunc" Enabled="TRUE"/>
+				</List>
+				<TestBand Editable="TRUE" Type="String">EGSM</TestBand>
+				<IsEdge Editable="FALSE" Type="Integer">1</IsEdge>
+				<UseFollowPara Editable="TRUE" Type="String">1</UseFollowPara>
+				<TestChan Editable="TRUE" Type="String">38</TestChan>
+				<TestPCL_CH1 Editable="TRUE" Type="String">8</TestPCL_CH1>
+				<TestPCL_CH2 Editable="TRUE" Type="String">5,19</TestPCL_CH2>
+				<TestPCL_CH3 Editable="TRUE" Type="String">5,19</TestPCL_CH3>
+				<TestItem_CH1_PCL1 Editable="TRUE" Type="String">A1B1C1D1E0F1G1H1I1J1K1R0X0</TestItem_CH1_PCL1>
+				<TestItem_CH1_PCL2 Editable="TRUE" Type="String">A1B1C1D1E0F1G1H1I1J1K1R0X0</TestItem_CH1_PCL2>
+				<TestItem_CH1_PCL3 Editable="TRUE" Type="String">A1B1C1D1E0F1G1H1I1J1K1R0X0</TestItem_CH1_PCL3>
+				<TestItem_CH2_PCL1 Editable="TRUE" Type="String">A1B1C1D1E0F1G1H1I1J1K1R0X0</TestItem_CH2_PCL1>
+				<TestItem_CH2_PCL2 Editable="TRUE" Type="String">A1B1C1D1E0F1G1H1I1J1K1R0X0</TestItem_CH2_PCL2>
+				<TestItem_CH2_PCL3 Editable="TRUE" Type="String">A1B1C1D1E0F1G1H1I1J1K1R0X0</TestItem_CH2_PCL3>
+				<TestItem_CH3_PCL1 Editable="TRUE" Type="String">A1B1C1D1E0F1G1H1I1J1K1R0X0</TestItem_CH3_PCL1>
+				<TestItem_CH3_PCL2 Editable="TRUE" Type="String">A1B1C1D1E0F1G1H1I1J1K1R0X0</TestItem_CH3_PCL2>
+				<TestItem_CH3_PCL3 Editable="TRUE" Type="String">A1B1C1D1E0F1G1H1I1J1K1R0X0</TestItem_CH3_PCL3>
+				<!--TestItem AVG_TXPWR-A; EVMERR_MAX-B;  EVMERR_AVG-C; EVMERR_95P-D; OOS-E; FER-F; PWRTEMP-G; ORFSSW_JUDGE-H; AVG_SWPWR-I; ORFSMD_JUDGE-J; AVG_MODPWR-K;-->
+				<RxLevel Editable="TRUE" Type="String">-105</RxLevel>
+				<EGSMCallCurrentLimit Editable="TRUE" Type="String">550</EGSMCallCurrentLimit>
+				<PwrRangMax Editable="TRUE" Type="String">29.5,9,33.5,9,33.5,9</PwrRangMax>
+				<PwrRangMin Editable="TRUE" Type="String">24.5,-1,31.5,-1,31.5,-1</PwrRangMin>
+				<SwiMHz Editable="TRUE" Type="String">1800,1200,600,400,400,600,1200,1800</SwiMHz>
+				<SwiLimHighPcl Editable="TRUE" Type="String">-31,-28,-27,-24,-24,-27,-28,-31</SwiLimHighPcl>
+				<SwiLimLowPcl Editable="TRUE" Type="String">-31,-28,-27,-24,-24,-27,-28,-31</SwiLimLowPcl>
+				<ModMHz Editable="TRUE" Type="String">1000,400,250,200,200,250,400,1000</ModMHz>
+				<ModLimHighPcl Editable="TRUE" Type="String">-61,-37,-34,-31,-31,-34,-37,-61</ModLimHighPcl>
+				<ModLimLowPcl Editable="TRUE" Type="String">-61,-37,-34,-31,-31,-34,-37,-61</ModLimLowPcl>
+				<PhaseErrAvg Editable="TRUE" Type="String">4.5</PhaseErrAvg>
+				<PhaseErrMax Editable="TRUE" Type="String">22</PhaseErrMax>
+				<FreqErr Editable="TRUE" Type="String">200</FreqErr>
+				<RxLevelRang Editable="TRUE" Type="String">27,33</RxLevelRang>
+				<RxBerRang Editable="TRUE" Type="String">0,0.024</RxBerRang>
+				<!--<EDGE only as follow>-->
+				<EVMRMS Editable="TRUE" Type="String">8</EVMRMS>
+				<EVMPeak Editable="TRUE" Type="String">29</EVMPeak>
+				<EVM95P Editable="TRUE" Type="String">0,14</EVM95P>
+				<ORGNOFS Editable="TRUE" Type="String">-30,-70</ORGNOFS>
+				<!--End of Parameters-->
+			</ProcessObject>
+			<ProcessObject ClassName="CGSM_EDGE_NSFT_MeasLoop" Name="Edge_DCSTest">
+				<!--Main Function is necessary-->
+				<MainFunc Editable="TRUE" Type="String">GSM_NoSignal_TestMainFunc</MainFunc>
+				<!--Parameters-->
+				<List>
+					<Item Name="GSM_NoSignal_TestFunc" Enabled="TRUE"/>
+				</List>
+				<TestBand Editable="TRUE" Type="String">DCS</TestBand>
+				<IsEdge Editable="FALSE" Type="Integer">1</IsEdge>
+				<UseFollowPara Editable="TRUE" Type="String">1</UseFollowPara>
+				<TestChan Editable="TRUE" Type="String">698</TestChan>
+				<TestPCL_CH1 Editable="TRUE" Type="String">2</TestPCL_CH1>
+				<TestPCL_CH2 Editable="TRUE" Type="String">0,15</TestPCL_CH2>
+				<TestPCL_CH3 Editable="TRUE" Type="String">0,15</TestPCL_CH3>
+				<TestItem_CH1_PCL1 Editable="TRUE" Type="String">A1B1C1D1E0F1G1H1I1J1K1R0X0</TestItem_CH1_PCL1>
+				<TestItem_CH1_PCL2 Editable="TRUE" Type="String">A1B1C1D1E0F1G1H1I1J1K1R0X0</TestItem_CH1_PCL2>
+				<TestItem_CH1_PCL3 Editable="TRUE" Type="String">A1B1C1D1E0F1G1H1I1J1K1R0X0</TestItem_CH1_PCL3>
+				<TestItem_CH2_PCL1 Editable="TRUE" Type="String">A1B1C1D1E0F1G1H1I1J1K1R0X0</TestItem_CH2_PCL1>
+				<TestItem_CH2_PCL2 Editable="TRUE" Type="String">A1B1C1D1E0F1G1H1I1J1K1R0X0</TestItem_CH2_PCL2>
+				<TestItem_CH2_PCL3 Editable="TRUE" Type="String">A1B1C1D1E0F1G1H1I1J1K1R0X0</TestItem_CH2_PCL3>
+				<TestItem_CH3_PCL1 Editable="TRUE" Type="String">A1B1C1D1E0F1G1H1I1J1K1R0X0</TestItem_CH3_PCL1>
+				<TestItem_CH3_PCL2 Editable="TRUE" Type="String">A1B1C1D1E0F1G1H1I1J1K1R0X0</TestItem_CH3_PCL2>
+				<TestItem_CH3_PCL3 Editable="TRUE" Type="String">A1B1C1D1E0F1G1H1I1J1K1R0X0</TestItem_CH3_PCL3>
+				<!--TestItem AVG_TXPWR-A; EVMERR_MAX-B;  EVMERR_AVG-C; EVMERR_95P-D; OOS-E; FER-F; PWRTEMP-G; ORFSSW_JUDGE-H; AVG_SWPWR-I; ORFSMD_JUDGE-J; AVG_MODPWR-K;-->
+				<RxLevel Editable="TRUE" Type="String">-104</RxLevel>
+				<EGSMCallCurrentLimit Editable="TRUE" Type="String">550</EGSMCallCurrentLimit>
+				<PwrRangMax Editable="TRUE" Type="String">28.5,4,31.5,4,31.5,4</PwrRangMax>
+				<PwrRangMin Editable="TRUE" Type="String">23.5,-4,28.5,-4,28.5,-4</PwrRangMin>
+				<SwiMHz Editable="TRUE" Type="String">1800,1200,600,400,400,600,1200,1800</SwiMHz>
+				<SwiLimHighPcl Editable="TRUE" Type="String">-32,-29,-27,-24,-24,-27,-29,-32</SwiLimHighPcl>
+				<SwiLimLowPcl Editable="TRUE" Type="String">-32,-29,-27,-24,-24,-27,-29,-32</SwiLimLowPcl>
+				<ModMHz Editable="TRUE" Type="String">1000,400,250,200,200,250,400,1000</ModMHz>
+				<ModLimHighPcl Editable="TRUE" Type="String">-61,-37,-34,-31,-31,-34,-37,-61</ModLimHighPcl>
+				<ModLimLowPcl Editable="TRUE" Type="String">-61,-37,-34,-31,-31,-34,-37,-61</ModLimLowPcl>
+				<PhaseErrAvg Editable="TRUE" Type="String">4.5</PhaseErrAvg>
+				<PhaseErrMax Editable="TRUE" Type="String">22</PhaseErrMax>
+				<FreqErr Editable="TRUE" Type="String">200</FreqErr>
+				<RxLevelRang Editable="TRUE" Type="String">27,33</RxLevelRang>
+				<RxBerRang Editable="TRUE" Type="String">0,0.024</RxBerRang>
+				<!--<EDGE only as follow>-->
+				<EVMRMS Editable="TRUE" Type="String">8</EVMRMS>
+				<EVMPeak Editable="TRUE" Type="String">29</EVMPeak>
+				<EVM95P Editable="TRUE" Type="String">0,14</EVM95P>
+				<ORGNOFS Editable="TRUE" Type="String">-30,-70</ORGNOFS>
+				<!--End of Parameters-->
+			</ProcessObject>
+			<ProcessObject ClassName="CGSM_EDGE_NSFT_MeasLoop" Name="Edge_PCSTest">
+				<!--Main Function is necessary-->
+				<MainFunc Editable="TRUE" Type="String">GSM_NoSignal_TestMainFunc</MainFunc>
+				<!--Parameters-->
+				<List>
+					<Item Name="GSM_NoSignal_TestFunc" Enabled="TRUE"/>
+				</List>
+				<TestBand Editable="TRUE" Type="String">PCS</TestBand>
+				<IsEdge Editable="FALSE" Type="Integer">1</IsEdge>
+				<UseFollowPara Editable="TRUE" Type="String">1</UseFollowPara>
+				<TestChan Editable="TRUE" Type="String">661</TestChan>
+				<TestPCL_CH1 Editable="TRUE" Type="String">2</TestPCL_CH1>
+				<TestPCL_CH2 Editable="TRUE" Type="String">0,15</TestPCL_CH2>
+				<TestPCL_CH3 Editable="TRUE" Type="String">0,15</TestPCL_CH3>
+				<TestItem_CH1_PCL1 Editable="TRUE" Type="String">A1B1C1D1E0F1G1H1I1J1K1R0X0</TestItem_CH1_PCL1>
+				<TestItem_CH1_PCL2 Editable="TRUE" Type="String">A1B1C1D1E0F1G1H1I1J1K1R0X0</TestItem_CH1_PCL2>
+				<TestItem_CH1_PCL3 Editable="TRUE" Type="String">A1B1C1D1E0F1G1H1I1J1K1R0X0</TestItem_CH1_PCL3>
+				<TestItem_CH2_PCL1 Editable="TRUE" Type="String">A1B1C1D1E0F1G1H1I1J1K1R0X0</TestItem_CH2_PCL1>
+				<TestItem_CH2_PCL2 Editable="TRUE" Type="String">A1B1C1D1E0F1G1H1I1J1K1R0X0</TestItem_CH2_PCL2>
+				<TestItem_CH2_PCL3 Editable="TRUE" Type="String">A1B1C1D1E0F1G1H1I1J1K1R0X0</TestItem_CH2_PCL3>
+				<TestItem_CH3_PCL1 Editable="TRUE" Type="String">A1B1C1D1E0F1G1H1I1J1K1R0X0</TestItem_CH3_PCL1>
+				<TestItem_CH3_PCL2 Editable="TRUE" Type="String">A1B1C1D1E0F1G1H1I1J1K1R0X0</TestItem_CH3_PCL2>
+				<TestItem_CH3_PCL3 Editable="TRUE" Type="String">A1B1C1D1E0F1G1H1I1J1K1R0X0</TestItem_CH3_PCL3>
+				<!--TestItem AVG_TXPWR-A; EVMERR_MAX-B;  EVMERR_AVG-C; EVMERR_95P-D; OOS-E; FER-F; PWRTEMP-G; ORFSSW_JUDGE-H; AVG_SWPWR-I; ORFSMD_JUDGE-J; AVG_MODPWR-K;-->
+				<RxLevel Editable="TRUE" Type="String">-104</RxLevel>
+				<EGSMCallCurrentLimit Editable="TRUE" Type="String">550</EGSMCallCurrentLimit>
+				<PwrRangMax Editable="TRUE" Type="String">28.5,4,31.5,4,31.5,4</PwrRangMax>
+				<PwrRangMin Editable="TRUE" Type="String">23.5,-4,28.5,-4,28.5,-4</PwrRangMin>
+				<SwiMHz Editable="TRUE" Type="String">1800,1200,600,400,400,600,1200,1800</SwiMHz>
+				<SwiLimHighPcl Editable="TRUE" Type="String">-32,-29,-27,-24,-24,-27,-29,-32</SwiLimHighPcl>
+				<SwiLimLowPcl Editable="TRUE" Type="String">-32,-29,-27,-24,-24,-27,-29,-32</SwiLimLowPcl>
+				<ModMHz Editable="TRUE" Type="String">1000,400,250,200,200,250,400,1000</ModMHz>
+				<ModLimHighPcl Editable="TRUE" Type="String">-61,-37,-34,-31,-31,-34,-37,-61</ModLimHighPcl>
+				<ModLimLowPcl Editable="TRUE" Type="String">-61,-37,-34,-31,-31,-34,-37,-61</ModLimLowPcl>
+				<PhaseErrAvg Editable="TRUE" Type="String">4.5</PhaseErrAvg>
+				<PhaseErrMax Editable="TRUE" Type="String">22</PhaseErrMax>
+				<FreqErr Editable="TRUE" Type="String">200</FreqErr>
+				<RxLevelRang Editable="TRUE" Type="String">27,33</RxLevelRang>
+				<RxBerRang Editable="TRUE" Type="String">0,0.024</RxBerRang>
+				<!--<EDGE only as follow>-->
+				<EVMRMS Editable="TRUE" Type="String">8</EVMRMS>
+				<EVMPeak Editable="TRUE" Type="String">29</EVMPeak>
+				<EVM95P Editable="TRUE" Type="String">0,14</EVM95P>
+				<ORGNOFS Editable="TRUE" Type="String">-30,-70</ORGNOFS>
+				<!--End of Parameters-->
+			</ProcessObject>
+			<ProcessObject ClassName="CGSM_EDGE_NSFT_MeasLoop" Name="Edge_GSM850Test">
+				<!--Main Function is necessary-->
+				<MainFunc Editable="TRUE" Type="String">GSM_NoSignal_TestMainFunc</MainFunc>
+				<!--Parameters-->
+				<List>
+					<Item Name="GSM_NoSignal_TestFunc" Enabled="TRUE"/>
+				</List>
+				<TestBand Editable="TRUE" Type="String">GSM850</TestBand>
+				<IsEdge Editable="FALSE" Type="Integer">1</IsEdge>
+				<UseFollowPara Editable="TRUE" Type="String">1</UseFollowPara>
+				<TestChan Editable="TRUE" Type="String">190</TestChan>
+				<TestPCL_CH1 Editable="TRUE" Type="String">8</TestPCL_CH1>
+				<TestPCL_CH2 Editable="TRUE" Type="String">5,19</TestPCL_CH2>
+				<TestPCL_CH3 Editable="TRUE" Type="String">5,19</TestPCL_CH3>
+				<TestItem_CH1_PCL1 Editable="TRUE" Type="String">A1B1C1D1E0F1G1H1I1J1K1R0X0</TestItem_CH1_PCL1>
+				<TestItem_CH1_PCL2 Editable="TRUE" Type="String">A1B1C1D1E0F1G1H1I1J1K1R0X0</TestItem_CH1_PCL2>
+				<TestItem_CH1_PCL3 Editable="TRUE" Type="String">A1B1C1D1E0F1G1H1I1J1K1R0X0</TestItem_CH1_PCL3>
+				<TestItem_CH2_PCL1 Editable="TRUE" Type="String">A1B1C1D1E0F1G1H1I1J1K1R0X0</TestItem_CH2_PCL1>
+				<TestItem_CH2_PCL2 Editable="TRUE" Type="String">A1B1C1D1E0F1G1H1I1J1K1R0X0</TestItem_CH2_PCL2>
+				<TestItem_CH2_PCL3 Editable="TRUE" Type="String">A1B1C1D1E0F1G1H1I1J1K1R0X0</TestItem_CH2_PCL3>
+				<TestItem_CH3_PCL1 Editable="TRUE" Type="String">A1B1C1D1E0F1G1H1I1J1K1R0X0</TestItem_CH3_PCL1>
+				<TestItem_CH3_PCL2 Editable="TRUE" Type="String">A1B1C1D1E0F1G1H1I1J1K1R0X0</TestItem_CH3_PCL2>
+				<TestItem_CH3_PCL3 Editable="TRUE" Type="String">A1B1C1D1E0F1G1H1I1J1K1R0X0</TestItem_CH3_PCL3>
+				<!--TestItem AVG_TXPWR-A; EVMERR_MAX-B;  EVMERR_AVG-C; EVMERR_95P-D; OOS-E; FER-F; PWRTEMP-G; ORFSSW_JUDGE-H; AVG_SWPWR-I; ORFSMD_JUDGE-J; AVG_MODPWR-K;-->
+				<RxLevel Editable="TRUE" Type="String">-105</RxLevel>
+				<EGSMCallCurrentLimit Editable="TRUE" Type="String">550</EGSMCallCurrentLimit>
+				<PwrRangMax Editable="TRUE" Type="String">29.5,9,33.5,9,33.5,9</PwrRangMax>
+				<PwrRangMin Editable="TRUE" Type="String">24.5,-1,31.5,-1,31.5,-1</PwrRangMin>
+				<SwiMHz Editable="TRUE" Type="String">1800,1200,600,400,400,600,1200,1800</SwiMHz>
+				<SwiLimHighPcl Editable="TRUE" Type="String">-31,-28,-27,-24,-24,-27,-28,-31</SwiLimHighPcl>
+				<SwiLimLowPcl Editable="TRUE" Type="String">-31,-28,-27,-24,-24,-27,-28,-31</SwiLimLowPcl>
+				<ModMHz Editable="TRUE" Type="String">1000,400,250,200,200,250,400,1000</ModMHz>
+				<ModLimHighPcl Editable="TRUE" Type="String">-61,-37,-34,-31,-31,-34,-37,-61</ModLimHighPcl>
+				<ModLimLowPcl Editable="TRUE" Type="String">-61,-37,-34,-31,-31,-34,-37,-61</ModLimLowPcl>
+				<PhaseErrAvg Editable="TRUE" Type="String">4.5</PhaseErrAvg>
+				<PhaseErrMax Editable="TRUE" Type="String">22</PhaseErrMax>
+				<FreqErr Editable="TRUE" Type="String">200</FreqErr>
+				<RxLevelRang Editable="TRUE" Type="String">27,33</RxLevelRang>
+				<RxBerRang Editable="TRUE" Type="String">0,0.024</RxBerRang>
+				<!--<EDGE only as follow>-->
+				<EVMRMS Editable="TRUE" Type="String">8</EVMRMS>
+				<EVMPeak Editable="TRUE" Type="String">29</EVMPeak>
+				<EVM95P Editable="TRUE" Type="String">0,14</EVM95P>
+				<ORGNOFS Editable="TRUE" Type="String">-30,-70</ORGNOFS>
+				<!--End of Parameters-->
+			</ProcessObject>
+			<ProcessObject ClassName="CGSM_EDGE_NSFT_EndCall" Name="Edge_GNSFTEndCall">
+				<!--Main Function is necessary-->
+				<MainFunc Editable="TRUE" Type="String">GNSFTestEndCallMainFunc</MainFunc>
+				<!--Parameters-->
+				<List>
+					<Item Name="GNSFTestFunc" Enabled="TRUE"/>
+				</List>
+				<IsEdge Editable="FALSE" Type="Integer">1</IsEdge>
+				<EnterOnline Editable="TRUE" Type="Integer">1</EnterOnline>
+				<!--End of Parameters-->
+			</ProcessObject>
+		</ENSFTProcessObjects>
+	</ProcessObjectSet>
+</Configurations>

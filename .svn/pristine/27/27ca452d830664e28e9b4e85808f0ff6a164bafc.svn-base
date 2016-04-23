@@ -1,0 +1,497 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#ifndef APSTUDIO_INVOKED
+#include "targetver.h"
+#endif
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// Chinese (P.R.C.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)
+#ifdef _WIN32
+LANGUAGE LANG_CHINESE, SUBLANG_CHINESE_SIMPLIFIED
+#pragma code_page(936)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#ifndef APSTUDIO_INVOKED\r\n"
+    "#include ""targetver.h""\r\n"
+    "#endif\r\n"
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
+    "#define _AFX_NO_OLE_RESOURCES\r\n"
+    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+    "\r\n"
+    "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)\r\n"
+    "LANGUAGE 9, 1\r\n"
+    "#pragma code_page(1252)\r\n"
+    "#include ""res\\SimRFCaltestUI.rc2""  // non-Microsoft Visual C++ edited resources\r\n"
+    "#include ""afxres.rc""     // Standard components\r\n"
+    "#endif\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_MAINFRAME           ICON                    "res\\SimRFCaltestUI.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_Setup DIALOGEX 0, 0, 422, 481
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Dialog"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "Save",IDOK,42,426,124,37
+    PUSHBUTTON      "Cancel",IDCANCEL,208,428,124,37
+    LTEXT           "SequenceFilePath",IDC_STATIC,17,17,57,8
+    EDITTEXT        IDC_FILESEQPATH,87,15,154,14,ES_AUTOHSCROLL | ES_READONLY
+    PUSHBUTTON      "Select",IDC_BUTTON1,254,16,50,14
+    CTEXT           "LogFilePath",IDC_STATIC,17,47,57,8
+    EDITTEXT        IDC_LOGPATH,87,45,154,14,ES_AUTOHSCROLL | ES_READONLY
+    PUSHBUTTON      "Select",IDC_BUTTON2,254,46,50,14
+    GROUPBOX        "PathSetting",IDC_STATIC,15,7,358,58
+    GROUPBOX        "BasicSetting",IDC_STATIC,19,70,355,86
+    COMBOBOX        IDC_DIAGPORT,61,79,48,48,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "DiagPort",IDC_STATIC,21,83,26,8
+    LTEXT           "ATPort",IDC_STATIC,21,104,26,8
+    COMBOBOX        IDC_ATPORT,61,103,48,48,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    COMBOBOX        IDC_TESTSET,189,79,48,49,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "TestDeviceCommon",IDC_STATIC,121,83,63,8
+    LTEXT           "GPIBAddr",IDC_STATIC,129,104,38,8
+    COMBOBOX        IDC_GPIBADDR,189,103,48,57,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "WaitTimes",IDC_STATIC,21,131,34,8
+    COMBOBOX        IDC_WAITCOM,61,129,48,63,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "TestDevice1",IDC_STATIC,245,84,38,8
+    COMBOBOX        IDC_TESTSET1,295,79,48,49,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "GPIBAddr1",IDC_STATIC,245,104,38,8
+    COMBOBOX        IDC_GPIBADDR1,295,103,48,57,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    CONTROL         "SFCTROL",IDC_SFCTRL,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,121,131,46,10
+    CONTROL         "StopWhenFail",IDC_STOPFAIL,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,181,131,60,10
+    GROUPBOX        "RF LOSS",IDC_STATIC,21,306,353,113
+    LTEXT           "BT LOSS",IDC_STATIC,35,332,30,12
+    LTEXT           "WLAN LOSS",IDC_STATIC,35,351,44,12
+    LTEXT           "GPS LOSS",IDC_STATIC,35,370,44,12
+    LTEXT           "DTV LOSS",IDC_STATIC,35,389,44,12
+    LTEXT           "Item",IDC_BTLOW2,37,316,37,8
+    LTEXT           "LowCH",IDC_BTLOW3,81,316,37,8
+    LTEXT           "MidCH",IDC_BTLOW4,181,316,28,8
+    LTEXT           "HighCH",IDC_BTLOW5,273,318,26,8
+    LTEXT           "LOSS",IDC_BTLOW6,135,316,28,8
+    LTEXT           "LOSS",IDC_BTLOW7,227,317,28,8
+    LTEXT           "LOSS",IDC_BTLOW8,317,317,37,8
+    EDITTEXT        IDC_BTLOWCH,75,330,36,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_BTLOWLOSS,123,330,36,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_BTMIDCH,171,330,36,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_BTMIDLOSS,219,330,36,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_BTHIGHCH,265,329,36,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_BTHIGHLOSS,309,330,36,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_WLLOWCH,75,350,36,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_WLLOWLOSS,123,350,36,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_WLMIDCH,171,350,36,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_WLMIDLOSS,219,350,36,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_WLHIGHCH,265,349,36,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_WLHIGHLOSS,309,350,36,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_GPSLOWCH,75,370,36,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_GPSLOWLOSS,123,371,36,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_DTVLOWCH,75,388,36,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_DTVLOWLOSS,123,388,36,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_DTVMIDCH,171,388,36,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_DTVMIDLOSS,219,388,36,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_DTVHIGHCH,265,387,36,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_DTVHIGHLOSS,309,388,36,14,ES_AUTOHSCROLL
+    GROUPBOX        "ProcessSetting",IDC_STATIC,20,160,354,140
+    LISTBOX         IDC_PLALL,35,184,78,108,LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+    GROUPBOX        "ProcessListALL",IDC_STATIC,28,175,99,122
+    GROUPBOX        "ProcessListEnable",IDC_STATIC,195,175,99,122
+    LISTBOX         IDC_PLEN,207,188,78,108,LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+    PUSHBUTTON      "Add",IDC_BUTTON3,137,224,50,14
+    PUSHBUTTON      "Up",IDC_BUTTON5,302,208,30,15
+    PUSHBUTTON      "Down",IDC_BUTTON6,302,231,30,15
+    PUSHBUTTON      "Delete",IDC_BUTTON7,302,256,30,15
+    PUSHBUTTON      "top",IDC_BUTTON8,341,208,30,15
+    PUSHBUTTON      "bottom",IDC_BUTTON9,341,231,30,15
+    PUSHBUTTON      "Clear",IDC_BUTTON4,341,256,30,15
+    PUSHBUTTON      "ResetDefault",IDC_BUTTON10,304,280,60,15
+END
+
+IDD_DIALOG1 DIALOGEX 0, 0, 244, 90
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Dialog"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,33,38,50,14,NOT WS_TABSTOP
+    PUSHBUTTON      "Cancel",IDCANCEL,107,38,50,14
+    EDITTEXT        IDC_PSW,54,14,112,14,ES_PASSWORD | ES_AUTOHSCROLL | ES_WANTRETURN
+    LTEXT           "Password",IDC_PSW_STA,15,17,35,8
+END
+
+IDD_BASECONFPAGE DIALOGEX 0, 0, 466, 416
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD | WS_SYSMENU
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "Save",IDOK,91,355,124,37
+    PUSHBUTTON      "Cancel",IDCANCEL,268,355,124,37
+    LTEXT           "SequenceFilePath",-1,17,17,57,8
+    EDITTEXT        IDC_FILESEQPATH,87,15,90,14,ES_AUTOHSCROLL | ES_READONLY
+    PUSHBUTTON      "Select",IDC_BUTTON1,185,17,50,14
+    CTEXT           "LogFilePath",-1,17,47,57,8
+    EDITTEXT        IDC_LOGPATH,87,45,89,14,ES_AUTOHSCROLL | ES_READONLY
+    PUSHBUTTON      "Select",IDC_BUTTON2,185,46,50,14
+    GROUPBOX        "BaseSetting",-1,15,7,444,58
+    GROUPBOX        "DeviceSetting",-1,19,70,440,120
+    COMBOBOX        IDC_DIAGPORT,415,21,44,48,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "DIAG",-1,393,25,20,8
+    LTEXT           "ATPort",-1,391,50,26,8
+    COMBOBOX        IDC_ATPORT,415,46,44,48,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    COMBOBOX        IDC_TESTSET,105,90,48,49,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "TestDeviceCommon",-1,35,90,63,8
+    LTEXT           "GPIBAddr",-1,35,108,38,8
+    COMBOBOX        IDC_GPIBADDR,105,110,48,57,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "WaitTimes",-1,321,22,33,8
+    COMBOBOX        IDC_WAITCOM,357,22,31,63,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "TestDevice1",-1,35,131,38,8
+    COMBOBOX        IDC_TESTSET1,105,131,48,49,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "GPIBAddr1",-1,35,156,38,8
+    COMBOBOX        IDC_GPIBADDR1,105,156,48,57,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    CONTROL         "SFC",IDC_SFCTRL,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,284,47,26,10
+    CONTROL         "StopFail",IDC_STOPFAIL,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,241,47,41,10
+    GROUPBOX        "ProcessSetting",-1,19,188,440,160
+    LISTBOX         IDC_PLALL,35,219,78,108,LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+    GROUPBOX        "ProcessListALL",-1,28,210,99,122
+    GROUPBOX        "ProcessListEnable",-1,195,210,99,122
+    LISTBOX         IDC_PLEN,207,223,78,108,LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+    PUSHBUTTON      "Add->",IDC_BUTTON3,137,259,50,14
+    PUSHBUTTON      "Up",IDC_BUTTON5,303,228,30,15
+    PUSHBUTTON      "Down",IDC_BUTTON6,301,259,30,15
+    PUSHBUTTON      "Delete",IDC_BUTTON7,302,290,30,15
+    PUSHBUTTON      "top",IDC_BUTTON8,341,228,30,15
+    PUSHBUTTON      "bottom",IDC_BUTTON9,341,259,30,15
+    PUSHBUTTON      "Clear",IDC_BUTTON4,341,290,30,15
+    PUSHBUTTON      "ResetDefault",IDC_BUTTON10,389,272,58,37
+    PUSHBUTTON      "ShowDetail",IDSHOWDETAIL,387,224,58,33
+    LTEXT           "PowerSupplyCommon",-1,168,91,72,8
+    COMBOBOX        IDC_PLY,249,90,69,49,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "GPIBAddr",-1,183,108,38,8
+    COMBOBOX        IDC_GPIBADDRPLY,223,109,33,57,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "PowerSupply1",-1,168,129,50,8
+    COMBOBOX        IDC_PLY1,249,130,69,49,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "GPIBAddr1",-1,183,156,38,8
+    COMBOBOX        IDC_GPIBADDRPLY1,223,156,33,57,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Port",-1,264,111,22,8
+    COMBOBOX        IDC_PLYPORT,292,110,33,57,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Port1",-1,264,156,22,8
+    COMBOBOX        IDC_PLYPORT1,292,156,33,57,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "FreqMeasDev",-1,333,95,47,8
+    COMBOBOX        IDC_FREQMEAS,387,90,48,49,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "GPIBAddr",-1,333,116,38,8
+    COMBOBOX        IDC_FREQADDR,387,110,48,57,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "MulMeasVolDev",-1,333,134,51,8
+    COMBOBOX        IDC_MULMEAS,387,130,48,49,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "GPIBAddr",-1,333,156,38,8
+    COMBOBOX        IDC_MULMEASADDR,387,156,48,57,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    CONTROL         "RunSNW",IDC_RUNSN,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,241,22,38,10
+    CONTROL         "DataB",IDC_DB,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,284,22,32,10
+    LTEXT           "LoopCounter",-1,314,47,45,8
+    COMBOBOX        IDC_LOOPCOUNT,357,45,28,63,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+END
+
+IDD_ITEMDETAIL DIALOGEX 0, 0, 228, 417
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Dialog"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "Save",IDOK,7,387,109,14
+    PUSHBUTTON      "Cancel",IDCANCEL,124,387,89,14
+    CTEXT           "",IDC_ITEMNAME,118,7,103,20
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO 
+BEGIN
+    IDD_Setup, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 415
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 474
+    END
+
+    IDD_DIALOG1, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 237
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 83
+    END
+
+    IDD_BASECONFPAGE, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 459
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 409
+    END
+
+    IDD_ITEMDETAIL, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 221
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 410
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+IDB_BITMAP1             BITMAP                  "res\\PICMAIN.bmp"
+#endif    // Chinese (P.R.C.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_ABOUTBOX DIALOGEX 0, 0, 170, 62
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "About SimRFCaltestUI"
+FONT 8, "MS Shell Dlg", 0, 0, 0x1
+BEGIN
+    ICON            IDR_MAINFRAME,IDC_STATIC,14,14,21,20
+    LTEXT           "SimRFCaltestUI, Version 1.0",IDC_STATIC,42,14,114,8,SS_NOPREFIX
+    LTEXT           "Copyright (C) 2011",IDC_STATIC,42,26,114,8
+    DEFPUSHBUTTON   "OK",IDOK,113,41,50,14,WS_GROUP
+END
+
+IDD_SIMRFCALTESTUI_DIALOG DIALOGEX 0, 0, 483, 443
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_MINIMIZEBOX | WS_MAXIMIZEBOX | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_OVERLAPPEDWINDOW | WS_EX_APPWINDOW
+CAPTION " "
+FONT 8, "MS Shell Dlg", 0, 0, 0x1
+BEGIN
+    CONTROL         "",IDC_TAB4,"SysTabControl32",0x0,6,7,481,429
+END
+
+IDD_LOSSCONFIGPAGE DIALOGEX 0, 0, 483, 433
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD | WS_SYSMENU
+FONT 8, "MS Shell Dlg", 0, 0, 0x1
+BEGIN
+    LTEXT           "ItemName",IDC_STATIC,15,18,45,8
+    LTEXT           "CH1",IDC_STATIC,83,17,33,8
+    LTEXT           "Loss1",IDC_STATIC,152,17,33,8
+    LTEXT           "CH2",IDC_STATIC,221,17,33,8
+    LTEXT           "CH3",IDC_STATIC,359,17,33,8
+    LTEXT           "Loss3",IDC_STATIC,428,17,33,8
+    LTEXT           "Loss2",IDC_STATIC,290,17,33,8
+    PUSHBUTTON      "Save",IDC_BUTTON1,84,360,130,30
+    PUSHBUTTON      "Cancel",IDC_BUTTON2,232,360,130,30
+END
+
+IDD_MAINPAGE DIALOGEX 0, 0, 483, 433
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD | WS_SYSMENU
+FONT 8, "MS Shell Dlg", 0, 0, 0x1
+BEGIN
+    CONTROL         "",IDC_LIST2,"SysListView32",LVS_REPORT | LVS_ALIGNLEFT | WS_BORDER,6,211,459,173
+    GROUPBOX        "Factory Log",IDC_FACLOG,6,205,462,179
+    EDITTEXT        IDC_SNEDIT,14,42,129,14,ES_AUTOHSCROLL
+    CTEXT           "SIMCOM TESTTOOL V1.01",IDC_Title,38,7,412,20
+    LISTBOX         IDC_LIST1,356,71,106,124,LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+    GROUPBOX        "ItemTest List",IDC_ITEMLIST,344,61,121,145
+    GROUPBOX        "Trace Log",IDC_GROUPTRACE,6,63,326,143
+    CONTROL         "",IDC_LIST3,"SysListView32",LVS_REPORT | LVS_ALIGNLEFT | WS_BORDER | WS_TABSTOP,14,69,308,126
+    GROUPBOX        "SN NUMBER",IDC_STATIC,6,31,138,29
+    GROUPBOX        "Pass/Fail",IDC_STATIC,154,31,67,29
+    LTEXT           "",IDC_PASSFAIL,162,42,51,12
+    GROUPBOX        "TimeElapse",IDC_STATIC,228,31,71,29
+    LTEXT           "",IDC_TIMEELP,236,42,34,12
+    LTEXT           "s",IDC_STATIC,284,45,8,8
+    PUSHBUTTON      "Start",IDC_BUTTON2,105,385,248,27
+    CONTROL         "ReSize",IDC_CHECK1,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,312,34,34,10
+    CONTROL         "EnTraceLog",IDC_CHECK2,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,312,47,50,10
+    CONTROL         "",IDC_PROGRESS2,"msctls_progress32",PBS_SMOOTH | WS_BORDER,81,179,244,15,WS_EX_DLGMODALFRAME | WS_EX_TRANSPARENT
+    LTEXT           "",IDC_PRONAME,17,182,65,16
+    CONTROL         "",IDC_PICMAIN,"Static",SS_BITMAP | SS_CENTERIMAGE,6,66,325,112
+    LTEXT           "",IDC_LOOPCOUNTER,361,34,87,8
+    CTEXT           "",IDC_PASSFAILBIG,6,208,462,176,WS_TABSTOP
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO 
+BEGIN
+    IDD_ABOUTBOX, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 163
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 55
+    END
+
+    IDD_SIMRFCALTESTUI_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 6
+        RIGHTMARGIN, 482
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 436
+    END
+
+    IDD_LOSSCONFIGPAGE, DIALOG
+    BEGIN
+        LEFTMARGIN, 6
+        RIGHTMARGIN, 482
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 426
+    END
+
+    IDD_MAINPAGE, DIALOG
+    BEGIN
+        LEFTMARGIN, 6
+        RIGHTMARGIN, 482
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 431
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 1,0,0,1
+ PRODUCTVERSION 1,0,0,1
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904e4"
+        BEGIN
+            VALUE "CompanyName", "TODO: <Company name>"
+            VALUE "FileDescription", "TODO: <File description>"
+            VALUE "FileVersion", "1.0.0.1"
+            VALUE "InternalName", "SimRFCaltestUI.exe"
+            VALUE "LegalCopyright", "TODO: (c) <Company name>.  All rights reserved."
+            VALUE "OriginalFilename", "SimRFCaltestUI.exe"
+            VALUE "ProductName", "TODO: <Product name>"
+            VALUE "ProductVersion", "1.0.0.1"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x409, 1252
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE 
+BEGIN
+    IDS_ABOUTBOX            "&About SimRFCaltestUI..."
+END
+
+#endif    // English (U.S.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#define _AFX_NO_SPLITTER_RESOURCES
+#define _AFX_NO_OLE_RESOURCES
+#define _AFX_NO_TRACKER_RESOURCES
+#define _AFX_NO_PROPERTY_RESOURCES
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+LANGUAGE 9, 1
+#pragma code_page(1252)
+#include "res\SimRFCaltestUI.rc2"  // non-Microsoft Visual C++ edited resources
+#include "afxres.rc"     // Standard components
+#endif
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

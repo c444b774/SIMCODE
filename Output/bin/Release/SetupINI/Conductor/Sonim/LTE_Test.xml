@@ -1,0 +1,1134 @@
+<Configurations>
+	<PreObjects>
+		<DeviceObject ClassName="A8960" Name="A8960">
+			<RFin Editable="TRUE" Type="Integer">10</RFin>
+			<RFout Editable="TRUE" Type="Integer">10</RFout>
+			<ScreenOff Editable="TRUE" Type="Integer">1</ScreenOff>
+		</DeviceObject>
+		<DeviceObject ClassName="CCMU200" Name="CMU200">
+			<RFin Editable="TRUE" Type="Integer">2</RFin>
+			<RFout Editable="TRUE" Type="Integer">2</RFout>
+		</DeviceObject>
+		<DeviceObject ClassName="CCMW500" Name="CMW500">
+			<RFin Editable="TRUE" Type="Integer">1</RFin>
+			<RFout Editable="TRUE" Type="Integer">1</RFout>
+			<RFChannel Editable="TRUE" Type="Integer">1</RFChannel>
+		</DeviceObject>
+		<DeviceObject ClassName="N5182A" Name="N5182A">
+			<RFin Editable="TRUE" Type="Integer">1</RFin>
+			<RFout Editable="TRUE" Type="Integer">1</RFout>
+		</DeviceObject>
+		<DeviceObject ClassName="MT8820" Name="MT8820">
+			<RFin Editable="TRUE" Type="Integer">1</RFin>
+			<RFout Editable="TRUE" Type="Integer">1</RFout>
+			<ScreenOff Editable="TRUE" Type="Integer">1</ScreenOff>
+		</DeviceObject>
+		<PhoneObject ClassName="CRFNVItems" Name="CRFNVItemsObj">
+		</PhoneObject>
+		<PhoneObject ClassName="CQualPhone" Name="QualPhone">
+			<RFNVItemObject Editable="TRUE" Type="Integer">CRFNVItemsObj</RFNVItemObject>
+			<IsEFS Editable="TRUE" Type="Integer">0</IsEFS>
+		</PhoneObject>
+	</PreObjects>
+	<MainObject>
+		<RFNVItem Editable="TRUE" Type="String">GeneralNV</RFNVItem>
+		<Phone Editable="TRUE" Type="String">QualPhone</Phone>
+		<TesterDeviceCommon Editable="TRUE" Type="String">MT8820</TesterDeviceCommon>
+		<TesterDevice1 Editable="TRUE" Type="String">N5182A</TesterDevice1>
+		<List>
+			<Item Name="ReadSN_QRD" Enabled="True"/>
+			<Item Name="LteStartcall_FDD" Enabled="True"/>
+			<Item Name="LteTest_B1_RB50" Enabled="True"/>
+			<Item Name="LteTest_B1_16QAM" Enabled="True"/>
+			<Item Name="LteTest_B2_RB50" Enabled="True"/>
+			<Item Name="LteTest_B2_16QAM" Enabled="True"/>
+			<Item Name="LteTest_B3_RB50" Enabled="True"/>
+			<Item Name="LteTest_B3_16QAM" Enabled="True"/>
+			<Item Name="LteTest_B4_RB50" Enabled="True"/>
+			<Item Name="LteTest_B4_16QAM" Enabled="True"/>
+			<Item Name="LteTest_B5_RB50" Enabled="True"/>
+			<Item Name="LteTest_B5_16QAM" Enabled="True"/>
+			<Item Name="LteTest_B7_RB50" Enabled="True"/>
+			<Item Name="LteTest_B7_16QAM" Enabled="True"/>
+			<Item Name="LteTest_B8_RB50" Enabled="True"/>
+			<Item Name="LteTest_B8_16QAM" Enabled="True"/>
+			<Item Name="LteTest_B12_RB50" Enabled="True"/>
+			<Item Name="LteTest_B12_16QAM" Enabled="True"/>
+			<Item Name="LteTest_B14_RB50" Enabled="True"/>
+			<Item Name="LteTest_B14_16QAM" Enabled="True"/>
+			<Item Name="LteEndcall" Enabled="True"/></List>
+		<ALLItems>
+			<Item Name="ReadSN_QRD"/>
+			<Item Name="WriteLteTestFlag"/>
+			<Item Name="ClearLteTestFlag"/>
+			<Item Name="LteStartcall_FDD"/>
+			<Item Name="LteTest_B1_RB50"/>
+			<Item Name="LteTest_B1_16QAM"/>
+			<Item Name="LteTest_B2_RB50"/>
+			<Item Name="LteTest_B2_16QAM"/>
+			<Item Name="LteTest_B3_RB50"/>
+			<Item Name="LteTest_B3_16QAM"/>
+			<Item Name="LteTest_B4_RB50"/>
+			<Item Name="LteTest_B4_16QAM"/>
+			<Item Name="LteTest_B5_RB50"/>
+			<Item Name="LteTest_B5_16QAM"/>
+			<Item Name="LteTest_B7_RB50"/>
+			<Item Name="LteTest_B7_16QAM"/>
+			<Item Name="LteTest_B8_RB50"/>
+			<Item Name="LteTest_B8_16QAM"/>
+			<Item Name="LteTest_B12_RB50"/>
+			<Item Name="LteTest_B12_16QAM"/>
+			<Item Name="LteTest_B14_RB50"/>
+			<Item Name="LteTest_B14_16QAM"/>
+			<Item Name="LteTest_B17_RB50"/>
+			<Item Name="LteTest_B17_16QAM"/>
+			<Item Name="LteTest_B20_RB50"/>
+			<Item Name="LteTest_B20_16QAM"/>
+			<Item Name="LteTest_B25_RB50"/>
+			<Item Name="LteTest_B25_16QAM"/>
+			<Item Name="LteTest_B26_RB50"/>
+			<Item Name="LteTest_B26_16QAM"/>
+			<Item Name="LteTest_B38_RB50"/>
+			<Item Name="LteTest_B38_16QAM"/>
+			<Item Name="LteTest_B41_RB50"/>
+			<Item Name="LteTest_B41_16QAM"/>
+			<Item Name="LteEndcall"/>
+		</ALLItems>
+	</MainObject>
+	<ProcessObjectSet>
+		<CommonProcessObjects>
+			<ProcessObject ClassName="CBaseBandTestProc" Name="ReadSN_QRD">
+				<!--Main Function is necessary-->
+				<MainFunc Editable="TRUE" Type="String">CommonTestMainFunc</MainFunc>
+				<!--Parameters-->
+				<List>
+					<Item Name="ReadSNFunc_QRD" Enabled="TRUE"/>
+				</List>
+				<QRD_NV_ID Editable="TRUE" Type="Integer">2497</QRD_NV_ID>
+				<DelayForNextItemMs Editable="TRUE" Type="Integer">0</DelayForNextItemMs>
+				<!--End of Parameters-->
+			</ProcessObject>
+			<ProcessObject ClassName="CBaseBandTestProc" Name="WriteLteTestFlag">
+				<!--Main Function is necessary-->
+				<MainFunc Editable="TRUE" Type="String">CommonTestMainFunc</MainFunc>
+				<!--Parameters-->
+				<List>
+					<Item Name="QRD_FlagOp" Enabled="true"/>
+				</List>
+				<FlagNVID Editable="TRUE" Type="Integer">2499</FlagNVID>
+				<BytePos_QRD Editable="TRUE" Type="Integer">21</BytePos_QRD>
+				<Flag_Op_type Editable="TRUE" Type="Integer">1</Flag_Op_type>
+				<!--End of Parameters-->
+			</ProcessObject>
+			<ProcessObject ClassName="CBaseBandTestProc" Name="ClearLteTestFlag">
+				<!--Main Function is necessary-->
+				<MainFunc Editable="TRUE" Type="String">CommonTestMainFunc</MainFunc>
+				<!--Parameters-->
+				<List>
+					<Item Name="QRD_FlagOp" Enabled="true"/>
+				</List>
+				<FlagNVID Editable="TRUE" Type="Integer">2499</FlagNVID>
+				<BytePos_QRD Editable="TRUE" Type="Integer">21</BytePos_QRD>
+				<Flag_Op_type Editable="TRUE" Type="Integer">2</Flag_Op_type>
+				<!--End of Parameters-->
+			</ProcessObject>
+		</CommonProcessObjects>
+		<TDCDMATestProcessObjects>
+			<ProcessObject ClassName="CLteTestCall" Name="LteStartcall_FDD">
+				<!--Main Function is necessary-->
+				<MainFunc Editable="TRUE" Type="String">LteCallMainFunc</MainFunc>
+				<!--Parameters-->
+				<List>
+					<Item Name="LteCall" Enabled="TRUE"/>
+				</List>
+				<CALLBand Editable="TRUE" Type="Integer">1</CALLBand>
+				<CALLChannel Editable="TRUE" Type="Integer">18050</CALLChannel>
+				<CellPower Editable="TRUE" Type="Integer">-65</CellPower>
+				<LTEMode Editable="TRUE" Type="Integer">FDD</LTEMode>
+				<!--End of Parameters-->
+			</ProcessObject>
+			<ProcessObject ClassName="CLteTestCall" Name="LteStartcall_TDD">
+				<!--Main Function is necessary-->
+				<MainFunc Editable="TRUE" Type="String">LteCallMainFunc</MainFunc>
+				<!--Parameters-->
+				<List>
+					<Item Name="LteCall" Enabled="TRUE"/>
+				</List>
+				<CALLBand Editable="TRUE" Type="Integer">39</CALLBand>
+				<CALLChannel Editable="TRUE" Type="Integer">38450</CALLChannel>
+				<CellPower Editable="TRUE" Type="Integer">-65</CellPower>
+				<LTEMode Editable="TRUE" Type="Integer">TDD</LTEMode>
+				<!--End of Parameters-->
+			</ProcessObject>
+			<ProcessObject ClassName="CLteTestEnd" Name="LteEndcall">
+				<!--Main Function is necessary-->
+				<MainFunc Editable="TRUE" Type="String">LteEndCallMainFunc</MainFunc>
+				<!--Parameters-->
+				<List>
+					<Item Name="LteEndCall" Enabled="TRUE"/>
+				</List>
+				<!--End of Parameters-->
+			</ProcessObject>
+			<ProcessObject ClassName="CLteMeasLoop" Name="LteTest_B1_RB50">
+				<!--Main Function is necessary-->
+				<MainFunc Editable="TRUE" Type="String">LteTestMainFunc</MainFunc>
+				<!--Parameters-->
+				<List>
+					<Item Name="LteHandOver" Enabled="TRUE"/>
+					<Item Name="LteMaxPower" Enabled="TRUE"/>
+					<Item Name="ConfiguredTxPower" Enabled="FALSE"/>
+					<Item Name="LteTxQual" Enabled="TRUE"/>
+					<Item Name="LteSEMask" Enabled="TRUE"/>
+					<Item Name="LteACLR" Enabled="TRUE"/>
+					<Item Name="LteOBW" Enabled="TRUE"/>
+					<Item Name="LteMinPower" Enabled="TRUE"/>
+					<Item Name="LteBlockErr" Enabled="TRUE"/>
+				</List>
+				<TestBand Editable="TRUE" Type="Integer">1</TestBand>
+				<TestChannelList Editable="TRUE" Type="Integer">18300</TestChannelList>
+				<NumRB Editable="TRUE" Type="Integer">50</NumRB>
+				<StartRB Editable="TRUE" Type="Integer">0</StartRB>
+				<MCS Editable="TRUE" Type="Integer">6</MCS>
+				<WaveFile Editable="TRUE" Type="Integer">D:\\LTE.WV</WaveFile>
+				<MeasureCount Editable="TRUE" Type="Integer">10</MeasureCount>
+				<MaxPowerLimit Editable="TRUE" Type="Integer">20.3,25.7</MaxPowerLimit>
+				<MinPowerLimit Editable="TRUE" Type="Integer">-39,-999</MinPowerLimit>
+				<TxQualPowerList Editable="TRUE" Type="Integer">25</TxQualPowerList>
+				<FERLimit Editable="TRUE" Type="Integer">0.1</FERLimit>
+				<OBWLimit Editable="TRUE" Type="Integer">10</OBWLimit>
+				<EVMLimit Editable="TRUE" Type="Integer">17.5</EVMLimit>
+				<SEMaskLimit Editable="TRUE" Type="Integer">-23.5,-11.5,-8.5,-16.5,-16.5,-8.5,-11.5,-23.5</SEMaskLimit>
+				<ACLRLimit Editable="TRUE" Type="Integer">-35.2,-32.2,-32.2,-35.2</ACLRLimit>
+				<BLERSamples Editable="TRUE" Type="Integer">2000</BLERSamples>
+				<BLERLimit Editable="TRUE" Type="Integer">1</BLERLimit>
+				<RxCellPower Editable="TRUE" Type="Integer">-86.3</RxCellPower>
+				<!--End of Parameters-->
+			</ProcessObject>
+			<ProcessObject ClassName="CLteMeasLoop" Name="LteTest_B1_16QAM">
+				<!--Main Function is necessary-->
+				<MainFunc Editable="TRUE" Type="String">LteTestMainFunc</MainFunc>
+				<!--Parameters-->
+				<List>
+					<Item Name="LteHandOver" Enabled="TRUE"/>
+					<Item Name="LteMaxPower" Enabled="TRUE"/>
+					<Item Name="LteTxQual" Enabled="TRUE"/>
+				</List>
+				<TestBand Editable="TRUE" Type="Integer">1</TestBand>
+				<TestChannelList Editable="TRUE" Type="Integer">18300</TestChannelList>
+				<NumRB Editable="TRUE" Type="Integer">12</NumRB>
+				<StartRB Editable="TRUE" Type="Integer">0</StartRB>
+				<MCS Editable="TRUE" Type="Integer">20</MCS>
+				<WaveFile Editable="TRUE" Type="Integer">D:\\LTE.WV</WaveFile>
+				<MeasureCount Editable="TRUE" Type="Integer">10</MeasureCount>
+				<MaxPowerLimit Editable="TRUE" Type="Integer">19.3,25.7</MaxPowerLimit>
+				<MinPowerLimit Editable="TRUE" Type="Integer">-39,-999</MinPowerLimit>
+				<TxQualPowerList Editable="TRUE" Type="Integer">25</TxQualPowerList>
+				<FERLimit Editable="TRUE" Type="Integer">0.1</FERLimit>
+				<OBWLimit Editable="TRUE" Type="Integer">10</OBWLimit>
+				<EVMLimit Editable="TRUE" Type="Integer">12.5</EVMLimit>
+				<SEMaskLimit Editable="TRUE" Type="Integer">-23.5,-11.5,-8.5,-16.5,-16.5,-8.5,-11.5,-23.5</SEMaskLimit>
+				<ACLRLimit Editable="TRUE" Type="Integer">-35.2,-32.2,-32.2,-35.2</ACLRLimit>
+				<BLERSamples Editable="TRUE" Type="Integer">2000</BLERSamples>
+				<BLERLimit Editable="TRUE" Type="Integer">1</BLERLimit>
+				<RxCellPower Editable="TRUE" Type="Integer">-96.3</RxCellPower>
+				<!--End of Parameters-->
+			</ProcessObject>
+			<ProcessObject ClassName="CLteMeasLoop" Name="LteTest_B2_RB50">
+				<!--Main Function is necessary-->
+				<MainFunc Editable="TRUE" Type="String">LteTestMainFunc</MainFunc>
+				<!--Parameters-->
+				<List>
+					<Item Name="LteHandOver" Enabled="TRUE"/>
+					<Item Name="LteMaxPower" Enabled="TRUE"/>
+					<Item Name="ConfiguredTxPower" Enabled="FALSE"/>
+					<Item Name="LteTxQual" Enabled="TRUE"/>
+					<Item Name="LteSEMask" Enabled="TRUE"/>
+					<Item Name="LteACLR" Enabled="TRUE"/>
+					<Item Name="LteOBW" Enabled="TRUE"/>
+					<Item Name="LteMinPower" Enabled="TRUE"/>
+					<Item Name="LteBlockErr" Enabled="TRUE"/>
+				</List>
+				<TestBand Editable="TRUE" Type="Integer">2</TestBand>
+				<TestChannelList Editable="TRUE" Type="Integer">18825</TestChannelList>
+				<NumRB Editable="TRUE" Type="Integer">50</NumRB>
+				<StartRB Editable="TRUE" Type="Integer">0</StartRB>
+				<MCS Editable="TRUE" Type="Integer">6</MCS>
+				<WaveFile Editable="TRUE" Type="Integer">D:\\LTE.WV</WaveFile>
+				<MeasureCount Editable="TRUE" Type="Integer">10</MeasureCount>
+				<MaxPowerLimit Editable="TRUE" Type="Integer">20.3,25.7</MaxPowerLimit>
+				<MinPowerLimit Editable="TRUE" Type="Integer">-39,-999</MinPowerLimit>
+				<TxQualPowerList Editable="TRUE" Type="Integer">25</TxQualPowerList>
+				<FERLimit Editable="TRUE" Type="Integer">0.1</FERLimit>
+				<OBWLimit Editable="TRUE" Type="Integer">10</OBWLimit>
+				<EVMLimit Editable="TRUE" Type="Integer">17.5</EVMLimit>
+				<SEMaskLimit Editable="TRUE" Type="Integer">-23.5,-11.5,-8.5,-16.5,-16.5,-8.5,-11.5,-23.5</SEMaskLimit>
+				<ACLRLimit Editable="TRUE" Type="Integer">-35.2,-32.2,-32.2,-35.2</ACLRLimit>
+				<BLERSamples Editable="TRUE" Type="Integer">2000</BLERSamples>
+				<BLERLimit Editable="TRUE" Type="Integer">1</BLERLimit>
+				<RxCellPower Editable="TRUE" Type="Integer">-86.3</RxCellPower>
+				<!--End of Parameters-->
+			</ProcessObject>
+			<ProcessObject ClassName="CLteMeasLoop" Name="LteTest_B2_16QAM">
+				<!--Main Function is necessary-->
+				<MainFunc Editable="TRUE" Type="String">LteTestMainFunc</MainFunc>
+				<!--Parameters-->
+				<List>
+					<Item Name="LteHandOver" Enabled="TRUE"/>
+					<Item Name="LteMaxPower" Enabled="TRUE"/>
+					<Item Name="LteTxQual" Enabled="TRUE"/>
+				</List>
+				<TestBand Editable="TRUE" Type="Integer">2</TestBand>
+				<TestChannelList Editable="TRUE" Type="Integer">18825</TestChannelList>
+				<NumRB Editable="TRUE" Type="Integer">12</NumRB>
+				<StartRB Editable="TRUE" Type="Integer">0</StartRB>
+				<MCS Editable="TRUE" Type="Integer">20</MCS>
+				<WaveFile Editable="TRUE" Type="Integer">D:\\LTE.WV</WaveFile>
+				<MeasureCount Editable="TRUE" Type="Integer">10</MeasureCount>
+				<MaxPowerLimit Editable="TRUE" Type="Integer">19.3,25.7</MaxPowerLimit>
+				<MinPowerLimit Editable="TRUE" Type="Integer">-39,-999</MinPowerLimit>
+				<TxQualPowerList Editable="TRUE" Type="Integer">25</TxQualPowerList>
+				<FERLimit Editable="TRUE" Type="Integer">0.1</FERLimit>
+				<OBWLimit Editable="TRUE" Type="Integer">10</OBWLimit>
+				<EVMLimit Editable="TRUE" Type="Integer">12.5</EVMLimit>
+				<SEMaskLimit Editable="TRUE" Type="Integer">-23.5,-11.5,-8.5,-16.5,-16.5,-8.5,-11.5,-23.5</SEMaskLimit>
+				<ACLRLimit Editable="TRUE" Type="Integer">-35.2,-32.2,-32.2,-35.2</ACLRLimit>
+				<BLERSamples Editable="TRUE" Type="Integer">2000</BLERSamples>
+				<BLERLimit Editable="TRUE" Type="Integer">1</BLERLimit>
+				<RxCellPower Editable="TRUE" Type="Integer">-96.3</RxCellPower>
+				<!--End of Parameters-->
+			</ProcessObject>
+			<ProcessObject ClassName="CLteMeasLoop" Name="LteTest_B3_RB50">
+				<!--Main Function is necessary-->
+				<MainFunc Editable="TRUE" Type="String">LteTestMainFunc</MainFunc>
+				<!--Parameters-->
+				<List>
+					<Item Name="LteHandOver" Enabled="TRUE"/>
+					<Item Name="LteMaxPower" Enabled="TRUE"/>
+					<Item Name="ConfiguredTxPower" Enabled="FALSE"/>
+					<Item Name="LteTxQual" Enabled="TRUE"/>
+					<Item Name="LteSEMask" Enabled="TRUE"/>
+					<Item Name="LteACLR" Enabled="TRUE"/>
+					<Item Name="LteOBW" Enabled="TRUE"/>
+					<Item Name="LteMinPower" Enabled="TRUE"/>
+					<Item Name="LteBlockErr" Enabled="TRUE"/>
+				</List>
+				<TestBand Editable="TRUE" Type="Integer">3</TestBand>
+				<TestChannelList Editable="TRUE" Type="Integer">19322</TestChannelList>
+				<NumRB Editable="TRUE" Type="Integer">50</NumRB>
+				<StartRB Editable="TRUE" Type="Integer">0</StartRB>
+				<MCS Editable="TRUE" Type="Integer">6</MCS>
+				<WaveFile Editable="TRUE" Type="Integer">D:\\LTE.WV</WaveFile>
+				<MeasureCount Editable="TRUE" Type="Integer">10</MeasureCount>
+				<MaxPowerLimit Editable="TRUE" Type="Integer">20.3,25.7</MaxPowerLimit>
+				<MinPowerLimit Editable="TRUE" Type="Integer">-39,-999</MinPowerLimit>
+				<TxQualPowerList Editable="TRUE" Type="Integer">25</TxQualPowerList>
+				<FERLimit Editable="TRUE" Type="Integer">0.1</FERLimit>
+				<OBWLimit Editable="TRUE" Type="Integer">10</OBWLimit>
+				<EVMLimit Editable="TRUE" Type="Integer">17.5</EVMLimit>
+				<SEMaskLimit Editable="TRUE" Type="Integer">-23.5,-11.5,-8.5,-16.5,-16.5,-8.5,-11.5,-23.5</SEMaskLimit>
+				<ACLRLimit Editable="TRUE" Type="Integer">-35.2,-32.2,-32.2,-35.2</ACLRLimit>
+				<BLERSamples Editable="TRUE" Type="Integer">2000</BLERSamples>
+				<BLERLimit Editable="TRUE" Type="Integer">1</BLERLimit>
+				<RxCellPower Editable="TRUE" Type="Integer">-86.3</RxCellPower>
+				<!--End of Parameters-->
+			</ProcessObject>
+			<ProcessObject ClassName="CLteMeasLoop" Name="LteTest_B3_16QAM">
+				<!--Main Function is necessary-->
+				<MainFunc Editable="TRUE" Type="String">LteTestMainFunc</MainFunc>
+				<!--Parameters-->
+				<List>
+					<Item Name="LteHandOver" Enabled="TRUE"/>
+					<Item Name="LteMaxPower" Enabled="TRUE"/>
+					<Item Name="LteTxQual" Enabled="TRUE"/>
+				</List>
+				<TestBand Editable="TRUE" Type="Integer">3</TestBand>
+				<TestChannelList Editable="TRUE" Type="Integer">19322</TestChannelList>
+				<NumRB Editable="TRUE" Type="Integer">12</NumRB>
+				<StartRB Editable="TRUE" Type="Integer">0</StartRB>
+				<MCS Editable="TRUE" Type="Integer">20</MCS>
+				<WaveFile Editable="TRUE" Type="Integer">D:\\LTE.WV</WaveFile>
+				<MeasureCount Editable="TRUE" Type="Integer">10</MeasureCount>
+				<MaxPowerLimit Editable="TRUE" Type="Integer">19.3,25.7</MaxPowerLimit>
+				<MinPowerLimit Editable="TRUE" Type="Integer">-39,-999</MinPowerLimit>
+				<TxQualPowerList Editable="TRUE" Type="Integer">25</TxQualPowerList>
+				<FERLimit Editable="TRUE" Type="Integer">0.1</FERLimit>
+				<OBWLimit Editable="TRUE" Type="Integer">10</OBWLimit>
+				<EVMLimit Editable="TRUE" Type="Integer">12.5</EVMLimit>
+				<SEMaskLimit Editable="TRUE" Type="Integer">-23.5,-11.5,-8.5,-16.5,-16.5,-8.5,-11.5,-23.5</SEMaskLimit>
+				<ACLRLimit Editable="TRUE" Type="Integer">-35.2,-32.2,-32.2,-35.2</ACLRLimit>
+				<BLERSamples Editable="TRUE" Type="Integer">2000</BLERSamples>
+				<BLERLimit Editable="TRUE" Type="Integer">1</BLERLimit>
+				<RxCellPower Editable="TRUE" Type="Integer">-96.3</RxCellPower>
+				<!--End of Parameters-->
+			</ProcessObject>
+			<ProcessObject ClassName="CLteMeasLoop" Name="LteTest_B4_RB50">
+				<!--Main Function is necessary-->
+				<MainFunc Editable="TRUE" Type="String">LteTestMainFunc</MainFunc>
+				<!--Parameters-->
+				<List>
+					<Item Name="LteHandOver" Enabled="TRUE"/>
+					<Item Name="LteMaxPower" Enabled="TRUE"/>
+					<Item Name="ConfiguredTxPower" Enabled="FALSE"/>
+					<Item Name="LteTxQual" Enabled="TRUE"/>
+					<Item Name="LteSEMask" Enabled="TRUE"/>
+					<Item Name="LteACLR" Enabled="TRUE"/>
+					<Item Name="LteOBW" Enabled="TRUE"/>
+					<Item Name="LteMinPower" Enabled="TRUE"/>
+					<Item Name="LteBlockErr" Enabled="TRUE"/>
+				</List>
+				<TestBand Editable="TRUE" Type="Integer">4</TestBand>
+				<TestChannelList Editable="TRUE" Type="Integer">20010</TestChannelList>
+				<NumRB Editable="TRUE" Type="Integer">50</NumRB>
+				<StartRB Editable="TRUE" Type="Integer">0</StartRB>
+				<MCS Editable="TRUE" Type="Integer">6</MCS>
+				<WaveFile Editable="TRUE" Type="Integer">D:\\LTE.WV</WaveFile>
+				<MeasureCount Editable="TRUE" Type="Integer">10</MeasureCount>
+				<MaxPowerLimit Editable="TRUE" Type="Integer">20.3,25.7</MaxPowerLimit>
+				<MinPowerLimit Editable="TRUE" Type="Integer">-39,-999</MinPowerLimit>
+				<TxQualPowerList Editable="TRUE" Type="Integer">25</TxQualPowerList>
+				<FERLimit Editable="TRUE" Type="Integer">0.1</FERLimit>
+				<OBWLimit Editable="TRUE" Type="Integer">10</OBWLimit>
+				<EVMLimit Editable="TRUE" Type="Integer">17.5</EVMLimit>
+				<SEMaskLimit Editable="TRUE" Type="Integer">-23.5,-11.5,-8.5,-16.5,-16.5,-8.5,-11.5,-23.5</SEMaskLimit>
+				<ACLRLimit Editable="TRUE" Type="Integer">-35.2,-32.2,-32.2,-35.2</ACLRLimit>
+				<BLERSamples Editable="TRUE" Type="Integer">2000</BLERSamples>
+				<BLERLimit Editable="TRUE" Type="Integer">1</BLERLimit>
+				<RxCellPower Editable="TRUE" Type="Integer">-86.3</RxCellPower>
+				<!--End of Parameters-->
+			</ProcessObject>
+			<ProcessObject ClassName="CLteMeasLoop" Name="LteTest_B4_16QAM">
+				<!--Main Function is necessary-->
+				<MainFunc Editable="TRUE" Type="String">LteTestMainFunc</MainFunc>
+				<!--Parameters-->
+				<List>
+					<Item Name="LteHandOver" Enabled="TRUE"/>
+					<Item Name="LteMaxPower" Enabled="TRUE"/>
+					<Item Name="LteTxQual" Enabled="TRUE"/>
+				</List>
+				<TestBand Editable="TRUE" Type="Integer">4</TestBand>
+				<TestChannelList Editable="TRUE" Type="Integer">20010</TestChannelList>
+				<NumRB Editable="TRUE" Type="Integer">12</NumRB>
+				<StartRB Editable="TRUE" Type="Integer">0</StartRB>
+				<MCS Editable="TRUE" Type="Integer">20</MCS>
+				<WaveFile Editable="TRUE" Type="Integer">D:\\LTE.WV</WaveFile>
+				<MeasureCount Editable="TRUE" Type="Integer">10</MeasureCount>
+				<MaxPowerLimit Editable="TRUE" Type="Integer">19.3,25.7</MaxPowerLimit>
+				<MinPowerLimit Editable="TRUE" Type="Integer">-39,-999</MinPowerLimit>
+				<TxQualPowerList Editable="TRUE" Type="Integer">25</TxQualPowerList>
+				<FERLimit Editable="TRUE" Type="Integer">0.1</FERLimit>
+				<OBWLimit Editable="TRUE" Type="Integer">10</OBWLimit>
+				<EVMLimit Editable="TRUE" Type="Integer">12.5</EVMLimit>
+				<SEMaskLimit Editable="TRUE" Type="Integer">-23.5,-11.5,-8.5,-16.5,-16.5,-8.5,-11.5,-23.5</SEMaskLimit>
+				<ACLRLimit Editable="TRUE" Type="Integer">-35.2,-32.2,-32.2,-35.2</ACLRLimit>
+				<BLERSamples Editable="TRUE" Type="Integer">2000</BLERSamples>
+				<BLERLimit Editable="TRUE" Type="Integer">1</BLERLimit>
+				<RxCellPower Editable="TRUE" Type="Integer">-96.3</RxCellPower>
+				<!--End of Parameters-->
+			</ProcessObject>
+			<ProcessObject ClassName="CLteMeasLoop" Name="LteTest_B5_RB50">
+				<!--Main Function is necessary-->
+				<MainFunc Editable="TRUE" Type="String">LteTestMainFunc</MainFunc>
+				<!--Parameters-->
+				<List>
+					<Item Name="LteHandOver" Enabled="TRUE"/>
+					<Item Name="LteMaxPower" Enabled="TRUE"/>
+					<Item Name="ConfiguredTxPower" Enabled="FALSE"/>
+					<Item Name="LteTxQual" Enabled="TRUE"/>
+					<Item Name="LteSEMask" Enabled="TRUE"/>
+					<Item Name="LteACLR" Enabled="TRUE"/>
+					<Item Name="LteOBW" Enabled="TRUE"/>
+					<Item Name="LteMinPower" Enabled="TRUE"/>
+					<Item Name="LteBlockErr" Enabled="TRUE"/>
+				</List>
+				<TestBand Editable="TRUE" Type="Integer">5</TestBand>
+				<TestChannelList Editable="TRUE" Type="Integer">20512</TestChannelList>
+				<NumRB Editable="TRUE" Type="Integer">50</NumRB>
+				<StartRB Editable="TRUE" Type="Integer">0</StartRB>
+				<MCS Editable="TRUE" Type="Integer">6</MCS>
+				<WaveFile Editable="TRUE" Type="Integer">D:\\LTE.WV</WaveFile>
+				<MeasureCount Editable="TRUE" Type="Integer">10</MeasureCount>
+				<MaxPowerLimit Editable="TRUE" Type="Integer">20.3,25.7</MaxPowerLimit>
+				<MinPowerLimit Editable="TRUE" Type="Integer">-39,-999</MinPowerLimit>
+				<TxQualPowerList Editable="TRUE" Type="Integer">25</TxQualPowerList>
+				<FERLimit Editable="TRUE" Type="Integer">0.1</FERLimit>
+				<OBWLimit Editable="TRUE" Type="Integer">10</OBWLimit>
+				<EVMLimit Editable="TRUE" Type="Integer">17.5</EVMLimit>
+				<SEMaskLimit Editable="TRUE" Type="Integer">-23.5,-11.5,-8.5,-16.5,-16.5,-8.5,-11.5,-23.5</SEMaskLimit>
+				<ACLRLimit Editable="TRUE" Type="Integer">-35.2,-32.2,-32.2,-35.2</ACLRLimit>
+				<BLERSamples Editable="TRUE" Type="Integer">2000</BLERSamples>
+				<BLERLimit Editable="TRUE" Type="Integer">1</BLERLimit>
+				<RxCellPower Editable="TRUE" Type="Integer">-86.3</RxCellPower>
+				<!--End of Parameters-->
+			</ProcessObject>
+			<ProcessObject ClassName="CLteMeasLoop" Name="LteTest_B5_16QAM">
+				<!--Main Function is necessary-->
+				<MainFunc Editable="TRUE" Type="String">LteTestMainFunc</MainFunc>
+				<!--Parameters-->
+				<List>
+					<Item Name="LteHandOver" Enabled="TRUE"/>
+					<Item Name="LteMaxPower" Enabled="TRUE"/>
+					<Item Name="LteTxQual" Enabled="TRUE"/>
+				</List>
+				<TestBand Editable="TRUE" Type="Integer">5</TestBand>
+				<TestChannelList Editable="TRUE" Type="Integer">20512</TestChannelList>
+				<NumRB Editable="TRUE" Type="Integer">12</NumRB>
+				<StartRB Editable="TRUE" Type="Integer">0</StartRB>
+				<MCS Editable="TRUE" Type="Integer">20</MCS>
+				<WaveFile Editable="TRUE" Type="Integer">D:\\LTE.WV</WaveFile>
+				<MeasureCount Editable="TRUE" Type="Integer">10</MeasureCount>
+				<MaxPowerLimit Editable="TRUE" Type="Integer">19.3,25.7</MaxPowerLimit>
+				<MinPowerLimit Editable="TRUE" Type="Integer">-39,-999</MinPowerLimit>
+				<TxQualPowerList Editable="TRUE" Type="Integer">25</TxQualPowerList>
+				<FERLimit Editable="TRUE" Type="Integer">0.1</FERLimit>
+				<OBWLimit Editable="TRUE" Type="Integer">10</OBWLimit>
+				<EVMLimit Editable="TRUE" Type="Integer">12.5</EVMLimit>
+				<SEMaskLimit Editable="TRUE" Type="Integer">-23.5,-11.5,-8.5,-16.5,-16.5,-8.5,-11.5,-23.5</SEMaskLimit>
+				<ACLRLimit Editable="TRUE" Type="Integer">-35.2,-32.2,-32.2,-35.2</ACLRLimit>
+				<BLERSamples Editable="TRUE" Type="Integer">2000</BLERSamples>
+				<BLERLimit Editable="TRUE" Type="Integer">1</BLERLimit>
+				<RxCellPower Editable="TRUE" Type="Integer">-96.3</RxCellPower>
+				<!--End of Parameters-->
+			</ProcessObject>
+			<ProcessObject ClassName="CLteMeasLoop" Name="LteTest_B7_RB50">
+				<!--Main Function is necessary-->
+				<MainFunc Editable="TRUE" Type="String">LteTestMainFunc</MainFunc>
+				<!--Parameters-->
+				<List>
+					<Item Name="LteHandOver" Enabled="TRUE"/>
+					<Item Name="LteMaxPower" Enabled="TRUE"/>
+					<Item Name="ConfiguredTxPower" Enabled="FALSE"/>
+					<Item Name="LteTxQual" Enabled="TRUE"/>
+					<Item Name="LteSEMask" Enabled="TRUE"/>
+					<Item Name="LteACLR" Enabled="TRUE"/>
+					<Item Name="LteOBW" Enabled="TRUE"/>
+					<Item Name="LteMinPower" Enabled="TRUE"/>
+					<Item Name="LteBlockErr" Enabled="TRUE"/>
+				</List>
+				<TestBand Editable="TRUE" Type="Integer">7</TestBand>
+				<TestChannelList Editable="TRUE" Type="Integer">21058</TestChannelList>
+				<NumRB Editable="TRUE" Type="Integer">50</NumRB>
+				<StartRB Editable="TRUE" Type="Integer">0</StartRB>
+				<MCS Editable="TRUE" Type="Integer">6</MCS>
+				<WaveFile Editable="TRUE" Type="Integer">D:\\LTE.WV</WaveFile>
+				<MeasureCount Editable="TRUE" Type="Integer">10</MeasureCount>
+				<MaxPowerLimit Editable="TRUE" Type="Integer">20.3,25.7</MaxPowerLimit>
+				<MinPowerLimit Editable="TRUE" Type="Integer">-39,-999</MinPowerLimit>
+				<TxQualPowerList Editable="TRUE" Type="Integer">25</TxQualPowerList>
+				<FERLimit Editable="TRUE" Type="Integer">0.1</FERLimit>
+				<OBWLimit Editable="TRUE" Type="Integer">10</OBWLimit>
+				<EVMLimit Editable="TRUE" Type="Integer">17.5</EVMLimit>
+				<SEMaskLimit Editable="TRUE" Type="Integer">-23.5,-11.5,-8.5,-16.5,-16.5,-8.5,-11.5,-23.5</SEMaskLimit>
+				<ACLRLimit Editable="TRUE" Type="Integer">-35.2,-32.2,-32.2,-35.2</ACLRLimit>
+				<BLERSamples Editable="TRUE" Type="Integer">2000</BLERSamples>
+				<BLERLimit Editable="TRUE" Type="Integer">1</BLERLimit>
+				<RxCellPower Editable="TRUE" Type="Integer">-86.3</RxCellPower>
+				<!--End of Parameters-->
+			</ProcessObject>
+			<ProcessObject ClassName="CLteMeasLoop" Name="LteTest_B7_16QAM">
+				<!--Main Function is necessary-->
+				<MainFunc Editable="TRUE" Type="String">LteTestMainFunc</MainFunc>
+				<!--Parameters-->
+				<List>
+					<Item Name="LteHandOver" Enabled="TRUE"/>
+					<Item Name="LteMaxPower" Enabled="TRUE"/>
+					<Item Name="LteTxQual" Enabled="TRUE"/>
+				</List>
+				<TestBand Editable="TRUE" Type="Integer">7</TestBand>
+				<TestChannelList Editable="TRUE" Type="Integer">21058</TestChannelList>
+				<NumRB Editable="TRUE" Type="Integer">12</NumRB>
+				<StartRB Editable="TRUE" Type="Integer">0</StartRB>
+				<MCS Editable="TRUE" Type="Integer">20</MCS>
+				<WaveFile Editable="TRUE" Type="Integer">D:\\LTE.WV</WaveFile>
+				<MeasureCount Editable="TRUE" Type="Integer">10</MeasureCount>
+				<MaxPowerLimit Editable="TRUE" Type="Integer">19.3,25.7</MaxPowerLimit>
+				<MinPowerLimit Editable="TRUE" Type="Integer">-39,-999</MinPowerLimit>
+				<TxQualPowerList Editable="TRUE" Type="Integer">25</TxQualPowerList>
+				<FERLimit Editable="TRUE" Type="Integer">0.1</FERLimit>
+				<OBWLimit Editable="TRUE" Type="Integer">10</OBWLimit>
+				<EVMLimit Editable="TRUE" Type="Integer">12.5</EVMLimit>
+				<SEMaskLimit Editable="TRUE" Type="Integer">-23.5,-11.5,-8.5,-16.5,-16.5,-8.5,-11.5,-23.5</SEMaskLimit>
+				<ACLRLimit Editable="TRUE" Type="Integer">-35.2,-32.2,-32.2,-35.2</ACLRLimit>
+				<BLERSamples Editable="TRUE" Type="Integer">2000</BLERSamples>
+				<BLERLimit Editable="TRUE" Type="Integer">1</BLERLimit>
+				<RxCellPower Editable="TRUE" Type="Integer">-96.3</RxCellPower>
+				<!--End of Parameters-->
+			</ProcessObject>
+			<ProcessObject ClassName="CLteMeasLoop" Name="LteTest_B8_RB50">
+				<!--Main Function is necessary-->
+				<MainFunc Editable="TRUE" Type="String">LteTestMainFunc</MainFunc>
+				<!--Parameters-->
+				<List>
+					<Item Name="LteHandOver" Enabled="TRUE"/>
+					<Item Name="LteMaxPower" Enabled="TRUE"/>
+					<Item Name="ConfiguredTxPower" Enabled="FALSE"/>
+					<Item Name="LteTxQual" Enabled="TRUE"/>
+					<Item Name="LteSEMask" Enabled="TRUE"/>
+					<Item Name="LteACLR" Enabled="TRUE"/>
+					<Item Name="LteOBW" Enabled="TRUE"/>
+					<Item Name="LteMinPower" Enabled="TRUE"/>
+					<Item Name="LteBlockErr" Enabled="TRUE"/>
+				</List>
+				<TestBand Editable="TRUE" Type="Integer">8</TestBand>
+				<TestChannelList Editable="TRUE" Type="Integer">21604</TestChannelList>
+				<NumRB Editable="TRUE" Type="Integer">50</NumRB>
+				<StartRB Editable="TRUE" Type="Integer">0</StartRB>
+				<MCS Editable="TRUE" Type="Integer">6</MCS>
+				<WaveFile Editable="TRUE" Type="Integer">D:\\LTE.WV</WaveFile>
+				<MeasureCount Editable="TRUE" Type="Integer">10</MeasureCount>
+				<MaxPowerLimit Editable="TRUE" Type="Integer">20.3,25.7</MaxPowerLimit>
+				<MinPowerLimit Editable="TRUE" Type="Integer">-39,-999</MinPowerLimit>
+				<TxQualPowerList Editable="TRUE" Type="Integer">25</TxQualPowerList>
+				<FERLimit Editable="TRUE" Type="Integer">0.1</FERLimit>
+				<OBWLimit Editable="TRUE" Type="Integer">10</OBWLimit>
+				<EVMLimit Editable="TRUE" Type="Integer">17.5</EVMLimit>
+				<SEMaskLimit Editable="TRUE" Type="Integer">-23.5,-11.5,-8.5,-16.5,-16.5,-8.5,-11.5,-23.5</SEMaskLimit>
+				<ACLRLimit Editable="TRUE" Type="Integer">-35.2,-32.2,-32.2,-35.2</ACLRLimit>
+				<BLERSamples Editable="TRUE" Type="Integer">2000</BLERSamples>
+				<BLERLimit Editable="TRUE" Type="Integer">1</BLERLimit>
+				<RxCellPower Editable="TRUE" Type="Integer">-86.3</RxCellPower>
+				<!--End of Parameters-->
+			</ProcessObject>
+			<ProcessObject ClassName="CLteMeasLoop" Name="LteTest_B8_16QAM">
+				<!--Main Function is necessary-->
+				<MainFunc Editable="TRUE" Type="String">LteTestMainFunc</MainFunc>
+				<!--Parameters-->
+				<List>
+					<Item Name="LteHandOver" Enabled="TRUE"/>
+					<Item Name="LteMaxPower" Enabled="TRUE"/>
+					<Item Name="LteTxQual" Enabled="TRUE"/>
+				</List>
+				<TestBand Editable="TRUE" Type="Integer">8</TestBand>
+				<TestChannelList Editable="TRUE" Type="Integer">21604</TestChannelList>
+				<NumRB Editable="TRUE" Type="Integer">12</NumRB>
+				<StartRB Editable="TRUE" Type="Integer">0</StartRB>
+				<MCS Editable="TRUE" Type="Integer">20</MCS>
+				<WaveFile Editable="TRUE" Type="Integer">D:\\LTE.WV</WaveFile>
+				<MeasureCount Editable="TRUE" Type="Integer">10</MeasureCount>
+				<MaxPowerLimit Editable="TRUE" Type="Integer">19.3,25.7</MaxPowerLimit>
+				<MinPowerLimit Editable="TRUE" Type="Integer">-39,-999</MinPowerLimit>
+				<TxQualPowerList Editable="TRUE" Type="Integer">25</TxQualPowerList>
+				<FERLimit Editable="TRUE" Type="Integer">0.1</FERLimit>
+				<OBWLimit Editable="TRUE" Type="Integer">10</OBWLimit>
+				<EVMLimit Editable="TRUE" Type="Integer">12.5</EVMLimit>
+				<SEMaskLimit Editable="TRUE" Type="Integer">-23.5,-11.5,-8.5,-16.5,-16.5,-8.5,-11.5,-23.5</SEMaskLimit>
+				<ACLRLimit Editable="TRUE" Type="Integer">-35.2,-32.2,-32.2,-35.2</ACLRLimit>
+				<BLERSamples Editable="TRUE" Type="Integer">2000</BLERSamples>
+				<BLERLimit Editable="TRUE" Type="Integer">1</BLERLimit>
+				<RxCellPower Editable="TRUE" Type="Integer">-96.3</RxCellPower>
+				<!--End of Parameters-->
+			</ProcessObject>
+			<ProcessObject ClassName="CLteMeasLoop" Name="LteTest_B12_RB50">
+				<!--Main Function is necessary-->
+				<MainFunc Editable="TRUE" Type="String">LteTestMainFunc</MainFunc>
+				<!--Parameters-->
+				<List>
+					<Item Name="LteHandOver" Enabled="TRUE"/>
+					<Item Name="LteMaxPower" Enabled="TRUE"/>
+					<Item Name="ConfiguredTxPower" Enabled="FALSE"/>
+					<Item Name="LteTxQual" Enabled="TRUE"/>
+					<Item Name="LteSEMask" Enabled="TRUE"/>
+					<Item Name="LteACLR" Enabled="TRUE"/>
+					<Item Name="LteOBW" Enabled="TRUE"/>
+					<Item Name="LteMinPower" Enabled="TRUE"/>
+					<Item Name="LteBlockErr" Enabled="TRUE"/>
+				</List>
+				<TestBand Editable="TRUE" Type="Integer">12</TestBand>
+				<TestChannelList Editable="TRUE" Type="Integer">23089</TestChannelList>
+				<NumRB Editable="TRUE" Type="Integer">50</NumRB>
+				<StartRB Editable="TRUE" Type="Integer">0</StartRB>
+				<MCS Editable="TRUE" Type="Integer">6</MCS>
+				<WaveFile Editable="TRUE" Type="Integer">D:\\LTE.WV</WaveFile>
+				<MeasureCount Editable="TRUE" Type="Integer">10</MeasureCount>
+				<MaxPowerLimit Editable="TRUE" Type="Integer">20.3,25.7</MaxPowerLimit>
+				<MinPowerLimit Editable="TRUE" Type="Integer">-39,-999</MinPowerLimit>
+				<TxQualPowerList Editable="TRUE" Type="Integer">25</TxQualPowerList>
+				<FERLimit Editable="TRUE" Type="Integer">0.1</FERLimit>
+				<OBWLimit Editable="TRUE" Type="Integer">10</OBWLimit>
+				<EVMLimit Editable="TRUE" Type="Integer">17.5</EVMLimit>
+				<SEMaskLimit Editable="TRUE" Type="Integer">-23.5,-11.5,-8.5,-16.5,-16.5,-8.5,-11.5,-23.5</SEMaskLimit>
+				<ACLRLimit Editable="TRUE" Type="Integer">-35.2,-32.2,-32.2,-35.2</ACLRLimit>
+				<BLERSamples Editable="TRUE" Type="Integer">2000</BLERSamples>
+				<BLERLimit Editable="TRUE" Type="Integer">1</BLERLimit>
+				<RxCellPower Editable="TRUE" Type="Integer">-86.3</RxCellPower>
+				<!--End of Parameters-->
+			</ProcessObject>
+			<ProcessObject ClassName="CLteMeasLoop" Name="LteTest_B12_16QAM">
+				<!--Main Function is necessary-->
+				<MainFunc Editable="TRUE" Type="String">LteTestMainFunc</MainFunc>
+				<!--Parameters-->
+				<List>
+					<Item Name="LteHandOver" Enabled="TRUE"/>
+					<Item Name="LteMaxPower" Enabled="TRUE"/>
+					<Item Name="LteTxQual" Enabled="TRUE"/>
+				</List>
+				<TestBand Editable="TRUE" Type="Integer">12</TestBand>
+				<TestChannelList Editable="TRUE" Type="Integer">23089</TestChannelList>
+				<NumRB Editable="TRUE" Type="Integer">12</NumRB>
+				<StartRB Editable="TRUE" Type="Integer">0</StartRB>
+				<MCS Editable="TRUE" Type="Integer">20</MCS>
+				<WaveFile Editable="TRUE" Type="Integer">D:\\LTE.WV</WaveFile>
+				<MeasureCount Editable="TRUE" Type="Integer">10</MeasureCount>
+				<MaxPowerLimit Editable="TRUE" Type="Integer">19.3,25.7</MaxPowerLimit>
+				<MinPowerLimit Editable="TRUE" Type="Integer">-39,-999</MinPowerLimit>
+				<TxQualPowerList Editable="TRUE" Type="Integer">25</TxQualPowerList>
+				<FERLimit Editable="TRUE" Type="Integer">0.1</FERLimit>
+				<OBWLimit Editable="TRUE" Type="Integer">10</OBWLimit>
+				<EVMLimit Editable="TRUE" Type="Integer">12.5</EVMLimit>
+				<SEMaskLimit Editable="TRUE" Type="Integer">-23.5,-11.5,-8.5,-16.5,-16.5,-8.5,-11.5,-23.5</SEMaskLimit>
+				<ACLRLimit Editable="TRUE" Type="Integer">-35.2,-32.2,-32.2,-35.2</ACLRLimit>
+				<BLERSamples Editable="TRUE" Type="Integer">2000</BLERSamples>
+				<BLERLimit Editable="TRUE" Type="Integer">1</BLERLimit>
+				<RxCellPower Editable="TRUE" Type="Integer">-96.3</RxCellPower>
+				<!--End of Parameters-->
+			</ProcessObject>
+			<ProcessObject ClassName="CLteMeasLoop" Name="LteTest_B14_RB50">
+				<!--Main Function is necessary-->
+				<MainFunc Editable="TRUE" Type="String">LteTestMainFunc</MainFunc>
+				<!--Parameters-->
+				<List>
+					<Item Name="LteHandOver" Enabled="TRUE"/>
+					<Item Name="LteMaxPower" Enabled="TRUE"/>
+					<Item Name="ConfiguredTxPower" Enabled="FALSE"/>
+					<Item Name="LteTxQual" Enabled="TRUE"/>
+					<Item Name="LteSEMask" Enabled="TRUE"/>
+					<Item Name="LteACLR" Enabled="TRUE"/>
+					<Item Name="LteOBW" Enabled="TRUE"/>
+					<Item Name="LteMinPower" Enabled="TRUE"/>
+					<Item Name="LteBlockErr" Enabled="TRUE"/>
+				</List>
+				<TestBand Editable="TRUE" Type="Integer">14</TestBand>
+				<TestChannelList Editable="TRUE" Type="Integer">23322</TestChannelList>
+				<NumRB Editable="TRUE" Type="Integer">50</NumRB>
+				<StartRB Editable="TRUE" Type="Integer">0</StartRB>
+				<MCS Editable="TRUE" Type="Integer">6</MCS>
+				<WaveFile Editable="TRUE" Type="Integer">D:\\LTE.WV</WaveFile>
+				<MeasureCount Editable="TRUE" Type="Integer">10</MeasureCount>
+				<MaxPowerLimit Editable="TRUE" Type="Integer">20.3,25.7</MaxPowerLimit>
+				<MinPowerLimit Editable="TRUE" Type="Integer">-39,-999</MinPowerLimit>
+				<TxQualPowerList Editable="TRUE" Type="Integer">25</TxQualPowerList>
+				<FERLimit Editable="TRUE" Type="Integer">0.1</FERLimit>
+				<OBWLimit Editable="TRUE" Type="Integer">10</OBWLimit>
+				<EVMLimit Editable="TRUE" Type="Integer">17.5</EVMLimit>
+				<SEMaskLimit Editable="TRUE" Type="Integer">-23.5,-11.5,-8.5,-16.5,-16.5,-8.5,-11.5,-23.5</SEMaskLimit>
+				<ACLRLimit Editable="TRUE" Type="Integer">-35.2,-32.2,-32.2,-35.2</ACLRLimit>
+				<BLERSamples Editable="TRUE" Type="Integer">2000</BLERSamples>
+				<BLERLimit Editable="TRUE" Type="Integer">1</BLERLimit>
+				<RxCellPower Editable="TRUE" Type="Integer">-86.3</RxCellPower>
+				<!--End of Parameters-->
+			</ProcessObject>
+			<ProcessObject ClassName="CLteMeasLoop" Name="LteTest_B14_16QAM">
+				<!--Main Function is necessary-->
+				<MainFunc Editable="TRUE" Type="String">LteTestMainFunc</MainFunc>
+				<!--Parameters-->
+				<List>
+					<Item Name="LteHandOver" Enabled="TRUE"/>
+					<Item Name="LteMaxPower" Enabled="TRUE"/>
+					<Item Name="LteTxQual" Enabled="TRUE"/>
+				</List>
+				<TestBand Editable="TRUE" Type="Integer">14</TestBand>
+				<TestChannelList Editable="TRUE" Type="Integer">23322</TestChannelList>
+				<NumRB Editable="TRUE" Type="Integer">12</NumRB>
+				<StartRB Editable="TRUE" Type="Integer">0</StartRB>
+				<MCS Editable="TRUE" Type="Integer">20</MCS>
+				<WaveFile Editable="TRUE" Type="Integer">D:\\LTE.WV</WaveFile>
+				<MeasureCount Editable="TRUE" Type="Integer">10</MeasureCount>
+				<MaxPowerLimit Editable="TRUE" Type="Integer">19.3,25.7</MaxPowerLimit>
+				<MinPowerLimit Editable="TRUE" Type="Integer">-39,-999</MinPowerLimit>
+				<TxQualPowerList Editable="TRUE" Type="Integer">25</TxQualPowerList>
+				<FERLimit Editable="TRUE" Type="Integer">0.1</FERLimit>
+				<OBWLimit Editable="TRUE" Type="Integer">10</OBWLimit>
+				<EVMLimit Editable="TRUE" Type="Integer">12.5</EVMLimit>
+				<SEMaskLimit Editable="TRUE" Type="Integer">-23.5,-11.5,-8.5,-16.5,-16.5,-8.5,-11.5,-23.5</SEMaskLimit>
+				<ACLRLimit Editable="TRUE" Type="Integer">-35.2,-32.2,-32.2,-35.2</ACLRLimit>
+				<BLERSamples Editable="TRUE" Type="Integer">2000</BLERSamples>
+				<BLERLimit Editable="TRUE" Type="Integer">1</BLERLimit>
+				<RxCellPower Editable="TRUE" Type="Integer">-96.3</RxCellPower>
+				<!--End of Parameters-->
+			</ProcessObject>
+			<ProcessObject ClassName="CLteMeasLoop" Name="LteTest_B17_RB50">
+				<!--Main Function is necessary-->
+				<MainFunc Editable="TRUE" Type="String">LteTestMainFunc</MainFunc>
+				<!--Parameters-->
+				<List>
+					<Item Name="LteHandOver" Enabled="TRUE"/>
+					<Item Name="LteMaxPower" Enabled="TRUE"/>
+					<Item Name="ConfiguredTxPower" Enabled="FALSE"/>
+					<Item Name="LteTxQual" Enabled="TRUE"/>
+					<Item Name="LteSEMask" Enabled="TRUE"/>
+					<Item Name="LteACLR" Enabled="TRUE"/>
+					<Item Name="LteOBW" Enabled="TRUE"/>
+					<Item Name="LteMinPower" Enabled="TRUE"/>
+					<Item Name="LteBlockErr" Enabled="TRUE"/>
+				</List>
+				<TestBand Editable="TRUE" Type="Integer">17</TestBand>
+				<TestChannelList Editable="TRUE" Type="Integer">23779</TestChannelList>
+				<NumRB Editable="TRUE" Type="Integer">50</NumRB>
+				<StartRB Editable="TRUE" Type="Integer">0</StartRB>
+				<MCS Editable="TRUE" Type="Integer">6</MCS>
+				<WaveFile Editable="TRUE" Type="Integer">D:\\LTE.WV</WaveFile>
+				<MeasureCount Editable="TRUE" Type="Integer">10</MeasureCount>
+				<MaxPowerLimit Editable="TRUE" Type="Integer">20.3,25.7</MaxPowerLimit>
+				<MinPowerLimit Editable="TRUE" Type="Integer">-39,-999</MinPowerLimit>
+				<TxQualPowerList Editable="TRUE" Type="Integer">25</TxQualPowerList>
+				<FERLimit Editable="TRUE" Type="Integer">0.1</FERLimit>
+				<OBWLimit Editable="TRUE" Type="Integer">10</OBWLimit>
+				<EVMLimit Editable="TRUE" Type="Integer">17.5</EVMLimit>
+				<SEMaskLimit Editable="TRUE" Type="Integer">-23.5,-11.5,-8.5,-16.5,-16.5,-8.5,-11.5,-23.5</SEMaskLimit>
+				<ACLRLimit Editable="TRUE" Type="Integer">-35.2,-32.2,-32.2,-35.2</ACLRLimit>
+				<BLERSamples Editable="TRUE" Type="Integer">2000</BLERSamples>
+				<BLERLimit Editable="TRUE" Type="Integer">1</BLERLimit>
+				<RxCellPower Editable="TRUE" Type="Integer">-86.3</RxCellPower>
+				<!--End of Parameters-->
+			</ProcessObject>
+			<ProcessObject ClassName="CLteMeasLoop" Name="LteTest_B17_16QAM">
+				<!--Main Function is necessary-->
+				<MainFunc Editable="TRUE" Type="String">LteTestMainFunc</MainFunc>
+				<!--Parameters-->
+				<List>
+					<Item Name="LteHandOver" Enabled="TRUE"/>
+					<Item Name="LteMaxPower" Enabled="TRUE"/>
+					<Item Name="LteTxQual" Enabled="TRUE"/>
+				</List>
+				<TestBand Editable="TRUE" Type="Integer">17</TestBand>
+				<TestChannelList Editable="TRUE" Type="Integer">23779</TestChannelList>
+				<NumRB Editable="TRUE" Type="Integer">12</NumRB>
+				<StartRB Editable="TRUE" Type="Integer">0</StartRB>
+				<MCS Editable="TRUE" Type="Integer">20</MCS>
+				<WaveFile Editable="TRUE" Type="Integer">D:\\LTE.WV</WaveFile>
+				<MeasureCount Editable="TRUE" Type="Integer">10</MeasureCount>
+				<MaxPowerLimit Editable="TRUE" Type="Integer">19.3,25.7</MaxPowerLimit>
+				<MinPowerLimit Editable="TRUE" Type="Integer">-39,-999</MinPowerLimit>
+				<TxQualPowerList Editable="TRUE" Type="Integer">25</TxQualPowerList>
+				<FERLimit Editable="TRUE" Type="Integer">0.1</FERLimit>
+				<OBWLimit Editable="TRUE" Type="Integer">10</OBWLimit>
+				<EVMLimit Editable="TRUE" Type="Integer">12.5</EVMLimit>
+				<SEMaskLimit Editable="TRUE" Type="Integer">-23.5,-11.5,-8.5,-16.5,-16.5,-8.5,-11.5,-23.5</SEMaskLimit>
+				<ACLRLimit Editable="TRUE" Type="Integer">-35.2,-32.2,-32.2,-35.2</ACLRLimit>
+				<BLERSamples Editable="TRUE" Type="Integer">2000</BLERSamples>
+				<BLERLimit Editable="TRUE" Type="Integer">1</BLERLimit>
+				<RxCellPower Editable="TRUE" Type="Integer">-96.3</RxCellPower>
+				<!--End of Parameters-->
+			</ProcessObject>
+			<ProcessObject ClassName="CLteMeasLoop" Name="LteTest_B20_RB50">
+				<!--Main Function is necessary-->
+				<MainFunc Editable="TRUE" Type="String">LteTestMainFunc</MainFunc>
+				<!--Parameters-->
+				<List>
+					<Item Name="LteHandOver" Enabled="TRUE"/>
+					<Item Name="LteMaxPower" Enabled="TRUE"/>
+					<Item Name="ConfiguredTxPower" Enabled="FALSE"/>
+					<Item Name="LteTxQual" Enabled="TRUE"/>
+					<Item Name="LteSEMask" Enabled="TRUE"/>
+					<Item Name="LteACLR" Enabled="TRUE"/>
+					<Item Name="LteOBW" Enabled="TRUE"/>
+					<Item Name="LteMinPower" Enabled="TRUE"/>
+					<Item Name="LteBlockErr" Enabled="TRUE"/>
+				</List>
+				<TestBand Editable="TRUE" Type="Integer">20</TestBand>
+				<TestChannelList Editable="TRUE" Type="Integer">24290</TestChannelList>
+				<NumRB Editable="TRUE" Type="Integer">50</NumRB>
+				<StartRB Editable="TRUE" Type="Integer">0</StartRB>
+				<MCS Editable="TRUE" Type="Integer">6</MCS>
+				<WaveFile Editable="TRUE" Type="Integer">D:\\LTE.WV</WaveFile>
+				<MeasureCount Editable="TRUE" Type="Integer">10</MeasureCount>
+				<MaxPowerLimit Editable="TRUE" Type="Integer">20.3,25.7</MaxPowerLimit>
+				<MinPowerLimit Editable="TRUE" Type="Integer">-39,-999</MinPowerLimit>
+				<TxQualPowerList Editable="TRUE" Type="Integer">25</TxQualPowerList>
+				<FERLimit Editable="TRUE" Type="Integer">0.1</FERLimit>
+				<OBWLimit Editable="TRUE" Type="Integer">10</OBWLimit>
+				<EVMLimit Editable="TRUE" Type="Integer">17.5</EVMLimit>
+				<SEMaskLimit Editable="TRUE" Type="Integer">-23.5,-11.5,-8.5,-16.5,-16.5,-8.5,-11.5,-23.5</SEMaskLimit>
+				<ACLRLimit Editable="TRUE" Type="Integer">-35.2,-32.2,-32.2,-35.2</ACLRLimit>
+				<BLERSamples Editable="TRUE" Type="Integer">2000</BLERSamples>
+				<BLERLimit Editable="TRUE" Type="Integer">1</BLERLimit>
+				<RxCellPower Editable="TRUE" Type="Integer">-86.3</RxCellPower>
+				<!--End of Parameters-->
+			</ProcessObject>
+			<ProcessObject ClassName="CLteMeasLoop" Name="LteTest_B20_16QAM">
+				<!--Main Function is necessary-->
+				<MainFunc Editable="TRUE" Type="String">LteTestMainFunc</MainFunc>
+				<!--Parameters-->
+				<List>
+					<Item Name="LteHandOver" Enabled="TRUE"/>
+					<Item Name="LteMaxPower" Enabled="TRUE"/>
+					<Item Name="LteTxQual" Enabled="TRUE"/>
+				</List>
+				<TestBand Editable="TRUE" Type="Integer">20</TestBand>
+				<TestChannelList Editable="TRUE" Type="Integer">24290</TestChannelList>
+				<NumRB Editable="TRUE" Type="Integer">12</NumRB>
+				<StartRB Editable="TRUE" Type="Integer">0</StartRB>
+				<MCS Editable="TRUE" Type="Integer">20</MCS>
+				<WaveFile Editable="TRUE" Type="Integer">D:\\LTE.WV</WaveFile>
+				<MeasureCount Editable="TRUE" Type="Integer">10</MeasureCount>
+				<MaxPowerLimit Editable="TRUE" Type="Integer">19.3,25.7</MaxPowerLimit>
+				<MinPowerLimit Editable="TRUE" Type="Integer">-39,-999</MinPowerLimit>
+				<TxQualPowerList Editable="TRUE" Type="Integer">25</TxQualPowerList>
+				<FERLimit Editable="TRUE" Type="Integer">0.1</FERLimit>
+				<OBWLimit Editable="TRUE" Type="Integer">10</OBWLimit>
+				<EVMLimit Editable="TRUE" Type="Integer">12.5</EVMLimit>
+				<SEMaskLimit Editable="TRUE" Type="Integer">-23.5,-11.5,-8.5,-16.5,-16.5,-8.5,-11.5,-23.5</SEMaskLimit>
+				<ACLRLimit Editable="TRUE" Type="Integer">-35.2,-32.2,-32.2,-35.2</ACLRLimit>
+				<BLERSamples Editable="TRUE" Type="Integer">2000</BLERSamples>
+				<BLERLimit Editable="TRUE" Type="Integer">1</BLERLimit>
+				<RxCellPower Editable="TRUE" Type="Integer">-96.3</RxCellPower>
+				<!--End of Parameters-->
+			</ProcessObject>
+			<ProcessObject ClassName="CLteMeasLoop" Name="LteTest_B25_RB50">
+				<!--Main Function is necessary-->
+				<MainFunc Editable="TRUE" Type="String">LteTestMainFunc</MainFunc>
+				<!--Parameters-->
+				<List>
+					<Item Name="LteHandOver" Enabled="TRUE"/>
+					<Item Name="LteMaxPower" Enabled="TRUE"/>
+					<Item Name="ConfiguredTxPower" Enabled="FALSE"/>
+					<Item Name="LteTxQual" Enabled="TRUE"/>
+					<Item Name="LteSEMask" Enabled="TRUE"/>
+					<Item Name="LteACLR" Enabled="TRUE"/>
+					<Item Name="LteOBW" Enabled="TRUE"/>
+					<Item Name="LteMinPower" Enabled="TRUE"/>
+					<Item Name="LteBlockErr" Enabled="TRUE"/>
+				</List>
+				<TestBand Editable="TRUE" Type="Integer">25</TestBand>
+				<TestChannelList Editable="TRUE" Type="Integer">26343</TestChannelList>
+				<NumRB Editable="TRUE" Type="Integer">50</NumRB>
+				<StartRB Editable="TRUE" Type="Integer">0</StartRB>
+				<MCS Editable="TRUE" Type="Integer">6</MCS>
+				<WaveFile Editable="TRUE" Type="Integer">D:\\LTE.WV</WaveFile>
+				<MeasureCount Editable="TRUE" Type="Integer">10</MeasureCount>
+				<MaxPowerLimit Editable="TRUE" Type="Integer">20.3,25.7</MaxPowerLimit>
+				<MinPowerLimit Editable="TRUE" Type="Integer">-39,-999</MinPowerLimit>
+				<TxQualPowerList Editable="TRUE" Type="Integer">25</TxQualPowerList>
+				<FERLimit Editable="TRUE" Type="Integer">0.1</FERLimit>
+				<OBWLimit Editable="TRUE" Type="Integer">10</OBWLimit>
+				<EVMLimit Editable="TRUE" Type="Integer">17.5</EVMLimit>
+				<SEMaskLimit Editable="TRUE" Type="Integer">-23.5,-11.5,-8.5,-16.5,-16.5,-8.5,-11.5,-23.5</SEMaskLimit>
+				<ACLRLimit Editable="TRUE" Type="Integer">-35.2,-32.2,-32.2,-35.2</ACLRLimit>
+				<BLERSamples Editable="TRUE" Type="Integer">2000</BLERSamples>
+				<BLERLimit Editable="TRUE" Type="Integer">1</BLERLimit>
+				<RxCellPower Editable="TRUE" Type="Integer">-86.3</RxCellPower>
+				<!--End of Parameters-->
+			</ProcessObject>
+			<ProcessObject ClassName="CLteMeasLoop" Name="LteTest_B25_16QAM">
+				<!--Main Function is necessary-->
+				<MainFunc Editable="TRUE" Type="String">LteTestMainFunc</MainFunc>
+				<!--Parameters-->
+				<List>
+					<Item Name="LteHandOver" Enabled="TRUE"/>
+					<Item Name="LteMaxPower" Enabled="TRUE"/>
+					<Item Name="LteTxQual" Enabled="TRUE"/>
+				</List>
+				<TestBand Editable="TRUE" Type="Integer">25</TestBand>
+				<TestChannelList Editable="TRUE" Type="Integer">26343</TestChannelList>
+				<NumRB Editable="TRUE" Type="Integer">12</NumRB>
+				<StartRB Editable="TRUE" Type="Integer">0</StartRB>
+				<MCS Editable="TRUE" Type="Integer">20</MCS>
+				<WaveFile Editable="TRUE" Type="Integer">D:\\LTE.WV</WaveFile>
+				<MeasureCount Editable="TRUE" Type="Integer">10</MeasureCount>
+				<MaxPowerLimit Editable="TRUE" Type="Integer">19.3,25.7</MaxPowerLimit>
+				<MinPowerLimit Editable="TRUE" Type="Integer">-39,-999</MinPowerLimit>
+				<TxQualPowerList Editable="TRUE" Type="Integer">25</TxQualPowerList>
+				<FERLimit Editable="TRUE" Type="Integer">0.1</FERLimit>
+				<OBWLimit Editable="TRUE" Type="Integer">10</OBWLimit>
+				<EVMLimit Editable="TRUE" Type="Integer">12.5</EVMLimit>
+				<SEMaskLimit Editable="TRUE" Type="Integer">-23.5,-11.5,-8.5,-16.5,-16.5,-8.5,-11.5,-23.5</SEMaskLimit>
+				<ACLRLimit Editable="TRUE" Type="Integer">-35.2,-32.2,-32.2,-35.2</ACLRLimit>
+				<BLERSamples Editable="TRUE" Type="Integer">2000</BLERSamples>
+				<BLERLimit Editable="TRUE" Type="Integer">1</BLERLimit>
+				<RxCellPower Editable="TRUE" Type="Integer">-96.3</RxCellPower>
+				<!--End of Parameters-->
+			</ProcessObject>
+			<ProcessObject ClassName="CLteMeasLoop" Name="LteTest_B26_RB50">
+				<!--Main Function is necessary-->
+				<MainFunc Editable="TRUE" Type="String">LteTestMainFunc</MainFunc>
+				<!--Parameters-->
+				<List>
+					<Item Name="LteHandOver" Enabled="TRUE"/>
+					<Item Name="LteMaxPower" Enabled="TRUE"/>
+					<Item Name="ConfiguredTxPower" Enabled="FALSE"/>
+					<Item Name="LteTxQual" Enabled="TRUE"/>
+					<Item Name="LteSEMask" Enabled="TRUE"/>
+					<Item Name="LteACLR" Enabled="TRUE"/>
+					<Item Name="LteOBW" Enabled="TRUE"/>
+					<Item Name="LteMinPower" Enabled="TRUE"/>
+					<Item Name="LteBlockErr" Enabled="TRUE"/>
+				</List>
+				<TestBand Editable="TRUE" Type="Integer">26</TestBand>
+				<TestChannelList Editable="TRUE" Type="Integer">26837</TestChannelList>
+				<NumRB Editable="TRUE" Type="Integer">50</NumRB>
+				<StartRB Editable="TRUE" Type="Integer">0</StartRB>
+				<MCS Editable="TRUE" Type="Integer">6</MCS>
+				<WaveFile Editable="TRUE" Type="Integer">D:\\LTE.WV</WaveFile>
+				<MeasureCount Editable="TRUE" Type="Integer">10</MeasureCount>
+				<MaxPowerLimit Editable="TRUE" Type="Integer">20.3,25.7</MaxPowerLimit>
+				<MinPowerLimit Editable="TRUE" Type="Integer">-39,-999</MinPowerLimit>
+				<TxQualPowerList Editable="TRUE" Type="Integer">25</TxQualPowerList>
+				<FERLimit Editable="TRUE" Type="Integer">0.1</FERLimit>
+				<OBWLimit Editable="TRUE" Type="Integer">10</OBWLimit>
+				<EVMLimit Editable="TRUE" Type="Integer">17.5</EVMLimit>
+				<SEMaskLimit Editable="TRUE" Type="Integer">-23.5,-11.5,-8.5,-16.5,-16.5,-8.5,-11.5,-23.5</SEMaskLimit>
+				<ACLRLimit Editable="TRUE" Type="Integer">-35.2,-32.2,-32.2,-35.2</ACLRLimit>
+				<BLERSamples Editable="TRUE" Type="Integer">2000</BLERSamples>
+				<BLERLimit Editable="TRUE" Type="Integer">1</BLERLimit>
+				<RxCellPower Editable="TRUE" Type="Integer">-86.3</RxCellPower>
+				<!--End of Parameters-->
+			</ProcessObject>
+			<ProcessObject ClassName="CLteMeasLoop" Name="LteTest_B26_16QAM">
+				<!--Main Function is necessary-->
+				<MainFunc Editable="TRUE" Type="String">LteTestMainFunc</MainFunc>
+				<!--Parameters-->
+				<List>
+					<Item Name="LteHandOver" Enabled="TRUE"/>
+					<Item Name="LteMaxPower" Enabled="TRUE"/>
+					<Item Name="LteTxQual" Enabled="TRUE"/>
+				</List>
+				<TestBand Editable="TRUE" Type="Integer">26</TestBand>
+				<TestChannelList Editable="TRUE" Type="Integer">26837</TestChannelList>
+				<NumRB Editable="TRUE" Type="Integer">12</NumRB>
+				<StartRB Editable="TRUE" Type="Integer">0</StartRB>
+				<MCS Editable="TRUE" Type="Integer">20</MCS>
+				<WaveFile Editable="TRUE" Type="Integer">D:\\LTE.WV</WaveFile>
+				<MeasureCount Editable="TRUE" Type="Integer">10</MeasureCount>
+				<MaxPowerLimit Editable="TRUE" Type="Integer">19.3,25.7</MaxPowerLimit>
+				<MinPowerLimit Editable="TRUE" Type="Integer">-39,-999</MinPowerLimit>
+				<TxQualPowerList Editable="TRUE" Type="Integer">25</TxQualPowerList>
+				<FERLimit Editable="TRUE" Type="Integer">0.1</FERLimit>
+				<OBWLimit Editable="TRUE" Type="Integer">10</OBWLimit>
+				<EVMLimit Editable="TRUE" Type="Integer">12.5</EVMLimit>
+				<SEMaskLimit Editable="TRUE" Type="Integer">-23.5,-11.5,-8.5,-16.5,-16.5,-8.5,-11.5,-23.5</SEMaskLimit>
+				<ACLRLimit Editable="TRUE" Type="Integer">-35.2,-32.2,-32.2,-35.2</ACLRLimit>
+				<BLERSamples Editable="TRUE" Type="Integer">2000</BLERSamples>
+				<BLERLimit Editable="TRUE" Type="Integer">1</BLERLimit>
+				<RxCellPower Editable="TRUE" Type="Integer">-96.3</RxCellPower>
+				<!--End of Parameters-->
+			</ProcessObject>
+			<ProcessObject ClassName="CLteMeasLoop" Name="LteTest_B38_RB50">
+				<!--Main Function is necessary-->
+				<MainFunc Editable="TRUE" Type="String">LteTestMainFunc</MainFunc>
+				<!--Parameters-->
+				<List>
+					<Item Name="LteHandOver" Enabled="TRUE"/>
+					<Item Name="LteMaxPower" Enabled="TRUE"/>
+					<Item Name="ConfiguredTxPower" Enabled="FALSE"/>
+					<Item Name="LteTxQual" Enabled="TRUE"/>
+					<Item Name="LteSEMask" Enabled="TRUE"/>
+					<Item Name="LteACLR" Enabled="TRUE"/>
+					<Item Name="LteOBW" Enabled="TRUE"/>
+					<Item Name="LteMinPower" Enabled="TRUE"/>
+					<Item Name="LteBlockErr" Enabled="TRUE"/>
+				</List>
+				<TestBand Editable="TRUE" Type="Integer">38</TestBand>
+				<TestChannelList Editable="TRUE" Type="Integer">38014</TestChannelList>
+				<NumRB Editable="TRUE" Type="Integer">50</NumRB>
+				<StartRB Editable="TRUE" Type="Integer">0</StartRB>
+				<MCS Editable="TRUE" Type="Integer">6</MCS>
+				<WaveFile Editable="TRUE" Type="Integer">D:\\LTE.WV</WaveFile>
+				<MeasureCount Editable="TRUE" Type="Integer">10</MeasureCount>
+				<MaxPowerLimit Editable="TRUE" Type="Integer">19.3,25.7</MaxPowerLimit>
+				<MinPowerLimit Editable="TRUE" Type="Integer">-39,-999</MinPowerLimit>
+				<TxQualPowerList Editable="TRUE" Type="Integer">25</TxQualPowerList>
+				<FERLimit Editable="TRUE" Type="Integer">0.1</FERLimit>
+				<OBWLimit Editable="TRUE" Type="Integer">10</OBWLimit>
+				<EVMLimit Editable="TRUE" Type="Integer">17.5</EVMLimit>
+				<SEMaskLimit Editable="TRUE" Type="Integer">-23.5,-11.5,-8.5,-16.5,-16.5,-8.5,-11.5,-23.5</SEMaskLimit>
+				<ACLRLimit Editable="TRUE" Type="Integer">-35.2,-32.2,-32.2,-35.2</ACLRLimit>
+				<BLERSamples Editable="TRUE" Type="Integer">2000</BLERSamples>
+				<BLERLimit Editable="TRUE" Type="Integer">1</BLERLimit>
+				<RxCellPower Editable="TRUE" Type="Integer">-86.3</RxCellPower>
+				<!--End of Parameters-->
+			</ProcessObject>
+			<ProcessObject ClassName="CLteMeasLoop" Name="LteTest_B38_16QAM">
+				<!--Main Function is necessary-->
+				<MainFunc Editable="TRUE" Type="String">LteTestMainFunc</MainFunc>
+				<!--Parameters-->
+				<List>
+					<Item Name="LteHandOver" Enabled="TRUE"/>
+					<Item Name="LteMaxPower" Enabled="TRUE"/>
+					<Item Name="LteTxQual" Enabled="TRUE"/>
+				</List>
+				<TestBand Editable="TRUE" Type="Integer">38</TestBand>
+				<TestChannelList Editable="TRUE" Type="Integer">38014</TestChannelList>
+				<NumRB Editable="TRUE" Type="Integer">12</NumRB>
+				<StartRB Editable="TRUE" Type="Integer">0</StartRB>
+				<MCS Editable="TRUE" Type="Integer">20</MCS>
+				<WaveFile Editable="TRUE" Type="Integer">D:\\LTE.WV</WaveFile>
+				<MeasureCount Editable="TRUE" Type="Integer">10</MeasureCount>
+				<MaxPowerLimit Editable="TRUE" Type="Integer">19.3,25.7</MaxPowerLimit>
+				<MinPowerLimit Editable="TRUE" Type="Integer">-39,-999</MinPowerLimit>
+				<TxQualPowerList Editable="TRUE" Type="Integer">25</TxQualPowerList>
+				<FERLimit Editable="TRUE" Type="Integer">0.1</FERLimit>
+				<OBWLimit Editable="TRUE" Type="Integer">10</OBWLimit>
+				<EVMLimit Editable="TRUE" Type="Integer">12.5</EVMLimit>
+				<SEMaskLimit Editable="TRUE" Type="Integer">-23.5,-11.5,-8.5,-16.5,-16.5,-8.5,-11.5,-23.5</SEMaskLimit>
+				<ACLRLimit Editable="TRUE" Type="Integer">-35.2,-32.2,-32.2,-35.2</ACLRLimit>
+				<BLERSamples Editable="TRUE" Type="Integer">2000</BLERSamples>
+				<BLERLimit Editable="TRUE" Type="Integer">1</BLERLimit>
+				<RxCellPower Editable="TRUE" Type="Integer">-96.3</RxCellPower>
+				<!--End of Parameters-->
+			</ProcessObject>
+			<ProcessObject ClassName="CLteMeasLoop" Name="LteTest_B41_RB50">
+				<!--Main Function is necessary-->
+				<MainFunc Editable="TRUE" Type="String">LteTestMainFunc</MainFunc>
+				<!--Parameters-->
+				<List>
+					<Item Name="LteHandOver" Enabled="TRUE"/>
+					<Item Name="LteMaxPower" Enabled="TRUE"/>
+					<Item Name="ConfiguredTxPower" Enabled="FALSE"/>
+					<Item Name="LteTxQual" Enabled="TRUE"/>
+					<Item Name="LteSEMask" Enabled="TRUE"/>
+					<Item Name="LteACLR" Enabled="TRUE"/>
+					<Item Name="LteOBW" Enabled="TRUE"/>
+					<Item Name="LteMinPower" Enabled="TRUE"/>
+					<Item Name="LteBlockErr" Enabled="FALSE"/>
+				</List>
+				<TestBand Editable="TRUE" Type="Integer">40</TestBand>
+				<TestChannelList Editable="TRUE" Type="Integer">39146</TestChannelList>
+				<NumRB Editable="TRUE" Type="Integer">50</NumRB>
+				<StartRB Editable="TRUE" Type="Integer">0</StartRB>
+				<MCS Editable="TRUE" Type="Integer">6</MCS>
+				<WaveFile Editable="TRUE" Type="Integer">D:\\LTE.WV</WaveFile>
+				<MeasureCount Editable="TRUE" Type="Integer">10</MeasureCount>
+				<MaxPowerLimit Editable="TRUE" Type="Integer">19.3,25.7</MaxPowerLimit>
+				<MinPowerLimit Editable="TRUE" Type="Integer">-39,-999</MinPowerLimit>
+				<TxQualPowerList Editable="TRUE" Type="Integer">25</TxQualPowerList>
+				<FERLimit Editable="TRUE" Type="Integer">0.1</FERLimit>
+				<OBWLimit Editable="TRUE" Type="Integer">10</OBWLimit>
+				<EVMLimit Editable="TRUE" Type="Integer">17.5</EVMLimit>
+				<SEMaskLimit Editable="TRUE" Type="Integer">-23.5,-11.5,-8.5,-16.5,-16.5,-8.5,-11.5,-23.5</SEMaskLimit>
+				<ACLRLimit Editable="TRUE" Type="Integer">-35.2,-32.2,-32.2,-35.2</ACLRLimit>
+				<BLERSamples Editable="TRUE" Type="Integer">2000</BLERSamples>
+				<BLERLimit Editable="TRUE" Type="Integer">1</BLERLimit>
+				<RxCellPower Editable="TRUE" Type="Integer">-86.3</RxCellPower>
+				<!--End of Parameters-->
+			</ProcessObject>
+			<ProcessObject ClassName="CLteMeasLoop" Name="LteTest_B41_16QAM">
+				<!--Main Function is necessary-->
+				<MainFunc Editable="TRUE" Type="String">LteTestMainFunc</MainFunc>
+				<!--Parameters-->
+				<List>
+					<Item Name="LteHandOver" Enabled="TRUE"/>
+					<Item Name="LteMaxPower" Enabled="TRUE"/>
+					<Item Name="LteTxQual" Enabled="TRUE"/>
+				</List>
+				<TestBand Editable="TRUE" Type="Integer">41</TestBand>
+				<TestChannelList Editable="TRUE" Type="Integer">39146</TestChannelList>
+				<NumRB Editable="TRUE" Type="Integer">12</NumRB>
+				<StartRB Editable="TRUE" Type="Integer">0</StartRB>
+				<MCS Editable="TRUE" Type="Integer">20</MCS>
+				<WaveFile Editable="TRUE" Type="Integer">D:\\LTE.WV</WaveFile>
+				<MeasureCount Editable="TRUE" Type="Integer">10</MeasureCount>
+				<MaxPowerLimit Editable="TRUE" Type="Integer">19.3,25.7</MaxPowerLimit>
+				<MinPowerLimit Editable="TRUE" Type="Integer">-39,-999</MinPowerLimit>
+				<TxQualPowerList Editable="TRUE" Type="Integer">25</TxQualPowerList>
+				<FERLimit Editable="TRUE" Type="Integer">0.1</FERLimit>
+				<OBWLimit Editable="TRUE" Type="Integer">10</OBWLimit>
+				<EVMLimit Editable="TRUE" Type="Integer">12.5</EVMLimit>
+				<SEMaskLimit Editable="TRUE" Type="Integer">-23.5,-11.5,-8.5,-16.5,-16.5,-8.5,-11.5,-23.5</SEMaskLimit>
+				<ACLRLimit Editable="TRUE" Type="Integer">-35.2,-32.2,-32.2,-35.2</ACLRLimit>
+				<BLERSamples Editable="TRUE" Type="Integer">2000</BLERSamples>
+				<BLERLimit Editable="TRUE" Type="Integer">1</BLERLimit>
+				<RxCellPower Editable="TRUE" Type="Integer">-96.3</RxCellPower>
+				<!--End of Parameters-->
+			</ProcessObject>
+		</TDCDMATestProcessObjects>
+	</ProcessObjectSet>
+</Configurations>

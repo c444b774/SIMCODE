@@ -1,0 +1,193 @@
+<Configurations>
+	<PreObjects>
+		<DeviceObject ClassName="A8960" Name="A8960">
+			<RFin Editable="TRUE" Type="Integer">10</RFin>
+			<RFout Editable="TRUE" Type="Integer">10</RFout>
+			<ScreenOff Editable="TRUE" Type="Integer">1</ScreenOff>
+		</DeviceObject>
+		<DeviceObject ClassName="CCMU200" Name="CMU200">
+			<RFin Editable="TRUE" Type="Integer">2</RFin>
+			<RFout Editable="TRUE" Type="Integer">2</RFout>
+		</DeviceObject>
+		<DeviceObject ClassName="CCMW500" Name="CMW500">
+			<RFin Editable="TRUE" Type="Integer">1</RFin>
+			<RFout Editable="TRUE" Type="Integer">1</RFout>
+			<RFChannel Editable="TRUE" Type="Integer">1</RFChannel>
+		</DeviceObject>
+		<DeviceObject ClassName="N5182A" Name="N5182A">
+			<RFin Editable="TRUE" Type="Integer">1</RFin>
+			<RFout Editable="TRUE" Type="Integer">1</RFout>
+		</DeviceObject>
+		<DeviceObject ClassName="MT8820" Name="MT8820">
+			<RFin Editable="TRUE" Type="Integer">1</RFin>
+			<RFout Editable="TRUE" Type="Integer">1</RFout>
+			<ScreenOff Editable="TRUE" Type="Integer">1</ScreenOff>
+		</DeviceObject>
+		<PhoneObject ClassName="CRFNVItems" Name="CRFNVItemsObj">
+		</PhoneObject>
+		<PhoneObject ClassName="CQualPhone" Name="QualPhone">
+			<RFNVItemObject Editable="TRUE" Type="Integer">CRFNVItemsObj</RFNVItemObject>
+		</PhoneObject>
+	</PreObjects>
+	<MainObject>
+		<RFNVItem Editable="TRUE" Type="String">GeneralNV</RFNVItem>
+		<Phone Editable="TRUE" Type="String">QualPhone</Phone>
+		<TesterDeviceCommon Editable="TRUE" Type="String">MT8820</TesterDeviceCommon>
+		<TesterDevice1 Editable="TRUE" Type="String">dummy</TesterDevice1>
+		<List>
+			<Item Name="ReadSN" Enabled="True"/>
+			<Item Name="WCDMAStartcall" Enabled="True"/>
+			<Item Name="W2100Loss" Enabled="True"/>
+			<Item Name="W900Loss" Enabled="True"/>
+			<Item Name="WCDMAEndcall" Enabled="True"/></List>
+		<ALLItems>
+			<Item Name="ReadSN"/>
+			<Item Name="WriteWCDMATestFlag"/>
+			<Item Name="WCDMAStartcall"/>
+			<Item Name="W2100Loss"/>
+			<Item Name="W900Loss"/>
+			<Item Name="W850Loss"/>
+			<Item Name="WCDMAEndcall"/>
+		</ALLItems>
+	</MainObject>
+	<ProcessObjectSet>
+		<CommonProcessObjects>
+			<ProcessObject ClassName="CBaseBandTestProc" Name="ReadSN">
+				<!--Main Function is necessary-->
+				<MainFunc Editable="TRUE" Type="String">CommonTestMainFunc</MainFunc>
+				<!--Parameters-->
+				<List>
+					<Item Name="ReadSNFunc" Enabled="TRUE"/>
+				</List>
+				<NVID1 Editable="TRUE" Type="Integer">567</NVID1>
+				<NVID2 Editable="TRUE" Type="Integer">569</NVID2>
+				<DelayForNextItemMs Editable="TRUE" Type="Integer">0</DelayForNextItemMs>
+				<WriteEFS Editable="TRUE" Type="Integer">0</WriteEFS>
+				<!--End of Parameters-->
+			</ProcessObject>
+			<ProcessObject ClassName="CBaseBandTestProc" Name="WriteWCDMATestFlag">
+				<!--Main Function is necessary-->
+				<MainFunc Editable="TRUE" Type="String">CommonTestMainFunc</MainFunc>
+				<!--Parameters-->
+				<List>
+					<Item Name="WriteFlagFunc" Enabled="true"/>
+				</List>
+				<FlagNVID Editable="TRUE" Type="Integer">570</FlagNVID>
+				<StationFlag Editable="TRUE" Type="Integer">2</StationFlag>
+				<IsSetFlag Editable="TRUE" Type="Integer">1</IsSetFlag>
+				<!--End of Parameters-->
+			</ProcessObject>
+		</CommonProcessObjects>
+		<WCDMATestProcessObjects>
+			<ProcessObject ClassName="CWCDMATestStartCall" Name="WCDMAStartcall">
+				<!--Main Function is necessary-->
+				<MainFunc Editable="TRUE" Type="String">WCDMACallMainFunc</MainFunc>
+				<!--Parameters-->
+				<List>
+					<Item Name="WCDMACall" Enabled="FALSE"/>
+					<Item Name="WCDMA_NS_Call" Enabled="TRUE"/>
+				</List>
+				<CALLBand Editable="TRUE" Type="Integer">2100</CALLBand>
+				<CALLChannel Editable="TRUE" Type="Integer">9750</CALLChannel>
+				<CellPower Editable="TRUE" Type="Integer">-75</CellPower>
+				<TargetPower Editable="TRUE" Type="Integer">-10</TargetPower>
+				<BERSessionTimeOut Editable="TRUE" Type="Integer">10000</BERSessionTimeOut>
+				<RegistTimeOut Editable="TRUE" Type="Integer">30</RegistTimeOut>
+				<!--End of Parameters-->
+			</ProcessObject>
+			<ProcessObject ClassName="CWCDMATestEnd" Name="WCDMAEndcall">
+				<!--Main Function is necessary-->
+				<MainFunc Editable="TRUE" Type="String">WCDMAEndCallMainFunc</MainFunc>
+				<!--Parameters-->
+				<List>
+					<Item Name="WCDMAEndCall" Enabled="TRUE"/>
+				</List>
+				<!--End of Parameters-->
+			</ProcessObject>
+			<ProcessObject ClassName="CWCDMACableLossCal" Name="W2100Loss">
+				<!--Main Function is necessary-->
+				<MainFunc Editable="TRUE" Type="String">CWCDMALossMainFunc</MainFunc>
+				<!--Parameters-->
+				<List>
+					<Item Name="CWCDMALossFunc" Enabled="TRUE"/>
+				</List>
+				<TestBand Editable="TRUE" Type="Integer">2100</TestBand>
+				<IsSaveToIni Editable="TRUE" Type="Integer">0</IsSaveToIni>
+				<ChannelList Editable="TRUE" Type="Integer">9612,9750,9888</ChannelList>
+				<MeasureCount Editable="TRUE" Type="Integer">100</MeasureCount>
+				<MaxPowerLimit Editable="TRUE" Type="Integer">20,25</MaxPowerLimit>
+				<!--End of Parameters-->
+			</ProcessObject>
+			<ProcessObject ClassName="CWCDMACableLossCal" Name="W850Loss">
+				<!--Main Function is necessary-->
+				<MainFunc Editable="TRUE" Type="String">CWCDMALossMainFunc</MainFunc>
+				<!--Parameters-->
+				<List>
+					<Item Name="CWCDMALossFunc" Enabled="TRUE"/>
+				</List>
+				<TestBand Editable="TRUE" Type="Integer">850</TestBand>
+				<IsSaveToIni Editable="TRUE" Type="Integer">0</IsSaveToIni>
+				<ChannelList Editable="TRUE" Type="Integer">4133,4183,4232</ChannelList>
+				<MeasureCount Editable="TRUE" Type="Integer">100</MeasureCount>
+				<MaxPowerLimit Editable="TRUE" Type="Integer">21,25</MaxPowerLimit>
+				<!--End of Parameters-->
+			</ProcessObject>
+			<ProcessObject ClassName="CWCDMACableLossCal" Name="W1900Loss">
+				<!--Main Function is necessary-->
+				<MainFunc Editable="TRUE" Type="String">CWCDMALossMainFunc</MainFunc>
+				<!--Parameters-->
+				<List>
+					<Item Name="CWCDMALossFunc" Enabled="TRUE"/>
+				</List>
+				<TestBand Editable="TRUE" Type="Integer">1900</TestBand>
+				<IsSaveToIni Editable="TRUE" Type="Integer">0</IsSaveToIni>
+				<ChannelList Editable="TRUE" Type="Integer">9262,9400,9538</ChannelList>
+				<MeasureCount Editable="TRUE" Type="Integer">20</MeasureCount>
+				<MaxPowerLimit Editable="TRUE" Type="Integer">21,25</MaxPowerLimit>
+				<!--End of Parameters-->
+			</ProcessObject>
+			<ProcessObject ClassName="CWCDMACableLossCal" Name="W1700Loss">
+				<!--Main Function is necessary-->
+				<MainFunc Editable="TRUE" Type="String">CWCDMALossMainFunc</MainFunc>
+				<!--Parameters-->
+				<List>
+					<Item Name="CWCDMALossFunc" Enabled="TRUE"/>
+				</List>
+				<TestBand Editable="TRUE" Type="Integer">1700</TestBand>
+				<IsSaveToIni Editable="TRUE" Type="Integer">0</IsSaveToIni>
+				<ChannelList Editable="TRUE" Type="Integer">1313,1413,1512</ChannelList>
+				<MeasureCount Editable="TRUE" Type="Integer">20</MeasureCount>
+				<MaxPowerLimit Editable="TRUE" Type="Integer">21,25</MaxPowerLimit>
+				<!--End of Parameters-->
+			</ProcessObject>
+			<ProcessObject ClassName="CWCDMACableLossCal" Name="W1500Loss">
+				<!--Main Function is necessary-->
+				<MainFunc Editable="TRUE" Type="String">CWCDMALossMainFunc</MainFunc>
+				<!--Parameters-->
+				<List>
+					<Item Name="CWCDMALossFunc" Enabled="TRUE"/>
+				</List>
+				<TestBand Editable="TRUE" Type="Integer">1500</TestBand>
+				<IsSaveToIni Editable="TRUE" Type="Integer">0</IsSaveToIni>
+				<ChannelList Editable="TRUE" Type="Integer">3488,3525,3561</ChannelList>
+				<MeasureCount Editable="TRUE" Type="Integer">20</MeasureCount>
+				<MaxPowerLimit Editable="TRUE" Type="Integer">21,25</MaxPowerLimit>
+				<!--End of Parameters-->
+			</ProcessObject>
+			<ProcessObject ClassName="CWCDMACableLossCal" Name="W900Loss">
+				<!--Main Function is necessary-->
+				<MainFunc Editable="TRUE" Type="String">CWCDMALossMainFunc</MainFunc>
+				<!--Parameters-->
+				<List>
+					<Item Name="CWCDMALossFunc" Enabled="TRUE"/>
+				</List>
+				<TestBand Editable="TRUE" Type="Integer">900</TestBand>
+				<IsSaveToIni Editable="TRUE" Type="Integer">0</IsSaveToIni>
+				<ChannelList Editable="TRUE" Type="Integer">2712,2787,2863</ChannelList>
+				<MeasureCount Editable="TRUE" Type="Integer">20</MeasureCount>
+				<MaxPowerLimit Editable="TRUE" Type="Integer">20,25</MaxPowerLimit>
+				<!--End of Parameters-->
+			</ProcessObject>
+		</WCDMATestProcessObjects>
+	</ProcessObjectSet>
+</Configurations>

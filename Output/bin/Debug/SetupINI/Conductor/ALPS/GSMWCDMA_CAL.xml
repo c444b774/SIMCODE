@@ -1,0 +1,914 @@
+<Configurations>
+	<PreObjects>
+		<DeviceObject ClassName="CCMU200" Name="CMU200">
+			<RFin Editable="TRUE" Type="Integer">2</RFin>
+			<RFout Editable="TRUE" Type="Integer">2</RFout>
+		</DeviceObject>
+		<DeviceObject ClassName="CCMW500" Name="CMW500">
+			<RFin Editable="TRUE" Type="Integer">1</RFin>
+			<RFout Editable="TRUE" Type="Integer">1</RFout>
+			<RFChannel Editable="TRUE" Type="Integer">1</RFChannel>
+		</DeviceObject>
+		<DeviceObject ClassName="N5182A" Name="N5182A">
+			<RFin Editable="TRUE" Type="Integer">1</RFin>
+			<RFout Editable="TRUE" Type="Integer">1</RFout>
+		</DeviceObject>
+		<DeviceObject ClassName="A8960" Name="A8960">
+			<RFin Editable="TRUE" Type="Integer">1</RFin>
+			<RFout Editable="TRUE" Type="Integer">1</RFout>
+			<ScreenOff Editable="TRUE" Type="Integer">1</ScreenOff>
+		</DeviceObject>
+		<DeviceObject ClassName="MT8820" Name="MT8820">
+			<RFin Editable="TRUE" Type="Integer">2</RFin>
+			<RFout Editable="TRUE" Type="Integer">2</RFout>
+			<ScreenOff Editable="TRUE" Type="Integer">1</ScreenOff>
+			<RFChannel Editable="TRUE" Type="Integer">15</RFChannel>
+		</DeviceObject>
+		<DeviceObject ClassName="CPowerSupply" Name="GeneralPly">
+		</DeviceObject>
+		<PhoneObject ClassName="CRFNVItems" Name="CRFNVItemsObj">
+		</PhoneObject>
+		<PhoneObject ClassName="CQualPhone" Name="QualPhone">
+			<RFNVItemObject Editable="TRUE" Type="Integer">CRFNVItemsObj</RFNVItemObject>
+			<IsEFS Editable="TRUE" Type="Integer">1</IsEFS>
+		</PhoneObject>
+	</PreObjects>
+	<MainObject>
+		<RFNVItem Editable="TRUE" Type="String">GeneralNV</RFNVItem>
+		<Phone Editable="TRUE" Type="String">QualPhone</Phone>
+		<TesterDeviceCommon Editable="TRUE" Type="String">A8960</TesterDeviceCommon>
+		<TesterDevice1 Editable="TRUE" Type="String">N5182A</TesterDevice1>
+		<PowerSupplyCommon Editable="TRUE" Type="String">GeneralPly</PowerSupplyCommon>
+		<PowerSupplyCommonPort Editable="TRUE" Type="String">1</PowerSupplyCommonPort>
+		<PowerSupply1 Editable="TRUE" Type="String">dummy</PowerSupply1>
+		<PowerSupply1Port Editable="TRUE" Type="String">2</PowerSupply1Port>
+		<List>
+			<Item Name="ReadSN_QRD" Enabled="True"/>
+			<Item Name="ClearGSMFlag_QRD" Enabled="True"/>
+			<Item Name="InitGSMCal" Enabled="True"/>
+			<Item Name="GSMTXCSCAL_1800" Enabled="True"/>
+			<Item Name="GSMTXPolarCAL_1800F1" Enabled="True"/>
+			<Item Name="GSMTXPolarCAL_1800F2" Enabled="True"/>
+			<Item Name="GSMRXCAL_1800" Enabled="True"/>
+			<Item Name="GSMTXPolarCAL_900F1" Enabled="True"/>
+			<Item Name="GSMTXPolarCAL_900F2" Enabled="True"/>
+			<Item Name="GSMRXCAL_900" Enabled="True"/>
+			<Item Name="EndGSMCal6285" Enabled="True"/>
+			<Item Name="WriteGSMFlag_QRD" Enabled="True"/>
+			<Item Name="ClearWCDMAFlag_QRD" Enabled="True"/>
+			<Item Name="InitWCDMACal" Enabled="True"/>
+			<Item Name="WCDMAThermCal" Enabled="True"/>
+			<Item Name="WCDMACAL_2100" Enabled="True"/>
+			<Item Name="RxDC_Cal_2100" Enabled="True"/>
+			<Item Name="EndWCDMACal" Enabled="True"/>
+			<Item Name="WriteWCDMAFlag_QRD" Enabled="True"/></List>
+		<ALLItems>
+			<Item Name="StartPowerSupply"/>
+			<Item Name="ReadSN_QRD"/>
+			<Item Name="WriteSN_QRD"/>
+			<Item Name="WriteWCDMAFlag_QRD"/>
+			<Item Name="ClearWCDMAFlag_QRD"/>
+			<Item Name="WriteGSMFlag_QRD"/>
+			<Item Name="ClearGSMFlag_QRD"/>
+			<Item Name="InitWCDMACal"/>
+			<Item Name="WCDMACAL_850"/>
+			<Item Name="WCDMACAL_900"/>
+			<Item Name="WCDMACAL_1500"/>
+			<Item Name="WCDMACAL_1700"/>
+			<Item Name="WCDMACAL_1900"/>
+			<Item Name="WCDMACAL_2100"/>
+			<Item Name="RxDC_Cal_2100"/>
+			<Item Name="RxDC_Cal_900"/>
+			<Item Name="EndWCDMACal"/>
+			<Item Name="WCDMAThermCal"/>
+			<Item Name="StopPowerSupply"/>
+			<Item Name="InitGSMCal"/>
+			<Item Name="GSMTXCSCAL_1800"/>
+			<Item Name="GSMTXCSCAL_1900"/>
+			<Item Name="GSMTXPolarCAL_900F1"/>
+			<Item Name="GSMTXPolarCAL_900F2"/>
+			<Item Name="GSMTXPolarCAL_1800F1"/>
+			<Item Name="GSMTXPolarCAL_1800F2"/>
+			<Item Name="GSMTXPolarCAL_1900F1"/>
+			<Item Name="GSMTXPolarCAL_1900F2"/>
+			<Item Name="GSMTXTimeCAL_1800"/>
+			<Item Name="GSMTXTimeCAL_1900"/>
+			<Item Name="GSMTXTimeCAL_900"/>
+			<Item Name="GSMRXCAL_850"/>
+			<Item Name="GSMRXCAL_900"/>
+			<Item Name="GSMRXCAL_1800"/>
+			<Item Name="GSMRXCAL_1900"/>
+			<Item Name="EndGSMCal6285"/>
+		</ALLItems>
+	</MainObject>
+	<ProcessObjectSet>
+		<CommonProcessObjects>
+			<ProcessObject ClassName="CBaseBandTestProc" Name="ReadSN_QRD">
+				<!--Main Function is necessary-->
+				<MainFunc Editable="TRUE" Type="String">CommonTestMainFunc</MainFunc>
+				<!--Parameters-->
+				<List>
+					<Item Name="ReadSNFunc_QRD" Enabled="TRUE"/>
+				</List>
+				<QRD_NV_ID Editable="TRUE" Type="Integer">2497</QRD_NV_ID>
+				<DelayForNextItemMs Editable="TRUE" Type="Integer">0</DelayForNextItemMs>
+				<!--End of Parameters-->
+			</ProcessObject>
+			<ProcessObject ClassName="CBaseBandTestProc" Name="WriteSN_QRD">
+				<!--Main Function is necessary-->
+				<MainFunc Editable="TRUE" Type="String">CommonTestMainFunc</MainFunc>
+				<!--Parameters-->
+				<List>
+					<Item Name="WriteSNFunc_QRD" Enabled="TRUE"/>
+				</List>
+				<QRD_NV_ID Editable="TRUE" Type="Integer">2497</QRD_NV_ID>
+				<DelayForNextItemMs Editable="TRUE" Type="Integer">0</DelayForNextItemMs>
+				<WriteEFS Editable="TRUE" Type="Integer">0</WriteEFS>
+				<ClearAllFlag Editable="TRUE" Type="Integer">1</ClearAllFlag>
+				<StationNum Editable="TRUE" Type="Integer">30</StationNum>
+				<FlagNVID Editable="TRUE" Type="Integer">2499</FlagNVID>
+				<!--End of Parameters-->
+			</ProcessObject>
+			<ProcessObject ClassName="CBaseBandTestProc" Name="WriteWCDMAFlag_QRD">
+				<!--Main Function is necessary-->
+				<MainFunc Editable="TRUE" Type="String">CommonTestMainFunc</MainFunc>
+				<!--Parameters-->
+				<List>
+					<Item Name="QRD_FlagOp" Enabled="TRUE"/>
+				</List>
+				<FlagNVID Editable="TRUE" Type="Integer">2499</FlagNVID>
+				<BytePos_QRD Editable="TRUE" Type="Integer">24</BytePos_QRD>
+				<Flag_Op_type Editable="TRUE" Type="Integer">1</Flag_Op_type>
+				<WriteEFS Editable="TRUE" Type="Integer">0</WriteEFS>
+				<!--End of Parameters-->
+			</ProcessObject>
+			<ProcessObject ClassName="CBaseBandTestProc" Name="ClearWCDMAFlag_QRD">
+				<!--Main Function is necessary-->
+				<MainFunc Editable="TRUE" Type="String">CommonTestMainFunc</MainFunc>
+				<!--Parameters-->
+				<List>
+					<Item Name="QRD_FlagOp" Enabled="TRUE"/>
+				</List>
+				<FlagNVID Editable="TRUE" Type="Integer">2499</FlagNVID>
+				<BytePos_QRD Editable="TRUE" Type="Integer">24</BytePos_QRD>
+				<Flag_Op_type Editable="TRUE" Type="Integer">2</Flag_Op_type>
+				<WriteEFS Editable="TRUE" Type="Integer">0</WriteEFS>
+				<!--End of Parameters-->
+			</ProcessObject>
+			<ProcessObject ClassName="CBaseBandTestProc" Name="WriteGSMFlag_QRD">
+				<!--Main Function is necessary-->
+				<MainFunc Editable="TRUE" Type="String">CommonTestMainFunc</MainFunc>
+				<!--Parameters-->
+				<List>
+					<Item Name="QRD_FlagOp" Enabled="TRUE"/>
+				</List>
+				<FlagNVID Editable="TRUE" Type="Integer">2499</FlagNVID>
+				<BytePos_QRD Editable="TRUE" Type="Integer">26</BytePos_QRD>
+				<Flag_Op_type Editable="TRUE" Type="Integer">1</Flag_Op_type>
+				<WriteEFS Editable="TRUE" Type="Integer">0</WriteEFS>
+				<!--End of Parameters-->
+			</ProcessObject>
+			<ProcessObject ClassName="CBaseBandTestProc" Name="ClearGSMFlag_QRD">
+				<!--Main Function is necessary-->
+				<MainFunc Editable="TRUE" Type="String">CommonTestMainFunc</MainFunc>
+				<!--Parameters-->
+				<List>
+					<Item Name="QRD_FlagOp" Enabled="TRUE"/>
+				</List>
+				<FlagNVID Editable="TRUE" Type="Integer">2499</FlagNVID>
+				<BytePos_QRD Editable="TRUE" Type="Integer">26</BytePos_QRD>
+				<Flag_Op_type Editable="TRUE" Type="Integer">2</Flag_Op_type>
+				<WriteEFS Editable="TRUE" Type="Integer">0</WriteEFS>
+				<!--End of Parameters-->
+			</ProcessObject>
+			<ProcessObject ClassName="CPowerSlyControl" Name="StartPowerSupply">
+				<!--Main Function is necessary-->
+				<MainFunc Editable="TRUE" Type="String">PlyControlMainFunc</MainFunc>
+				<!--Parameters-->
+				<List>
+					<Item Name="StartPly" Enabled="TRUE"/>
+				</List>
+				<Voltage Editable="TRUE" Type="Integer">3.8</Voltage>
+				<CurrentLimit Editable="TRUE" Type="Integer">3</CurrentLimit>
+				<CurrentMode Editable="TRUE" Type="Integer">1</CurrentMode>
+				<!--1 : A  0 mA-->
+				<!--End of Parameters-->
+			</ProcessObject>
+			<ProcessObject ClassName="CPowerSlyControl" Name="StopPowerSupply">
+				<!--Main Function is necessary-->
+				<MainFunc Editable="TRUE" Type="String">PlyControlMainFunc</MainFunc>
+				<!--Parameters-->
+				<List>
+					<Item Name="StopPly" Enabled="TRUE"/>
+				</List>
+				<!--End of Parameters-->
+			</ProcessObject>
+		</CommonProcessObjects>
+		<WCDMACalibrationProcessObjects>
+			<ProcessObject ClassName="CInitWCDMACal" Name="InitWCDMACal">
+				<!--Main Function is necessary-->
+				<MainFunc Editable="TRUE" Type="String">InitWCDMACalMainFunc</MainFunc>
+				<!--Parameters-->
+				<List>
+					<Item Name="InitWCDMACalFunc" Enabled="TRUE"/>
+				</List>
+				<WCDMACalDevicePort Editable="TRUE" Type="Integer">1</WCDMACalDevicePort>
+				<!--End of Parameters-->
+			</ProcessObject>
+			<ProcessObject ClassName="CEndWCDMACal" Name="EndWCDMACal">
+				<!--Main Function is necessary-->
+				<MainFunc Editable="TRUE" Type="String">EndWCDMACalMainFunc</MainFunc>
+				<!--Parameters-->
+				<List>
+					<Item Name="EndWCDMACalFunc" Enabled="TRUE"/>
+				</List>
+				<EnterOnline Editable="TRUE" Type="Integer">1</EnterOnline>
+				<!--End of Parameters-->
+			</ProcessObject>
+			<ProcessObject ClassName="CXOCalibration" Name="WCDMAXO_CourseCal">
+				<!--Main Function is necessary-->
+				<MainFunc Editable="TRUE" Type="String">XOCalMainFunc</MainFunc>
+				<!--Parameters-->
+				<List>
+					<Item Name="XOCalDC_CF" Enabled="TRUE"/>
+					<Item Name="XOCalFT" Enabled="false"/>
+				</List>
+				<!--0 :CMDA  1:WCDMA-->
+				<RFMode Editable="TRUE" Type="Integer">1</RFMode>
+				<FreqOffSetKhz Editable="TRUE" Type="Integer">200000</FreqOffSetKhz>
+				<Band Editable="TRUE" Type="Integer">2100</Band>
+				<Channel Editable="TRUE" Type="Integer">9750</Channel>
+				<PARange Editable="TRUE" Type="Integer">3</PARange>
+				<PDM Editable="TRUE" Type="Integer">100</PDM>
+				<!--End of Parameters-->
+			</ProcessObject>
+			<ProcessObject ClassName="CRTR6285TThermCal" Name="WCDMAThermCal">
+				<!--Main Function is necessary-->
+				<MainFunc Editable="TRUE" Type="String">RTR6285TThermCalMainFunc</MainFunc>
+				<!--Parameters-->
+				<List>
+					<Item Name="RTR6285TThermCalFunc" Enabled="TRUE"/>
+				</List>
+				<IsUseTwoSlope Editable="TRUE" Type="Integer">0</IsUseTwoSlope>
+				<ColdSLope Editable="TRUE" Type="Integer">0</ColdSLope>
+				<HotSLope Editable="TRUE" Type="Integer">0</HotSLope>
+				<NormalTemperature Editable="TRUE" Type="Integer">25</NormalTemperature>
+				<MaxTemperature Editable="TRUE" Type="Integer">85</MaxTemperature>
+				<MinTemperature Editable="TRUE" Type="Integer">-30</MinTemperature>
+				<IsFillNVThermBins Editable="TRUE" Type="Integer">0</IsFillNVThermBins>
+				<IsUseOffsetThermBins Editable="TRUE" Type="Integer">0</IsUseOffsetThermBins>
+				<CalcSLope Editable="TRUE" Type="Integer">-0.5653</CalcSLope>
+				<!--End of Parameters-->
+			</ProcessObject>
+			<ProcessObject ClassName="CRxDCAutoCal" Name="RxDC_Cal_2100">
+				<!--Main Function is necessary-->
+				<MainFunc Editable="TRUE" Type="String">RxDCAutoCalMainFunc</MainFunc>
+				<!--Parameters-->
+				<List>
+					<Item Name="RxDCAutoCalFunc" Enabled="true"/>
+				</List>
+				<!--0 :CMDA  1:WCDMA-->
+				<RFMode Editable="TRUE" Type="Integer">1</RFMode>
+				<Band Editable="TRUE" Type="Integer">2100</Band>
+				<Channel Editable="TRUE" Type="Integer">9750</Channel>
+				<!--End of Parameters-->
+			</ProcessObject>
+			<ProcessObject ClassName="CRxDCAutoCal" Name="RxDC_Cal_900">
+				<!--Main Function is necessary-->
+				<MainFunc Editable="TRUE" Type="String">RxDCAutoCalMainFunc</MainFunc>
+				<!--Parameters-->
+				<List>
+					<Item Name="RxDCAutoCalFunc" Enabled="true"/>
+				</List>
+				<!--0 :CMDA  1:WCDMA-->
+				<RFMode Editable="TRUE" Type="Integer">1</RFMode>
+				<Band Editable="TRUE" Type="Integer">900</Band>
+				<Channel Editable="TRUE" Type="Integer">2787</Channel>
+				<!--End of Parameters-->
+			</ProcessObject>
+			<ProcessObject ClassName="CXOCalibration" Name="WCDMAXO_FDCal">
+				<!--Main Function is necessary-->
+				<MainFunc Editable="TRUE" Type="String">XOCalMainFunc</MainFunc>
+				<!--Parameters-->
+				<List>
+					<Item Name="XOCalDC_CF" Enabled="false"/>
+					<Item Name="XOCalFT" Enabled="true"/>
+				</List>
+				<!--0 :CMDA  1:WCDMA-->
+				<RFMode Editable="TRUE" Type="Integer">1</RFMode>
+				<FreqOffSetKhz Editable="TRUE" Type="Integer">200000</FreqOffSetKhz>
+				<Band Editable="TRUE" Type="Integer">2100</Band>
+				<Channel Editable="TRUE" Type="Integer">9750</Channel>
+				<PARange Editable="TRUE" Type="Integer">3</PARange>
+				<PDM Editable="TRUE" Type="Integer">100</PDM>
+				<!--End of Parameters-->
+			</ProcessObject>
+			<ProcessObject ClassName="CQTR6285TXRXCal" Name="WCDMACAL_900">
+				<!--Main Function is necessary-->
+				<MainFunc Editable="TRUE" Type="String">QTR6285TXRXCalMainFunc</MainFunc>
+				<!--Parameters-->
+				<List>
+					<Item Name="QTR6285TXLIN_CalFunc" Enabled="TRUE"/>
+					<Item Name="QTR6285TXLIMCompen_CalFunc" Enabled="TRUE"/>
+					<Item Name="QTR6285RXCalFunc" Enabled="TRUE"/>
+					<Item Name="TXRXComposite" Enabled="FALSE"/>
+				</List>
+				<Band Editable="TRUE" Type="Integer">900</Band>
+				<UseTXRXCal Editable="TRUE" Type="Integer">0</UseTXRXCal>
+				<RXPath Editable="TRUE" Type="Integer">0</RXPath>
+				<HDET_ADC_CH Editable="TRUE" Type="Integer">7</HDET_ADC_CH>
+				<TXlimPower Editable="TRUE" Type="Integer">24</TXlimPower>
+				<TXlimPDMSize Editable="TRUE" Type="Integer">1</TXlimPDMSize>
+				<TXlimPDMNUM Editable="TRUE" Type="Integer">12</TXlimPDMNUM>
+				<UseSecondSweep Editable="TRUE" Type="Integer">0</UseSecondSweep>
+				<SecSweepPDM Editable="TRUE" Type="Integer">59</SecSweepPDM>
+				<SecSweepExPower Editable="TRUE" Type="Integer">-20</SecSweepExPower>
+				<RefChannel Editable="TRUE" Type="Integer">2787</RefChannel>
+				<StepSize Editable="TRUE" Type="Integer">4,3,3,3</StepSize>
+				<PARangeList Editable="TRUE" Type="Integer">0,1,3,3</PARangeList>
+				<TargetpowerList Editable="TRUE" Type="Integer">5,10,24,24</TargetpowerList>
+				<StoppowerList Editable="TRUE" Type="Integer">-55,-10,4,4</StoppowerList>
+				<StartPDMList Editable="TRUE" Type="Integer">196,185,216,216</StartPDMList>
+				<StopPDMList Editable="TRUE" Type="Integer">68,130,130,130</StopPDMList>
+				<ExpectPowerList Editable="TRUE" Type="Integer">7,12,29.5,29.5</ExpectPowerList>
+				<TXCalCHList Editable="TRUE" Type="Integer">2712,2722,2733,2743,2754,2765,2776,2787,2796,2806,2815,2825,2834,2844,2853,2863</TXCalCHList>
+				<RXCalCHList Editable="TRUE" Type="Integer">2937,2947,2958,2968,2979,2990,3001,3012,3021,3031,3040,3050,3059,3069,3078,3088</RXCalCHList>
+				<TXComPower Editable="TRUE" Type="Integer">2,10,10,10</TXComPower>
+				<CalSecFreqComp Editable="TRUE" Type="Integer">1</CalSecFreqComp>
+				<TXSecComPdm Editable="TRUE" Type="Integer">149,150</TXSecComPdm>
+				<RXOffsetPower Editable="TRUE" Type="Integer">-74.0,-70.0,-53.0,-40.0,-28</RXOffsetPower>
+				<TXComPwrUpLmt Editable="TRUE" Type="Integer">5,5.5,5,5</TXComPwrUpLmt>
+				<TXComPwrLowLmt Editable="TRUE" Type="Integer">-5.5,-5,-5,-5</TXComPwrLowLmt>
+				<RXOffsetUpLmt Editable="TRUE" Type="Integer">400,400,500,700,1000</RXOffsetUpLmt>
+				<RXOffsetLowLmt Editable="TRUE" Type="Integer">50,50,100,200,200</RXOffsetLowLmt>
+				<!--End of Parameters-->
+			</ProcessObject>
+			<ProcessObject ClassName="CQTR6285TXRXCal" Name="WCDMACAL_850">
+				<!--Main Function is necessary-->
+				<MainFunc Editable="TRUE" Type="String">QTR6285TXRXCalMainFunc</MainFunc>
+				<!--Parameters-->
+				<List>
+					<Item Name="QTR6285TXLIN_CalFunc" Enabled="TRUE"/>
+					<Item Name="QTR6285TXLIMCompen_CalFunc" Enabled="TRUE"/>
+					<Item Name="QTR6285RXCalFunc" Enabled="TRUE"/>
+					<Item Name="TXRXComposite" Enabled="FALSE"/>
+				</List>
+				<Band Editable="TRUE" Type="Integer">850</Band>
+				<UseTXRXCal Editable="TRUE" Type="Integer">0</UseTXRXCal>
+				<RXPath Editable="TRUE" Type="Integer">0</RXPath>
+				<HDET_ADC_CH Editable="TRUE" Type="Integer">7</HDET_ADC_CH>
+				<TXlimPower Editable="TRUE" Type="Integer">22.5</TXlimPower>
+				<TXlimPDMSize Editable="TRUE" Type="Integer">1</TXlimPDMSize>
+				<TXlimPDMNUM Editable="TRUE" Type="Integer">12</TXlimPDMNUM>
+				<UseSecondSweep Editable="TRUE" Type="Integer">0</UseSecondSweep>
+				<SecSweepPDM Editable="TRUE" Type="Integer">59</SecSweepPDM>
+				<SecSweepExPower Editable="TRUE" Type="Integer">-20</SecSweepExPower>
+				<RefChannel Editable="TRUE" Type="Integer">4175</RefChannel>
+				<StepSize Editable="TRUE" Type="Integer">2,2,1</StepSize>
+				<PARangeList Editable="TRUE" Type="Integer">0,2,3</PARangeList>
+				<TargetpowerList Editable="TRUE" Type="Integer">4,13,25</TargetpowerList>
+				<StoppowerList Editable="TRUE" Type="Integer">-55,-12,2</StoppowerList>
+				<StartPDMList Editable="TRUE" Type="Integer">78,90,84</StartPDMList>
+				<StopPDMList Editable="TRUE" Type="Integer">6,40,48</StopPDMList>
+				<ExpectPowerList Editable="TRUE" Type="Integer">9,19,29</ExpectPowerList>
+				<TXCalCHList Editable="TRUE" Type="Integer">4135,4142,4149,4156,4163,4170,4175,4184,4190,4197,4204,4211,4218,4225,4232,4233</TXCalCHList>
+				<RXCalCHList Editable="TRUE" Type="Integer">4135,4142,4149,4156,4163,4170,4175,4184,4190,4197,4204,4211,4218,4225,4232,4233</RXCalCHList>
+				<TXComPower Editable="TRUE" Type="Integer">2,7.5,11.5</TXComPower>
+				<CalSecFreqComp Editable="TRUE" Type="Integer">1</CalSecFreqComp>
+				<TXSecComPdm Editable="TRUE" Type="Integer">149,150</TXSecComPdm>
+				<RXOffsetPower Editable="TRUE" Type="Integer">-73.0,-66.0,-45.0,-45</RXOffsetPower>
+				<TXComPwrUpLmt Editable="TRUE" Type="Integer">5,5,5</TXComPwrUpLmt>
+				<TXComPwrLowLmt Editable="TRUE" Type="Integer">-7,-7,-7</TXComPwrLowLmt>
+				<RXOffsetUpLmt Editable="TRUE" Type="Integer">150,600,800,800</RXOffsetUpLmt>
+				<RXOffsetLowLmt Editable="TRUE" Type="Integer">-150,0,0,0</RXOffsetLowLmt>
+				<!--End of Parameters-->
+			</ProcessObject>
+			<ProcessObject ClassName="CQTR6285TXRXCal" Name="WCDMACAL_1500">
+				<!--Main Function is necessary-->
+				<MainFunc Editable="TRUE" Type="String">QTR6285TXRXCalMainFunc</MainFunc>
+				<!--Parameters-->
+				<List>
+					<Item Name="QTR6285TXLIN_CalFunc" Enabled="TRUE"/>
+					<Item Name="QTR6285TXLIMCompen_CalFunc" Enabled="TRUE"/>
+					<Item Name="QTR6285RXCalFunc" Enabled="TRUE"/>
+					<Item Name="TXRXComposite" Enabled="FALSE"/>
+				</List>
+				<Band Editable="TRUE" Type="Integer">1500</Band>
+				<UseTXRXCal Editable="TRUE" Type="Integer">0</UseTXRXCal>
+				<RXPath Editable="TRUE" Type="Integer">0</RXPath>
+				<HDET_ADC_CH Editable="TRUE" Type="Integer">7</HDET_ADC_CH>
+				<TXlimPower Editable="TRUE" Type="Integer">22.5</TXlimPower>
+				<TXlimPDMSize Editable="TRUE" Type="Integer">1</TXlimPDMSize>
+				<TXlimPDMNUM Editable="TRUE" Type="Integer">12</TXlimPDMNUM>
+				<UseSecondSweep Editable="TRUE" Type="Integer">0</UseSecondSweep>
+				<SecSweepPDM Editable="TRUE" Type="Integer">59</SecSweepPDM>
+				<SecSweepExPower Editable="TRUE" Type="Integer">-20</SecSweepExPower>
+				<RefChannel Editable="TRUE" Type="Integer">2788</RefChannel>
+				<StepSize Editable="TRUE" Type="Integer">2,1,1</StepSize>
+				<PARangeList Editable="TRUE" Type="Integer">0,2,3</PARangeList>
+				<TargetpowerList Editable="TRUE" Type="Integer">4,13,25</TargetpowerList>
+				<StoppowerList Editable="TRUE" Type="Integer">-55,-22,2</StoppowerList>
+				<StartPDMList Editable="TRUE" Type="Integer">98,104,90</StartPDMList>
+				<StopPDMList Editable="TRUE" Type="Integer">14,46,30</StopPDMList>
+				<ExpectPowerList Editable="TRUE" Type="Integer">9,19,29</ExpectPowerList>
+				<TXCalCHList Editable="TRUE" Type="Integer">3487,3492,3497,3502,3507,3512,3517,3522,3527,3532,3537,3542,3547,3552,3557,3562</TXCalCHList>
+				<RXCalCHList Editable="TRUE" Type="Integer">3487,3492,3497,3502,3507,3512,3517,3522,3527,3532,3537,3542,3547,3552,3557,3562</RXCalCHList>
+				<TXComPower Editable="TRUE" Type="Integer">-0.5,9.5,12.5</TXComPower>
+				<CalSecFreqComp Editable="TRUE" Type="Integer">1</CalSecFreqComp>
+				<TXSecComPdm Editable="TRUE" Type="Integer">149,150</TXSecComPdm>
+				<RXOffsetPower Editable="TRUE" Type="Integer">-73.0,-66.0,-45.0,-45.0</RXOffsetPower>
+				<TXComPwrUpLmt Editable="TRUE" Type="Integer">10,10,10</TXComPwrUpLmt>
+				<TXComPwrLowLmt Editable="TRUE" Type="Integer">-10,-10,-10</TXComPwrLowLmt>
+				<RXOffsetUpLmt Editable="TRUE" Type="Integer">150,600,800,800</RXOffsetUpLmt>
+				<RXOffsetLowLmt Editable="TRUE" Type="Integer">-150,0,0,0</RXOffsetLowLmt>
+				<!--End of Parameters-->
+			</ProcessObject>
+			<ProcessObject ClassName="CQTR6285TXRXCal" Name="WCDMACAL_1700">
+				<!--Main Function is necessary-->
+				<MainFunc Editable="TRUE" Type="String">QTR6285TXRXCalMainFunc</MainFunc>
+				<!--Parameters-->
+				<List>
+					<Item Name="QTR6285TXLIN_CalFunc" Enabled="TRUE"/>
+					<Item Name="QTR6285TXLIMCompen_CalFunc" Enabled="TRUE"/>
+					<Item Name="QTR6285RXCalFunc" Enabled="TRUE"/>
+					<Item Name="TXRXComposite" Enabled="FALSE"/>
+				</List>
+				<Band Editable="TRUE" Type="Integer">1700</Band>
+				<UseTXRXCal Editable="TRUE" Type="Integer">0</UseTXRXCal>
+				<RXPath Editable="TRUE" Type="Integer">0</RXPath>
+				<HDET_ADC_CH Editable="TRUE" Type="Integer">7</HDET_ADC_CH>
+				<TXlimPower Editable="TRUE" Type="Integer">22.5</TXlimPower>
+				<TXlimPDMSize Editable="TRUE" Type="Integer">1</TXlimPDMSize>
+				<TXlimPDMNUM Editable="TRUE" Type="Integer">12</TXlimPDMNUM>
+				<UseSecondSweep Editable="TRUE" Type="Integer">0</UseSecondSweep>
+				<SecSweepPDM Editable="TRUE" Type="Integer">59</SecSweepPDM>
+				<SecSweepExPower Editable="TRUE" Type="Integer">-20</SecSweepExPower>
+				<RefChannel Editable="TRUE" Type="Integer">1407</RefChannel>
+				<StepSize Editable="TRUE" Type="Integer">2,1,1</StepSize>
+				<PARangeList Editable="TRUE" Type="Integer">0,2,3</PARangeList>
+				<TargetpowerList Editable="TRUE" Type="Integer">4,13,25</TargetpowerList>
+				<StoppowerList Editable="TRUE" Type="Integer">-55,-22,2</StoppowerList>
+				<StartPDMList Editable="TRUE" Type="Integer">90,104,96</StartPDMList>
+				<StopPDMList Editable="TRUE" Type="Integer">10,56,65</StopPDMList>
+				<ExpectPowerList Editable="TRUE" Type="Integer">9,19,29</ExpectPowerList>
+				<TXCalCHList Editable="TRUE" Type="Integer">1319,1331,1344,1356,1369,1382,1394,1407,1419,1432,1444,1457,1470,1482,1495,1507</TXCalCHList>
+				<RXCalCHList Editable="TRUE" Type="Integer">1319,1331,1344,1356,1369,1382,1394,1407,1419,1432,1444,1457,1470,1482,1495,1507</RXCalCHList>
+				<TXComPower Editable="TRUE" Type="Integer">2,8.5,12.5</TXComPower>
+				<CalSecFreqComp Editable="TRUE" Type="Integer">1</CalSecFreqComp>
+				<TXSecComPdm Editable="TRUE" Type="Integer">149,150</TXSecComPdm>
+				<RXOffsetPower Editable="TRUE" Type="Integer">-73.0,-66.0,-45.0,-45</RXOffsetPower>
+				<TXComPwrUpLmt Editable="TRUE" Type="Integer">10,10,10</TXComPwrUpLmt>
+				<TXComPwrLowLmt Editable="TRUE" Type="Integer">-10,-10,-10</TXComPwrLowLmt>
+				<RXOffsetUpLmt Editable="TRUE" Type="Integer">150,600,800,800</RXOffsetUpLmt>
+				<RXOffsetLowLmt Editable="TRUE" Type="Integer">-150,0,0,0</RXOffsetLowLmt>
+				<!--End of Parameters-->
+			</ProcessObject>
+			<ProcessObject ClassName="CQTR6285TXRXCal" Name="WCDMACAL_1900">
+				<!--Main Function is necessary-->
+				<MainFunc Editable="TRUE" Type="String">QTR6285TXRXCalMainFunc</MainFunc>
+				<!--Parameters-->
+				<List>
+					<Item Name="QTR6285TXLIN_CalFunc" Enabled="TRUE"/>
+					<Item Name="QTR6285TXLIMCompen_CalFunc" Enabled="TRUE"/>
+					<Item Name="QTR6285RXCalFunc" Enabled="TRUE"/>
+					<Item Name="TXRXComposite" Enabled="FALSE"/>
+				</List>
+				<Band Editable="TRUE" Type="Integer">1900</Band>
+				<UseTXRXCal Editable="TRUE" Type="Integer">0</UseTXRXCal>
+				<RXPath Editable="TRUE" Type="Integer">0</RXPath>
+				<HDET_ADC_CH Editable="TRUE" Type="Integer">7</HDET_ADC_CH>
+				<TXlimPower Editable="TRUE" Type="Integer">22.5</TXlimPower>
+				<TXlimPDMSize Editable="TRUE" Type="Integer">1</TXlimPDMSize>
+				<TXlimPDMNUM Editable="TRUE" Type="Integer">12</TXlimPDMNUM>
+				<UseSecondSweep Editable="TRUE" Type="Integer">0</UseSecondSweep>
+				<SecSweepPDM Editable="TRUE" Type="Integer">59</SecSweepPDM>
+				<SecSweepExPower Editable="TRUE" Type="Integer">-20</SecSweepExPower>
+				<RefChannel Editable="TRUE" Type="Integer">9400</RefChannel>
+				<StepSize Editable="TRUE" Type="Integer">2,1,1</StepSize>
+				<PARangeList Editable="TRUE" Type="Integer">0,2,3</PARangeList>
+				<TargetpowerList Editable="TRUE" Type="Integer">4,13,25</TargetpowerList>
+				<StoppowerList Editable="TRUE" Type="Integer">-55,-22,2</StoppowerList>
+				<StartPDMList Editable="TRUE" Type="Integer">90,92,96</StartPDMList>
+				<StopPDMList Editable="TRUE" Type="Integer">12,54,62</StopPDMList>
+				<ExpectPowerList Editable="TRUE" Type="Integer">9,19,29</ExpectPowerList>
+				<TXCalCHList Editable="TRUE" Type="Integer">9271,9288,9306,9323,9341,9358,9376,9400,9411,9428,9446,9463,9481,9498,9516,9533</TXCalCHList>
+				<RXCalCHList Editable="TRUE" Type="Integer">9271,9288,9306,9323,9341,9358,9376,9400,9411,9428,9446,9463,9481,9498,9516,9533</RXCalCHList>
+				<TXComPower Editable="TRUE" Type="Integer">2,8.5,12.5</TXComPower>
+				<CalSecFreqComp Editable="TRUE" Type="Integer">1</CalSecFreqComp>
+				<TXSecComPdm Editable="TRUE" Type="Integer">149,150</TXSecComPdm>
+				<RXOffsetPower Editable="TRUE" Type="Integer">-73.0,-66.0,-45.0,-45</RXOffsetPower>
+				<TXComPwrUpLmt Editable="TRUE" Type="Integer">10,10,10</TXComPwrUpLmt>
+				<TXComPwrLowLmt Editable="TRUE" Type="Integer">-10,-10,-10</TXComPwrLowLmt>
+				<RXOffsetUpLmt Editable="TRUE" Type="Integer">150,600,800,800</RXOffsetUpLmt>
+				<RXOffsetLowLmt Editable="TRUE" Type="Integer">-150,0,0,0</RXOffsetLowLmt>
+				<!--End of Parameters-->
+			</ProcessObject>
+			<ProcessObject ClassName="CQTR6285TXRXCal" Name="WCDMACAL_2100">
+				<!--Main Function is necessary-->
+				<MainFunc Editable="TRUE" Type="String">QTR6285TXRXCalMainFunc</MainFunc>
+				<!--Parameters-->
+				<List>
+					<Item Name="QTR6285TXLIN_CalFunc" Enabled="TRUE"/>
+					<Item Name="QTR6285TXLIMCompen_CalFunc" Enabled="FALSE"/>
+					<Item Name="QTR6285RXCalFunc" Enabled="FALSE"/>
+					<Item Name="TXRXComposite" Enabled="TRUE"/>
+				</List>
+				<Band Editable="TRUE" Type="Integer">2100</Band>
+				<UseTXRXCal Editable="TRUE" Type="Integer">0</UseTXRXCal>
+				<RXPath Editable="TRUE" Type="Integer">0</RXPath>
+				<HDET_ADC_CH Editable="TRUE" Type="Integer">7</HDET_ADC_CH>
+				<TXlimPower Editable="TRUE" Type="Integer">24</TXlimPower>
+				<TXlimPDMSize Editable="TRUE" Type="Integer">3</TXlimPDMSize>
+				<TXlimPDMNUM Editable="TRUE" Type="Integer">7</TXlimPDMNUM>
+				<UseSecondSweep Editable="TRUE" Type="Integer">0</UseSecondSweep>
+				<SecSweepPDM Editable="TRUE" Type="Integer">59</SecSweepPDM>
+				<SecSweepExPower Editable="TRUE" Type="Integer">-20</SecSweepExPower>
+				<RefChannel Editable="TRUE" Type="Integer">9743</RefChannel>
+				<StepSize Editable="TRUE" Type="Integer">4,3,3,3</StepSize>
+				<PARangeList Editable="TRUE" Type="Integer">0,1,3,3</PARangeList>
+				<TargetpowerList Editable="TRUE" Type="Integer">6,12,24,24</TargetpowerList>
+				<StoppowerList Editable="TRUE" Type="Integer">-57,-12,4,4</StoppowerList>
+				<StartPDMList Editable="TRUE" Type="Integer">216,205,216,216</StartPDMList>
+				<StopPDMList Editable="TRUE" Type="Integer">77,130,150,150</StopPDMList>
+				<ExpectPowerList Editable="TRUE" Type="Integer">8,14,26.5,26.5</ExpectPowerList>
+				<TXCalCHList Editable="TRUE" Type="Integer">9621,9638,9656,9673,9691,9708,9726,9743,9761,9778,9796,9813,9831,9848,9866,9883</TXCalCHList>
+				<RXCalCHList Editable="TRUE" Type="Integer">10571,10588,10606,10623,10641,10658,10676,10693,10711,10728,10746,10763,10781,10798,10816,10833</RXCalCHList>
+				<TXComPower Editable="TRUE" Type="Integer">2,10,10,10</TXComPower>
+				<CalSecFreqComp Editable="TRUE" Type="Integer">1</CalSecFreqComp>
+				<TXSecComPdm Editable="TRUE" Type="Integer">149,150</TXSecComPdm>
+				<RXOffsetPower Editable="TRUE" Type="Integer">-74.0,-70.0,-44.0,-34</RXOffsetPower>
+				<TXComPwrUpLmt Editable="TRUE" Type="Integer">5,4,6,6</TXComPwrUpLmt>
+				<TXComPwrLowLmt Editable="TRUE" Type="Integer">-5,-7,-5,-5</TXComPwrLowLmt>
+				<RXOffsetUpLmt Editable="TRUE" Type="Integer">500,500,700,800</RXOffsetUpLmt>
+				<RXOffsetLowLmt Editable="TRUE" Type="Integer">50,50,200,400</RXOffsetLowLmt>
+				<!--End of Parameters-->
+			</ProcessObject>
+		</WCDMACalibrationProcessObjects>
+		<GSMCalibrationProcessObjects>
+			<ProcessObject ClassName="CInitCGSMCal" Name="InitGSMCal">
+				<!--Main Function is necessary-->
+				<MainFunc Editable="TRUE" Type="String">InitGSMCalMainFunc</MainFunc>
+				<!--Parameters-->
+				<List>
+					<Item Name="InitGSMCalFunc6285" Enabled="TRUE"/>
+				</List>
+				<GSMCalDevicePort Editable="TRUE" Type="Integer">1</GSMCalDevicePort>
+				<!--End of Parameters-->
+			</ProcessObject>
+			<ProcessObject ClassName="CEndGSMCal" Name="EndGSMCal6285">
+				<!--Main Function is necessary-->
+				<MainFunc Editable="TRUE" Type="String">EndGSMCalMainFunc</MainFunc>
+				<!--Parameters-->
+				<List>
+					<Item Name="EndGSMCal6285" Enabled="TRUE"/>
+				</List>
+				<EnterOnline Editable="TRUE" Type="Integer">1</EnterOnline>
+				<!--End of Parameters-->
+			</ProcessObject>
+			<ProcessObject ClassName="CGSMRXCal" Name="GSMRXCAL_850">
+				<!--Main Function is necessary-->
+				<MainFunc Editable="TRUE" Type="String">GSMRXCalMainFunc</MainFunc>
+				<!--Parameters-->
+				<List>
+					<Item Name="GSMRXCal" Enabled="true"/>
+				</List>
+				<Band Editable="TRUE" Type="Integer">850</Band>
+				<RXCalPowerList Editable="TRUE" Type="Integer">-80,-80,-50,-50,-50</RXCalPowerList>
+				<ChannelList Editable="TRUE" Type="Integer">128,145,163,180,198,215,233,251</ChannelList>
+				<BitMask Editable="TRUE" Type="Integer">1,2,4,8,16</BitMask>
+				<RXLimitUp Editable="TRUE" Type="Integer">2800,2500,2100,1800,1800</RXLimitUp>
+				<RXLimitLow Editable="TRUE" Type="Integer">0,0,0,0,0</RXLimitLow>
+				<GainRangeCount Editable="TRUE" Type="Integer">5</GainRangeCount>
+				<!--End of Parameters-->
+			</ProcessObject>
+			<ProcessObject ClassName="CGSMRXCal" Name="GSMRXCAL_900">
+				<!--Main Function is necessary-->
+				<MainFunc Editable="TRUE" Type="String">GSMRXCalMainFunc</MainFunc>
+				<!--Parameters-->
+				<List>
+					<Item Name="GSMRXCal" Enabled="true"/>
+				</List>
+				<Band Editable="TRUE" Type="Integer">900</Band>
+				<RXCalPowerList Editable="TRUE" Type="Integer">-80,-80,-50,-50,-50</RXCalPowerList>
+				<ChannelList Editable="TRUE" Type="Integer">1,31,62,92,124,975,1000,1023</ChannelList>
+				<BitMask Editable="TRUE" Type="Integer">1,2,4,8,16</BitMask>
+				<RXLimitUp Editable="TRUE" Type="Integer">2800,2500,2100,1800,1800</RXLimitUp>
+				<RXLimitLow Editable="TRUE" Type="Integer">0,0,0,0,0</RXLimitLow>
+				<GainRangeCount Editable="TRUE" Type="Integer">5</GainRangeCount>
+				<!--End of Parameters-->
+			</ProcessObject>
+			<ProcessObject ClassName="CGSMRXCal" Name="GSMRXCAL_1800">
+				<!--Main Function is necessary-->
+				<MainFunc Editable="TRUE" Type="String">GSMRXCalMainFunc</MainFunc>
+				<!--Parameters-->
+				<List>
+					<Item Name="GSMRXCal" Enabled="TRUE"/>
+				</List>
+				<Band Editable="TRUE" Type="Integer">1800</Band>
+				<RXCalPowerList Editable="TRUE" Type="Integer">-80,-80,-50,-50,-50</RXCalPowerList>
+				<ChannelList Editable="TRUE" Type="Integer">512,537,562,587,612,637,662,687,712,737,762,787,812,837,862,885</ChannelList>
+				<BitMask Editable="TRUE" Type="Integer">1,2,4,8,16</BitMask>
+				<RXLimitUp Editable="TRUE" Type="Integer">2800,2500,2100,1800,1800</RXLimitUp>
+				<RXLimitLow Editable="TRUE" Type="Integer">0,0,0,0,0</RXLimitLow>
+				<GainRangeCount Editable="TRUE" Type="Integer">5</GainRangeCount>
+				<!--End of Parameters-->
+			</ProcessObject>
+			<ProcessObject ClassName="CGSMRXCal" Name="GSMRXCAL_1900">
+				<!--Main Function is necessary-->
+				<MainFunc Editable="TRUE" Type="String">GSMRXCalMainFunc</MainFunc>
+				<!--Parameters-->
+				<List>
+					<Item Name="GSMRXCal" Enabled="true"/>
+				</List>
+				<Band Editable="TRUE" Type="Integer">1900</Band>
+				<RXCalPowerList Editable="TRUE" Type="Integer">-80,-80,-50,-50,-50</RXCalPowerList>
+				<ChannelList Editable="TRUE" Type="Integer">512,532,552,572,592,612,632,652,672,692,712,732,752,772,792,810</ChannelList>
+				<BitMask Editable="TRUE" Type="Integer">1,2,4,8,16</BitMask>
+				<RXLimitUp Editable="TRUE" Type="Integer">2800,2500,2100,1800,1800</RXLimitUp>
+				<RXLimitLow Editable="TRUE" Type="Integer">0,0,0,0,0</RXLimitLow>
+				<GainRangeCount Editable="TRUE" Type="Integer">5</GainRangeCount>
+				<!--End of Parameters-->
+			</ProcessObject>
+			<ProcessObject ClassName="CGSMTXCal6285" Name="GSMTXCSCAL_850">
+				<!--Main Function is necessary-->
+				<MainFunc Editable="TRUE" Type="String">GSMTXCalMainFunc6285</MainFunc>
+				<!--Parameters-->
+				<List>
+					<Item Name="TXCSCal6285" Enabled="true"/>
+				</List>
+				<Band Editable="TRUE" Type="Integer">850</Band>
+				<ChannelList Editable="TRUE" Type="Integer">128,190,251</ChannelList>
+				<ListSize Editable="TRUE" Type="Integer">257</ListSize>
+				<PARangeNum Editable="TRUE" Type="Integer">4</PARangeNum>
+				<SegmentTime Editable="TRUE" Type="Integer">273</SegmentTime>
+				<MeasLenUS Editable="TRUE" Type="Integer">600</MeasLenUS>
+				<GainParaNVID Editable="TRUE" Type="Integer">6475</GainParaNVID>
+				<PreDistRGIPower Editable="TRUE" Type="Integer">26</PreDistRGIPower>
+				<DATriggerPower Editable="TRUE" Type="Integer">32.5</DATriggerPower>
+				<SmoothingWindowSize Editable="TRUE" Type="Integer">3</SmoothingWindowSize>
+				<!--End of Parameters-->
+			</ProcessObject>
+			<ProcessObject ClassName="CGSMTXCal6285" Name="GSMTXCSCAL_1800">
+				<!--Main Function is necessary-->
+				<MainFunc Editable="TRUE" Type="String">GSMTXCalMainFunc6285</MainFunc>
+				<!--Parameters-->
+				<List>
+					<Item Name="TXCSCal6285" Enabled="TRUE"/>
+				</List>
+				<Band Editable="TRUE" Type="Integer">1800</Band>
+				<ChannelList Editable="TRUE" Type="Integer">698</ChannelList>
+				<ListSize Editable="TRUE" Type="Integer">42</ListSize>
+				<PARangeNum Editable="TRUE" Type="Integer">3</PARangeNum>
+				<SegmentTime Editable="TRUE" Type="Integer">91</SegmentTime>
+				<MeasLenUS Editable="TRUE" Type="Integer">235</MeasLenUS>
+				<GainParaNVID Editable="TRUE" Type="Integer">6476</GainParaNVID>
+				<PreDistRGIPower Editable="TRUE" Type="Integer">25</PreDistRGIPower>
+				<DATriggerPower Editable="TRUE" Type="Integer">23</DATriggerPower>
+				<PolarMaxPower Editable="TRUE" Type="Integer">33</PolarMaxPower>
+				<PolarMinPower Editable="TRUE" Type="Integer">-10</PolarMinPower>
+				<SmoothingWindowSize Editable="TRUE" Type="Integer">3</SmoothingWindowSize>
+				<!--End of Parameters-->
+			</ProcessObject>
+			<ProcessObject ClassName="CGSMTXCal6285" Name="GSMTXCSCAL_1900">
+				<!--Main Function is necessary-->
+				<MainFunc Editable="TRUE" Type="String">GSMTXCalMainFunc6285</MainFunc>
+				<!--Parameters-->
+				<List>
+					<Item Name="TXCSCal6285" Enabled="TRUE"/>
+				</List>
+				<Band Editable="TRUE" Type="Integer">1900</Band>
+				<ChannelList Editable="TRUE" Type="Integer">661</ChannelList>
+				<ListSize Editable="TRUE" Type="Integer">42</ListSize>
+				<PARangeNum Editable="TRUE" Type="Integer">3</PARangeNum>
+				<SegmentTime Editable="TRUE" Type="Integer">91</SegmentTime>
+				<MeasLenUS Editable="TRUE" Type="Integer">235</MeasLenUS>
+				<GainParaNVID Editable="TRUE" Type="Integer">6476</GainParaNVID>
+				<PreDistRGIPower Editable="TRUE" Type="Integer">25</PreDistRGIPower>
+				<DATriggerPower Editable="TRUE" Type="Integer">23</DATriggerPower>
+				<PolarMaxPower Editable="TRUE" Type="Integer">33</PolarMaxPower>
+				<PolarMinPower Editable="TRUE" Type="Integer">-10</PolarMinPower>
+				<SmoothingWindowSize Editable="TRUE" Type="Integer">3</SmoothingWindowSize>
+				<!--End of Parameters-->
+			</ProcessObject>
+			<ProcessObject ClassName="CGSMTXCal6285" Name="GSMTXTimeCAL_900">
+				<!--Main Function is necessary-->
+				<MainFunc Editable="TRUE" Type="String">GSMTXCalMainFunc6285</MainFunc>
+				<!--Parameters-->
+				<List>
+					<Item Name="TXDelayCal6285" Enabled="TRUE"/>
+				</List>
+				<Band Editable="TRUE" Type="Integer">900</Band>
+				<ChannelList Editable="TRUE" Type="Integer">1</ChannelList>
+				<ListSize Editable="TRUE" Type="Integer">42</ListSize>
+				<PARangeNum Editable="TRUE" Type="Integer">3</PARangeNum>
+				<SegmentTime Editable="TRUE" Type="Integer">91</SegmentTime>
+				<MeasLenUS Editable="TRUE" Type="Integer">235</MeasLenUS>
+				<GainParaNVID Editable="TRUE" Type="Integer">6476</GainParaNVID>
+				<PreDistRGIPower Editable="TRUE" Type="Integer">25</PreDistRGIPower>
+				<DATriggerPower Editable="TRUE" Type="Integer">23</DATriggerPower>
+				<pathDelayStart Editable="TRUE" Type="Integer">-100</pathDelayStart>
+				<SmoothingWindowSize Editable="TRUE" Type="Integer">3</SmoothingWindowSize>
+				<!--End of Parameters-->
+			</ProcessObject>
+			<ProcessObject ClassName="CGSMTXCal6285" Name="GSMTXTimeCAL_1800">
+				<!--Main Function is necessary-->
+				<MainFunc Editable="TRUE" Type="String">GSMTXCalMainFunc6285</MainFunc>
+				<!--Parameters-->
+				<List>
+					<Item Name="TXDelayCal6285" Enabled="TRUE"/>
+				</List>
+				<Band Editable="TRUE" Type="Integer">1800</Band>
+				<ChannelList Editable="TRUE" Type="Integer">700</ChannelList>
+				<ListSize Editable="TRUE" Type="Integer">42</ListSize>
+				<PARangeNum Editable="TRUE" Type="Integer">3</PARangeNum>
+				<SegmentTime Editable="TRUE" Type="Integer">91</SegmentTime>
+				<MeasLenUS Editable="TRUE" Type="Integer">235</MeasLenUS>
+				<GainParaNVID Editable="TRUE" Type="Integer">6476</GainParaNVID>
+				<PreDistRGIPower Editable="TRUE" Type="Integer">25</PreDistRGIPower>
+				<DATriggerPower Editable="TRUE" Type="Integer">23</DATriggerPower>
+				<pathDelayStart Editable="TRUE" Type="Integer">-40</pathDelayStart>
+				<SmoothingWindowSize Editable="TRUE" Type="Integer">3</SmoothingWindowSize>
+				<!--End of Parameters-->
+			</ProcessObject>
+			<ProcessObject ClassName="CGSMTXCal6285" Name="GSMTXTimeCAL_1900">
+				<!--Main Function is necessary-->
+				<MainFunc Editable="TRUE" Type="String">GSMTXCalMainFunc6285</MainFunc>
+				<!--Parameters-->
+				<List>
+					<Item Name="TXDelayCal6285" Enabled="TRUE"/>
+				</List>
+				<Band Editable="TRUE" Type="Integer">1900</Band>
+				<ChannelList Editable="TRUE" Type="Integer">660</ChannelList>
+				<ListSize Editable="TRUE" Type="Integer">42</ListSize>
+				<PARangeNum Editable="TRUE" Type="Integer">3</PARangeNum>
+				<SegmentTime Editable="TRUE" Type="Integer">91</SegmentTime>
+				<MeasLenUS Editable="TRUE" Type="Integer">235</MeasLenUS>
+				<GainParaNVID Editable="TRUE" Type="Integer">6476</GainParaNVID>
+				<PreDistRGIPower Editable="TRUE" Type="Integer">25</PreDistRGIPower>
+				<DATriggerPower Editable="TRUE" Type="Integer">23</DATriggerPower>
+				<pathDelayStart Editable="TRUE" Type="Integer">-40</pathDelayStart>
+				<SmoothingWindowSize Editable="TRUE" Type="Integer">3</SmoothingWindowSize>
+				<!--End of Parameters-->
+			</ProcessObject>
+			<ProcessObject ClassName="CGSMTXCal6285" Name="GSMTXPolarCAL_900F1">
+				<!--Main Function is necessary-->
+				<MainFunc Editable="TRUE" Type="String">GSMTXCalMainFunc6285</MainFunc>
+				<!--Parameters-->
+				<List>
+					<Item Name="TXPolarCal6285" Enabled="TRUE"/>
+				</List>
+				<Band Editable="TRUE" Type="Integer">900</Band>
+				<ChannelList Editable="TRUE" Type="Integer">975</ChannelList>
+				<ListSize Editable="TRUE" Type="Integer">300</ListSize>
+				<PARangeNum Editable="TRUE" Type="Integer">3</PARangeNum>
+				<SegmentTime Editable="TRUE" Type="Integer">91</SegmentTime>
+				<MeasLenUS Editable="TRUE" Type="Integer">614.4</MeasLenUS>
+				<GainParaNVID Editable="TRUE" Type="Integer">6476</GainParaNVID>
+				<PreDistRGIPower Editable="TRUE" Type="Integer">30</PreDistRGIPower>
+				<DATriggerPower Editable="TRUE" Type="Integer">30</DATriggerPower>
+				<PolarMaxPower Editable="TRUE" Type="Integer">33</PolarMaxPower>
+				<PolarMinPower Editable="TRUE" Type="Integer">-10</PolarMinPower>
+				<SmoothingWindowSize Editable="TRUE" Type="Integer">3</SmoothingWindowSize>
+				<pathDelayStart Editable="TRUE" Type="Integer">-100</pathDelayStart>
+				<FreqnecyLocation Editable="TRUE" Type="Integer">1</FreqnecyLocation>
+				<!--End of Parameters-->
+			</ProcessObject>
+			<ProcessObject ClassName="CGSMTXCal6285" Name="GSMTXPolarCAL_900F2">
+				<!--Main Function is necessary-->
+				<MainFunc Editable="TRUE" Type="String">GSMTXCalMainFunc6285</MainFunc>
+				<!--Parameters-->
+				<List>
+					<Item Name="TXPolarCal6285" Enabled="TRUE"/>
+				</List>
+				<Band Editable="TRUE" Type="Integer">900</Band>
+				<ChannelList Editable="TRUE" Type="Integer">124</ChannelList>
+				<ListSize Editable="TRUE" Type="Integer">300</ListSize>
+				<PARangeNum Editable="TRUE" Type="Integer">3</PARangeNum>
+				<SegmentTime Editable="TRUE" Type="Integer">91</SegmentTime>
+				<MeasLenUS Editable="TRUE" Type="Integer">614.4</MeasLenUS>
+				<GainParaNVID Editable="TRUE" Type="Integer">6476</GainParaNVID>
+				<PreDistRGIPower Editable="TRUE" Type="Integer">30</PreDistRGIPower>
+				<DATriggerPower Editable="TRUE" Type="Integer">30</DATriggerPower>
+				<PolarMaxPower Editable="TRUE" Type="Integer">33</PolarMaxPower>
+				<PolarMinPower Editable="TRUE" Type="Integer">-10</PolarMinPower>
+				<SmoothingWindowSize Editable="TRUE" Type="Integer">3</SmoothingWindowSize>
+				<pathDelayStart Editable="TRUE" Type="Integer">-100</pathDelayStart>
+				<FreqnecyLocation Editable="TRUE" Type="Integer">2</FreqnecyLocation>
+				<!--End of Parameters-->
+			</ProcessObject>
+			<ProcessObject ClassName="CGSMTXCal6285" Name="GSMTXPolarCAL_1800F1">
+				<!--Main Function is necessary-->
+				<MainFunc Editable="TRUE" Type="String">GSMTXCalMainFunc6285</MainFunc>
+				<!--Parameters-->
+				<List>
+					<Item Name="TXPolarCal6285" Enabled="TRUE"/>
+				</List>
+				<Band Editable="TRUE" Type="Integer">1800</Band>
+				<ChannelList Editable="TRUE" Type="Integer">512</ChannelList>
+				<ListSize Editable="TRUE" Type="Integer">300</ListSize>
+				<PARangeNum Editable="TRUE" Type="Integer">3</PARangeNum>
+				<SegmentTime Editable="TRUE" Type="Integer">91</SegmentTime>
+				<MeasLenUS Editable="TRUE" Type="Integer">614.4</MeasLenUS>
+				<GainParaNVID Editable="TRUE" Type="Integer">6476</GainParaNVID>
+				<PreDistRGIPower Editable="TRUE" Type="Integer">30</PreDistRGIPower>
+				<DATriggerPower Editable="TRUE" Type="Integer">30</DATriggerPower>
+				<PolarMaxPower Editable="TRUE" Type="Integer">30</PolarMaxPower>
+				<PolarMinPower Editable="TRUE" Type="Integer">-12</PolarMinPower>
+				<SmoothingWindowSize Editable="TRUE" Type="Integer">3</SmoothingWindowSize>
+				<pathDelayStart Editable="TRUE" Type="Integer">-100</pathDelayStart>
+				<FreqnecyLocation Editable="TRUE" Type="Integer">1</FreqnecyLocation>
+				<!--End of Parameters-->
+			</ProcessObject>
+			<ProcessObject ClassName="CGSMTXCal6285" Name="GSMTXPolarCAL_1800F2">
+				<!--Main Function is necessary-->
+				<MainFunc Editable="TRUE" Type="String">GSMTXCalMainFunc6285</MainFunc>
+				<!--Parameters-->
+				<List>
+					<Item Name="TXPolarCal6285" Enabled="TRUE"/>
+				</List>
+				<Band Editable="TRUE" Type="Integer">1800</Band>
+				<ChannelList Editable="TRUE" Type="Integer">885</ChannelList>
+				<ListSize Editable="TRUE" Type="Integer">300</ListSize>
+				<PARangeNum Editable="TRUE" Type="Integer">3</PARangeNum>
+				<SegmentTime Editable="TRUE" Type="Integer">91</SegmentTime>
+				<MeasLenUS Editable="TRUE" Type="Integer">614.4</MeasLenUS>
+				<GainParaNVID Editable="TRUE" Type="Integer">6476</GainParaNVID>
+				<PreDistRGIPower Editable="TRUE" Type="Integer">30</PreDistRGIPower>
+				<DATriggerPower Editable="TRUE" Type="Integer">30</DATriggerPower>
+				<PolarMaxPower Editable="TRUE" Type="Integer">30</PolarMaxPower>
+				<PolarMinPower Editable="TRUE" Type="Integer">-12</PolarMinPower>
+				<SmoothingWindowSize Editable="TRUE" Type="Integer">3</SmoothingWindowSize>
+				<pathDelayStart Editable="TRUE" Type="Integer">-100</pathDelayStart>
+				<FreqnecyLocation Editable="TRUE" Type="Integer">2</FreqnecyLocation>
+				<!--End of Parameters-->
+			</ProcessObject>
+			<ProcessObject ClassName="CGSMTXCal6285" Name="GSMTXPolarCAL_1900F1">
+				<!--Main Function is necessary-->
+				<MainFunc Editable="TRUE" Type="String">GSMTXCalMainFunc6285</MainFunc>
+				<!--Parameters-->
+				<List>
+					<Item Name="TXPolarCal6285" Enabled="TRUE"/>
+				</List>
+				<Band Editable="TRUE" Type="Integer">1900</Band>
+				<ChannelList Editable="TRUE" Type="Integer">512</ChannelList>
+				<ListSize Editable="TRUE" Type="Integer">300</ListSize>
+				<PARangeNum Editable="TRUE" Type="Integer">3</PARangeNum>
+				<SegmentTime Editable="TRUE" Type="Integer">91</SegmentTime>
+				<MeasLenUS Editable="TRUE" Type="Integer">614.4</MeasLenUS>
+				<GainParaNVID Editable="TRUE" Type="Integer">6476</GainParaNVID>
+				<PreDistRGIPower Editable="TRUE" Type="Integer">30</PreDistRGIPower>
+				<DATriggerPower Editable="TRUE" Type="Integer">30</DATriggerPower>
+				<PolarMaxPower Editable="TRUE" Type="Integer">30</PolarMaxPower>
+				<PolarMinPower Editable="TRUE" Type="Integer">-12</PolarMinPower>
+				<SmoothingWindowSize Editable="TRUE" Type="Integer">3</SmoothingWindowSize>
+				<pathDelayStart Editable="TRUE" Type="Integer">-100</pathDelayStart>
+				<FreqnecyLocation Editable="TRUE" Type="Integer">1</FreqnecyLocation>
+				<!--End of Parameters-->
+			</ProcessObject>
+			<ProcessObject ClassName="CGSMTXCal6285" Name="GSMTXPolarCAL_1900F2">
+				<!--Main Function is necessary-->
+				<MainFunc Editable="TRUE" Type="String">GSMTXCalMainFunc6285</MainFunc>
+				<!--Parameters-->
+				<List>
+					<Item Name="TXPolarCal6285" Enabled="TRUE"/>
+				</List>
+				<Band Editable="TRUE" Type="Integer">1900</Band>
+				<ChannelList Editable="TRUE" Type="Integer">810</ChannelList>
+				<ListSize Editable="TRUE" Type="Integer">300</ListSize>
+				<PARangeNum Editable="TRUE" Type="Integer">3</PARangeNum>
+				<SegmentTime Editable="TRUE" Type="Integer">91</SegmentTime>
+				<MeasLenUS Editable="TRUE" Type="Integer">614.4</MeasLenUS>
+				<GainParaNVID Editable="TRUE" Type="Integer">6476</GainParaNVID>
+				<PreDistRGIPower Editable="TRUE" Type="Integer">30</PreDistRGIPower>
+				<DATriggerPower Editable="TRUE" Type="Integer">30</DATriggerPower>
+				<PolarMaxPower Editable="TRUE" Type="Integer">30</PolarMaxPower>
+				<PolarMinPower Editable="TRUE" Type="Integer">-12</PolarMinPower>
+				<SmoothingWindowSize Editable="TRUE" Type="Integer">3</SmoothingWindowSize>
+				<pathDelayStart Editable="TRUE" Type="Integer">-100</pathDelayStart>
+				<FreqnecyLocation Editable="TRUE" Type="Integer">2</FreqnecyLocation>
+				<!--End of Parameters-->
+			</ProcessObject>
+			<ProcessObject ClassName="CGSMTXCal6285" Name="GSMTXCSCAL_1900">
+				<!--Main Function is necessary-->
+				<MainFunc Editable="TRUE" Type="String">GSMTXCalMainFunc6285</MainFunc>
+				<!--Parameters-->
+				<List>
+					<Item Name="TXCSCal6285" Enabled="true"/>
+				</List>
+				<Band Editable="TRUE" Type="Integer">1900</Band>
+				<ChannelList Editable="TRUE" Type="Integer">661</ChannelList>
+				<ListSize Editable="TRUE" Type="Integer">42</ListSize>
+				<PARangeNum Editable="TRUE" Type="Integer">3</PARangeNum>
+				<SegmentTime Editable="TRUE" Type="Integer">91</SegmentTime>
+				<MeasLenUS Editable="TRUE" Type="Integer">235</MeasLenUS>
+				<GainParaNVID Editable="TRUE" Type="Integer">6477</GainParaNVID>
+				<PreDistRGIPower Editable="TRUE" Type="Integer">25</PreDistRGIPower>
+				<DATriggerPower Editable="TRUE" Type="Integer">29.5</DATriggerPower>
+				<PolarMaxPower Editable="TRUE" Type="Integer">33</PolarMaxPower>
+				<PolarMinPower Editable="TRUE" Type="Integer">-10</PolarMinPower>
+				<SmoothingWindowSize Editable="TRUE" Type="Integer">3</SmoothingWindowSize>
+				<!--End of Parameters-->
+			</ProcessObject>
+		</GSMCalibrationProcessObjects>
+	</ProcessObjectSet>
+</Configurations>

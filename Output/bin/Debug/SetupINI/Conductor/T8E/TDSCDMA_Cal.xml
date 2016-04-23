@@ -1,0 +1,405 @@
+<Configurations>
+	<PreObjects>
+		<DeviceObject ClassName="CCMU200" Name="CMU200">
+			<RFin Editable="TRUE" Type="Integer">2</RFin>
+			<RFout Editable="TRUE" Type="Integer">2</RFout>
+		</DeviceObject>
+		<DeviceObject ClassName="CCMW500" Name="CMW500">
+			<RFin Editable="TRUE" Type="Integer">1</RFin>
+			<RFout Editable="TRUE" Type="Integer">1</RFout>
+			<RFChannel Editable="TRUE" Type="Integer">1</RFChannel>
+		</DeviceObject>
+		<DeviceObject ClassName="N5182A" Name="N5182A">
+			<RFin Editable="TRUE" Type="Integer">1</RFin>
+			<RFout Editable="TRUE" Type="Integer">1</RFout>
+		</DeviceObject>
+		<DeviceObject ClassName="A8960" Name="A8960">
+			<RFin Editable="TRUE" Type="Integer">1</RFin>
+			<RFout Editable="TRUE" Type="Integer">1</RFout>
+			<ScreenOff Editable="TRUE" Type="Integer">1</ScreenOff>
+		</DeviceObject>
+		<DeviceObject ClassName="MT8820" Name="MT8820">
+			<RFin Editable="TRUE" Type="Integer">2</RFin>
+			<RFout Editable="TRUE" Type="Integer">2</RFout>
+			<ScreenOff Editable="TRUE" Type="Integer">1</ScreenOff>
+			<RFChannel Editable="TRUE" Type="Integer">15</RFChannel>
+		</DeviceObject>
+		<DeviceObject ClassName="CPowerSupply" Name="GeneralPly">
+		</DeviceObject>
+		<PhoneObject ClassName="CRFNVItems" Name="CRFNVItemsObj">
+		</PhoneObject>
+		<PhoneObject ClassName="CQualPhone" Name="QualPhone">
+			<RFNVItemObject Editable="TRUE" Type="Integer">CRFNVItemsObj</RFNVItemObject>
+			<IsEFS Editable="TRUE" Type="Integer">1</IsEFS>
+		</PhoneObject>
+	</PreObjects>
+	<MainObject>
+		<RFNVItem Editable="TRUE" Type="String">GeneralNV</RFNVItem>
+		<Phone Editable="TRUE" Type="String">QualPhone</Phone>
+		<TesterDeviceCommon Editable="TRUE" Type="String">MT8820</TesterDeviceCommon>
+		<TesterDevice1 Editable="TRUE" Type="String">N5182A</TesterDevice1>
+		<PowerSupplyCommon Editable="TRUE" Type="String">GeneralPly</PowerSupplyCommon>
+		<PowerSupplyCommonPort Editable="TRUE" Type="String">1</PowerSupplyCommonPort>
+		<PowerSupply1 Editable="TRUE" Type="String">dummy</PowerSupply1>
+		<PowerSupply1Port Editable="TRUE" Type="String">2</PowerSupply1Port>
+		<List>
+			<Item Name="WriteSN_QRD" Enabled="True"/>
+			<Item Name="ClearTDBTFlag" Enabled="True"/>
+			<Item Name="InitTDSCal" Enabled="True"/>
+			<Item Name="V3_Self_Cal" Enabled="True"/>
+			<Item Name="XO_CourseCal" Enabled="True"/>
+			<Item Name="XO_FDCal" Enabled="True"/>
+			<Item Name="ESCal_TDS_34" Enabled="True"/>
+			<Item Name="EndTDSCal" Enabled="True"/>
+			<Item Name="WriteTDBTFlag" Enabled="True"/></List>
+		<ALLItems>
+			<Item Name="StartPowerSupply"/>
+			<Item Name="WriteSN_QRD"/>
+			<Item Name="ReadSN_QRD"/>
+			<Item Name="SleepFunc"/>
+			<Item Name="ClearWCDMABTFlag"/>
+			<Item Name="WriteWCDMABTFlag"/>
+			<Item Name="InitWCDMACal"/>
+			<Item Name="V3_Self_Cal"/>
+			<Item Name="XO_CourseCal"/>
+			<Item Name="XO_FDCal"/>
+			<Item Name="ESCal_WCDMA_2100"/>
+			<Item Name="WCDMA_DC_2100"/>
+			<Item Name="InitTDSCal"/>
+			<Item Name="ESCal_TDS_34"/>
+			<Item Name="ClearTDBTFlag"/>
+			<Item Name="WriteTDBTFlag"/>
+			<Item Name="EndTDSCal"/>
+			<Item Name="EndWCDMACal"/>
+			<Item Name="StopPowerSupply"/>
+		</ALLItems>
+	</MainObject>
+	<ProcessObjectSet>
+		<CommonProcessObjects>
+			<ProcessObject ClassName="CBaseBandTestProc" Name="ClearWCDMABTFlag">
+				<!--Main Function is necessary-->
+				<MainFunc Editable="TRUE" Type="String">CommonTestMainFunc</MainFunc>
+				<!--Parameters-->
+				<List>
+					<Item Name="QRD_FlagOp" Enabled="TRUE"/>
+				</List>
+				<FlagNVID Editable="TRUE" Type="Integer">2499</FlagNVID>
+				<BytePos_QRD Editable="TRUE" Type="Integer">24</BytePos_QRD>
+				<!--0  check 1  pass  2 fail  other  under -->
+				<Flag_Op_type Editable="TRUE" Type="Integer">2</Flag_Op_type>
+				<WriteEFS Editable="TRUE" Type="Integer">0</WriteEFS>
+				<!--End of Parameters-->
+			</ProcessObject>
+			<ProcessObject ClassName="CBaseBandTestProc" Name="ClearTDBTFlag">
+				<!--Main Function is necessary-->
+				<MainFunc Editable="TRUE" Type="String">CommonTestMainFunc</MainFunc>
+				<!--Parameters-->
+				<List>
+					<Item Name="QRD_FlagOp" Enabled="TRUE"/>
+				</List>
+				<FlagNVID Editable="TRUE" Type="Integer">2499</FlagNVID>
+				<BytePos_QRD Editable="TRUE" Type="Integer">11</BytePos_QRD>
+				<!--0  check 1  pass  2 fail  other  under -->
+				<Flag_Op_type Editable="TRUE" Type="Integer">2</Flag_Op_type>
+				<WriteEFS Editable="TRUE" Type="Integer">0</WriteEFS>
+				<!--End of Parameters-->
+			</ProcessObject>
+			<ProcessObject ClassName="CBaseBandTestProc" Name="WriteTDBTFlag">
+				<!--Main Function is necessary-->
+				<MainFunc Editable="TRUE" Type="String">CommonTestMainFunc</MainFunc>
+				<!--Parameters-->
+				<List>
+					<Item Name="QRD_FlagOp" Enabled="TRUE"/>
+				</List>
+				<FlagNVID Editable="TRUE" Type="Integer">2499</FlagNVID>
+				<BytePos_QRD Editable="TRUE" Type="Integer">11</BytePos_QRD>
+				<Flag_Op_type Editable="TRUE" Type="Integer">1</Flag_Op_type>
+				<WriteEFS Editable="TRUE" Type="Integer">0</WriteEFS>
+				<!--End of Parameters-->
+			</ProcessObject>
+			<ProcessObject ClassName="CBaseBandTestProc" Name="SleepFunc">
+				<!--Main Function is necessary-->
+				<MainFunc Editable="TRUE" Type="String">CommonTestMainFunc</MainFunc>
+				<!--Parameters-->
+				<List>
+					<Item Name="SleepFunc" Enabled="TRUE"/>
+				</List>
+				<SleepSec Editable="TRUE" Type="Integer">2.5</SleepSec>
+				<!--End of Parameters-->
+			</ProcessObject>
+			<ProcessObject ClassName="CBaseBandTestProc" Name="WriteWCDMABTFlag">
+				<!--Main Function is necessary-->
+				<MainFunc Editable="TRUE" Type="String">CommonTestMainFunc</MainFunc>
+				<!--Parameters-->
+				<List>
+					<Item Name="QRD_FlagOp" Enabled="TRUE"/>
+				</List>
+				<FlagNVID Editable="TRUE" Type="Integer">2499</FlagNVID>
+				<BytePos_QRD Editable="TRUE" Type="Integer">24</BytePos_QRD>
+				<Flag_Op_type Editable="TRUE" Type="Integer">1</Flag_Op_type>
+				<WriteEFS Editable="TRUE" Type="Integer">0</WriteEFS>
+				<!--End of Parameters-->
+			</ProcessObject>
+			<ProcessObject ClassName="CBaseBandTestProc" Name="WriteSNFlag_QRD">
+				<!--Main Function is necessary-->
+				<MainFunc Editable="TRUE" Type="String">CommonTestMainFunc</MainFunc>
+				<!--Parameters-->
+				<List>
+					<Item Name="QRD_FlagOp" Enabled="TRUE"/>
+				</List>
+				<FlagNVID Editable="TRUE" Type="Integer">2499</FlagNVID>
+				<BytePos_QRD Editable="TRUE" Type="Integer">29</BytePos_QRD>
+				<Flag_Op_type Editable="TRUE" Type="Integer">1</Flag_Op_type>
+				<WriteEFS Editable="TRUE" Type="Integer">0</WriteEFS>
+				<!--End of Parameters-->
+			</ProcessObject>
+			<ProcessObject ClassName="CBaseBandTestProc" Name="WriteSN_QRD">
+				<!--Main Function is necessary-->
+				<MainFunc Editable="TRUE" Type="String">CommonTestMainFunc</MainFunc>
+				<!--Parameters-->
+				<List>
+					<Item Name="WriteSNFunc_QRD" Enabled="TRUE"/>
+				</List>
+				<QRD_NV_ID Editable="TRUE" Type="Integer">2497</QRD_NV_ID>
+				<DelayForNextItemMs Editable="TRUE" Type="Integer">0</DelayForNextItemMs>
+				<WriteEFS Editable="TRUE" Type="Integer">0</WriteEFS>
+				<ClearAllFlag Editable="TRUE" Type="Integer">0</ClearAllFlag>
+				<StationNum Editable="TRUE" Type="Integer">30</StationNum>
+				<FlagNVID Editable="TRUE" Type="Integer">2499</FlagNVID>
+				<!--End of Parameters-->
+			</ProcessObject>
+			<ProcessObject ClassName="CBaseBandTestProc" Name="ReadSN_QRD">
+				<!--Main Function is necessary-->
+				<MainFunc Editable="TRUE" Type="String">CommonTestMainFunc</MainFunc>
+				<!--Parameters-->
+				<List>
+					<Item Name="ReadSNFunc_QRD" Enabled="TRUE"/>
+				</List>
+				<QRD_NV_ID Editable="TRUE" Type="Integer">2497</QRD_NV_ID>
+				<DelayForNextItemMs Editable="TRUE" Type="Integer">0</DelayForNextItemMs>
+				<!--End of Parameters-->
+			</ProcessObject>
+			<ProcessObject ClassName="CPowerSlyControl" Name="StartPowerSupply">
+				<!--Main Function is necessary-->
+				<MainFunc Editable="TRUE" Type="String">PlyControlMainFunc</MainFunc>
+				<!--Parameters-->
+				<List>
+					<Item Name="StartPly" Enabled="TRUE"/>
+				</List>
+				<Voltage Editable="TRUE" Type="Integer">3.8</Voltage>
+				<CurrentLimit Editable="TRUE" Type="Integer">3</CurrentLimit>
+				<CurrentMode Editable="TRUE" Type="Integer">1</CurrentMode>
+				<!--1 : A  0 mA-->
+				<!--End of Parameters-->
+			</ProcessObject>
+			<ProcessObject ClassName="CPowerSlyControl" Name="StopPowerSupply">
+				<!--Main Function is necessary-->
+				<MainFunc Editable="TRUE" Type="String">PlyControlMainFunc</MainFunc>
+				<!--Parameters-->
+				<List>
+					<Item Name="StopPly" Enabled="TRUE"/>
+				</List>
+				<!--End of Parameters-->
+			</ProcessObject>
+		</CommonProcessObjects>
+		<WCDMACalibrationProcessObjects>
+			<ProcessObject ClassName="CInitWCDMACal" Name="InitWCDMACal">
+				<!--Main Function is necessary-->
+				<MainFunc Editable="TRUE" Type="String">InitWCDMACalMainFunc</MainFunc>
+				<!--Parameters-->
+				<List>
+					<Item Name="InitWCDMACalFunc" Enabled="TRUE"/>
+				</List>
+				<WCDMACalDevicePort Editable="TRUE" Type="Integer">1</WCDMACalDevicePort>
+				<!--End of Parameters-->
+			</ProcessObject>
+			<ProcessObject ClassName="CEndWCDMACal" Name="EndWCDMACal">
+				<!--Main Function is necessary-->
+				<MainFunc Editable="TRUE" Type="String">EndWCDMACalMainFunc</MainFunc>
+				<!--Parameters-->
+				<List>
+					<Item Name="EndWCDMACalFunc" Enabled="TRUE"/>
+				</List>
+				<EnterOnline Editable="TRUE" Type="Integer">1</EnterOnline>
+				<!--End of Parameters-->
+			</ProcessObject>
+			<ProcessObject ClassName="CXOCalibration" Name="XO_CourseCal">
+				<!--Main Function is necessary-->
+				<MainFunc Editable="TRUE" Type="String">XOCalMainFunc</MainFunc>
+				<!--Parameters-->
+				<List>
+					<Item Name="XOCalDC_CF" Enabled="TRUE"/>
+					<Item Name="XOCalFT" Enabled="FALSE"/>
+				</List>
+				<!--0 :CMDA  1:WCDMA-->
+				<RFMode Editable="TRUE" Type="Integer">42</RFMode>
+				<FreqOffSetKhz Editable="TRUE" Type="Integer">200</FreqOffSetKhz>
+				<Band Editable="TRUE" Type="Integer">34</Band>
+				<Channel Editable="TRUE" Type="Integer">10081</Channel>
+				<PARange Editable="TRUE" Type="Integer">2</PARange>
+				<PDM Editable="TRUE" Type="Integer">100</PDM>
+				<PowerLevel Editable="TRUE" Type="Integer">-30</PowerLevel>
+				<LNAState Editable="TRUE" Type="Integer">2</LNAState>
+				<TempSpan Editable="TRUE" Type="Float">0.25</TempSpan>
+				<MinFTSample Editable="TRUE" Type="Integer">5</MinFTSample>
+				<MaxFTSample Editable="TRUE" Type="Integer">100</MaxFTSample>
+				<SubstageTime Editable="TRUE" Type="Integer">10</SubstageTime>
+				<TxOnTimeMs Editable="TRUE" Type="Integer">10000</TxOnTimeMs>
+				<!--End of Parameters-->
+			</ProcessObject>
+			<ProcessObject ClassName="CWCDMA_V3_SelfCal" Name="V3_Self_Cal">
+				<!--Main Function is necessary-->
+				<MainFunc Editable="TRUE" Type="String">CWCDMA_V3_SelfCal_MainFunc</MainFunc>
+				<!--Parameters-->
+				<List>
+					<Item Name="CWCDMA_V3_CAL_Self_Cal" Enabled="TRUE"/>
+				</List>
+				<WriteEFS Editable="TRUE" Type="Integer">true</WriteEFS>
+				<DelayMS Editable="TRUE" Type="Integer">3000</DelayMS>
+				<CalType Editable="TRUE" Type="Integer">0</CalType>
+				<!--End of Parameters-->
+			</ProcessObject>
+			<ProcessObject ClassName="CXOCalibration" Name="XO_FDCal">
+				<!--Main Function is necessary-->
+				<MainFunc Editable="TRUE" Type="String">XOCalMainFunc</MainFunc>
+				<!--Parameters-->
+				<List>
+					<Item Name="XOCalDC_CF" Enabled="FALSE"/>
+					<Item Name="XOCalFT" Enabled="TRUE"/>
+				</List>
+				<!--0 :CMDA  1:WCDMA-->
+				<RFMode Editable="TRUE" Type="Integer">42</RFMode>
+				<FreqOffSetKhz Editable="TRUE" Type="Integer">200</FreqOffSetKhz>
+				<Band Editable="TRUE" Type="Integer">34</Band>
+				<Channel Editable="TRUE" Type="Integer">10081</Channel>
+				<PARange Editable="TRUE" Type="Integer">2</PARange>
+				<PDM Editable="TRUE" Type="Integer">100</PDM>
+				<PowerLevel Editable="TRUE" Type="Integer">-35</PowerLevel>
+				<LNAState Editable="TRUE" Type="Integer">3</LNAState>
+				<TempSpan Editable="TRUE" Type="Float">1</TempSpan>
+				<MinFTSample Editable="TRUE" Type="Integer">10</MinFTSample>
+				<MaxFTSample Editable="TRUE" Type="Integer">600</MaxFTSample>
+				<SubstageTime Editable="TRUE" Type="Integer">10</SubstageTime>
+				<TxOnTimeMs Editable="TRUE" Type="Integer">10000</TxOnTimeMs>
+				<!--End of Parameters-->
+			</ProcessObject>
+			<ProcessObject ClassName="CESCalWCDMA" Name="ESCal_WCDMA_2100">
+				<!--Main Function is necessary-->
+				<MainFunc Editable="TRUE" Type="String">ESCalWCDMAMainFunc</MainFunc>
+				<!--Parameters-->
+				<List>
+					<Item Name="TxLinearizerFunc" Enabled="TRUE"/>
+					<Item Name="TxLinOldFunc" Enabled="FALSE"/>
+					<Item Name="TxRxFreqCompFunc" Enabled="TRUE"/>
+					<Item Name="TxFreqCompFunc" Enabled="FALSE"/>
+					<Item Name="RxFreqCompFunc" Enabled="FALSE"/>
+					<Item Name="GenerateAndWriteNV" Enabled="TRUE"/>
+				</List>
+				<Band Editable="TRUE" Type="Integer">2100</Band>
+				<TxLinChannel Editable="TRUE" Type="Integer">9750</TxLinChannel>
+				<UpperBoundChan Editable="TRUE" Type="Integer">9892</UpperBoundChan>
+				<TxWaveform Editable="TRUE" Type="Integer">0</TxWaveform>
+				<TxPurpose Editable="TRUE" Type="Integer">1</TxPurpose>
+				<PAState Editable="TRUE" Type="Integer">1,0,0</PAState>
+				<StartRGI Editable="TRUE" Type="Integer">100,100,60</StartRGI>
+				<StopRGI Editable="TRUE" Type="Integer">56,35,8</StopRGI>
+				<RGIStep Editable="TRUE" Type="Integer">-1,-1,-1</RGIStep>
+				<StartPower Editable="TRUE" Type="Integer">23,10,-20</StartPower>
+				<StopPower Editable="TRUE" Type="Integer">5,-20,-50</StopPower>
+				<ExpectPower Editable="TRUE" Type="Integer">28,21,-15</ExpectPower>
+				<RFDevices Editable="TRUE" Type="Integer">0,-1</RFDevices>
+				<HDETSample Editable="TRUE" Type="Integer">1,0,0</HDETSample>
+				<BiasIniname Editable="TRUE" Type="Integer">T8E.ini</BiasIniname>
+				<Channellist Editable="TRUE" Type="Integer">9621,9638,9656,9673,9691,9708,9726,9750,9761,9778,9796,9813,9831,9848,9866,9883</Channellist>
+				<TxFreqPAState Editable="TRUE" Type="Integer">1,1,0</TxFreqPAState>
+				<TxFreqPower Editable="TRUE" Type="Integer">20,10.5,8</TxFreqPower>
+				<TFPLimitMax Editable="TRUE" Type="Integer">28,20,17</TFPLimitMax>
+				<TFPLimitMin Editable="TRUE" Type="Integer">14,6,3</TFPLimitMin>
+				<FreqTxPurpose Editable="TRUE" Type="Integer">5,4,4</FreqTxPurpose>
+				<FreqHDETSample Editable="TRUE" Type="Integer">5,0,0</FreqHDETSample>
+				<RxAction Editable="TRUE" Type="Integer">0,1,2,3</RxAction>
+				<RXPath Editable="TRUE" Type="Integer">0</RXPath>
+				<RxPM Editable="TRUE" Type="Integer">0</RxPM>
+				<RxPower Editable="TRUE" Type="Integer">-74,-74,-70,-51</RxPower>
+				<LNAOffsetMax Editable="TRUE" Type="Integer">200,400,500,550</LNAOffsetMax>
+				<LNAOffsetMin Editable="TRUE" Type="Integer">-300,-100,50,200</LNAOffsetMin>
+				<!--End of Parameters-->
+			</ProcessObject>
+			<ProcessObject ClassName="CDualCarrier" Name="WCDMA_DC_2100">
+				<!--Main Function is necessary-->
+				<MainFunc Editable="TRUE" Type="String">CDualCarrierMainFunc</MainFunc>
+				<!--Parameters-->
+				<List>
+					<Item Name="CDualCarrierFunc" Enabled="TRUE"/>
+				</List>
+				<RxPath Editable="TRUE" Type="Integer">0</RxPath>
+				<Band Editable="TRUE" Type="Integer">2100</Band>
+				<NVMode Editable="TRUE" Type="Integer">43</NVMode>
+				<Channel Editable="TRUE" Type="Integer">9750</Channel>
+				<RxActionlist Editable="TRUE" Type="Integer">0,1,2,3</RxActionlist>
+				<ExpectedPowerlist Editable="TRUE" Type="Integer">-74,-74,-70,-60</ExpectedPowerlist>
+				<RxMaxLimits Editable="TRUE" Type="Integer">0,450,350,500</RxMaxLimits>
+				<RxMinLimits Editable="TRUE" Type="Integer">-340,100,125,275</RxMinLimits>
+				<!--End of Parameters-->
+			</ProcessObject>
+			<ProcessObject ClassName="CInitTDSCal" Name="InitTDSCal">
+				<!--Main Function is necessary-->
+				<MainFunc Editable="TRUE" Type="String">InitTDSCalMainFunc</MainFunc>
+				<!--Parameters-->
+				<List>
+					<Item Name="InitTDSCalFunc" Enabled="TRUE"/>
+				</List>
+				<TDSCalDevicePort Editable="TRUE" Type="Integer">1</TDSCalDevicePort>
+				<!--End of Parameters-->
+			</ProcessObject>
+			<ProcessObject ClassName="CEndTDSCal" Name="EndTDSCal">
+				<!--Main Function is necessary-->
+				<MainFunc Editable="TRUE" Type="String">EndTDSCalMainFunc</MainFunc>
+				<!--Parameters-->
+				<List>
+					<Item Name="EndTDSCalFunc" Enabled="TRUE"/>
+				</List>
+				<EnterOnline Editable="TRUE" Type="Integer">1</EnterOnline>
+				<!--End of Parameters-->
+			</ProcessObject>
+			<ProcessObject ClassName="CESCalTDS" Name="ESCal_TDS_34">
+				<!--Main Function is necessary-->
+				<MainFunc Editable="TRUE" Type="String">ESCalTDSMainFunc</MainFunc>
+				<!--Parameters-->
+				<List>
+					<Item Name="TxLinearizerFunc" Enabled="TRUE"/>
+					<Item Name="TxRxFreqCompFunc" Enabled="TRUE"/>
+					<Item Name="GenerateAndWriteNV" Enabled="TRUE"/>
+				</List>
+				<Band Editable="TRUE" Type="Integer">34</Band>
+				<TxLinChannel Editable="TRUE" Type="Integer">10081</TxLinChannel>
+				<UpperBoundChan Editable="TRUE" Type="Integer">10121</UpperBoundChan>
+				<TxWaveform Editable="TRUE" Type="Integer">2</TxWaveform>
+				<TxPurpose Editable="TRUE" Type="Integer">1</TxPurpose>
+				<PAState Editable="TRUE" Type="Integer">2,1,0,0</PAState>
+				<StartRGI Editable="TRUE" Type="Integer">100,102,96,54</StartRGI>
+				<StopRGI Editable="TRUE" Type="Integer">46,46,55,18</StopRGI>
+				<RGIStep Editable="TRUE" Type="Integer">-1,-1,-1,-1</RGIStep>
+				<StartPower Editable="TRUE" Type="Integer">24,12,4,-30</StartPower>
+				<StopPower Editable="TRUE" Type="Integer">-5,-10,-20,-50</StopPower>
+				<ExpectPower Editable="TRUE" Type="Integer">28,21,12,-20</ExpectPower>
+				<RFDevices Editable="TRUE" Type="Integer">0,-1</RFDevices>
+				<HDETSample Editable="TRUE" Type="Integer">1,0,0,0</HDETSample>
+				<APTenabled Editable="TRUE" Type="Integer">false</APTenabled>
+				<BiasIniname Editable="TRUE" Type="Integer">T8E.ini</BiasIniname>
+				<Channellist Editable="TRUE" Type="Integer">10054,10063,10072,10081,10090,10099,10108,10121</Channellist>
+				<TxFreqPAState Editable="TRUE" Type="Integer">2,2,1,0</TxFreqPAState>
+				<TxFreqPower Editable="TRUE" Type="Integer">24,12.5,8.5,2</TxFreqPower>
+				<TFPLimitMax Editable="TRUE" Type="Integer">32,20,16,10</TFPLimitMax>
+				<TFPLimitMin Editable="TRUE" Type="Integer">16,6,2,-4</TFPLimitMin>
+				<FreqTxPurpose Editable="TRUE" Type="Integer">5,4,4,4</FreqTxPurpose>
+				<FreqHDETSample Editable="TRUE" Type="Integer">1,0,0,0</FreqHDETSample>
+				<RxAction Editable="TRUE" Type="Integer">0,1,2,3</RxAction>
+				<RxPower Editable="TRUE" Type="Integer">-50,-50,-50,-45</RxPower>
+				<LNAOffsetMax Editable="TRUE" Type="Integer">-400,-300,-200,0</LNAOffsetMax>
+				<LNAOffsetMin Editable="TRUE" Type="Integer">-1300,-1200,-1100,-900</LNAOffsetMin>
+				<!--End of Parameters-->
+			</ProcessObject>
+		</WCDMACalibrationProcessObjects>
+	</ProcessObjectSet>
+</Configurations>

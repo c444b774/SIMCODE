@@ -1,0 +1,950 @@
+<Configurations>
+	<PreObjects>
+		<DeviceObject ClassName="CCMU200" Name="CMU200">
+			<RFin Editable="TRUE" Type="Integer">2</RFin>
+			<RFout Editable="TRUE" Type="Integer">2</RFout>
+		</DeviceObject>
+		<DeviceObject ClassName="CCMW500" Name="CMW500">
+			<RFin Editable="TRUE" Type="Integer">1</RFin>
+			<RFout Editable="TRUE" Type="Integer">1</RFout>
+			<RFChannel Editable="TRUE" Type="Integer">1</RFChannel>
+		</DeviceObject>
+		<DeviceObject ClassName="N5182A" Name="N5182A">
+			<RFin Editable="TRUE" Type="Integer">1</RFin>
+			<RFout Editable="TRUE" Type="Integer">1</RFout>
+		</DeviceObject>
+		<DeviceObject ClassName="A8960" Name="A8960">
+			<RFin Editable="TRUE" Type="Integer">1</RFin>
+			<RFout Editable="TRUE" Type="Integer">1</RFout>
+			<ScreenOff Editable="TRUE" Type="Integer">0</ScreenOff>
+		</DeviceObject>
+		<DeviceObject ClassName="MT8820" Name="MT8820">
+			<RFin Editable="TRUE" Type="Integer">2</RFin>
+			<RFout Editable="TRUE" Type="Integer">2</RFout>
+			<ScreenOff Editable="TRUE" Type="Integer">0</ScreenOff>
+			<RFChannel Editable="TRUE" Type="Integer">15</RFChannel>
+		</DeviceObject>
+		<DeviceObject ClassName="CPowerSupply" Name="GeneralPly">
+		</DeviceObject>
+		<PhoneObject ClassName="CRFNVItems" Name="CRFNVItemsObj">
+		</PhoneObject>
+		<PhoneObject ClassName="CQualPhone" Name="QualPhone">
+			<RFNVItemObject Editable="TRUE" Type="Integer">CRFNVItemsObj</RFNVItemObject>
+			<IsEFS Editable="TRUE" Type="Integer">1</IsEFS>
+		</PhoneObject>
+	</PreObjects>
+	<MainObject>
+		<RFNVItem Editable="TRUE" Type="String">GeneralNV</RFNVItem>
+		<Phone Editable="TRUE" Type="String">QualPhone</Phone>
+		<TesterDeviceCommon Editable="TRUE" Type="String">A8960</TesterDeviceCommon>
+		<TesterDevice1 Editable="TRUE" Type="String">N5182A</TesterDevice1>
+		<PowerSupplyCommon Editable="TRUE" Type="String">GeneralPly</PowerSupplyCommon>
+		<PowerSupplyCommonPort Editable="TRUE" Type="String">1</PowerSupplyCommonPort>
+		<PowerSupply1 Editable="TRUE" Type="String">dummy</PowerSupply1>
+		<PowerSupply1Port Editable="TRUE" Type="String">2</PowerSupply1Port>
+		<List>
+			<Item Name="ReadSN" Enabled="True"/>
+			<Item Name="ClearFlag" Enabled="True"/>
+			<Item Name="InitLTECal" Enabled="True"/>
+			<Item Name="ESCal_LTE_B5" Enabled="True"/>
+			<Item Name="ESCal_LTE_B8" Enabled="True"/>
+			<Item Name="ESCal_LTE_B26" Enabled="True"/>
+			<Item Name="ESCal_WCDMA_B5" Enabled="True"/>
+			<Item Name="ESCal_WCDMA_B8" Enabled="True"/>
+			<Item Name="EndLTECal" Enabled="True"/>
+			<Item Name="WriteFlag" Enabled="True"/></List>
+		<ALLItems>
+			<Item Name="ReadSN"/>
+			<Item Name="ClearFlag"/>
+			<Item Name="WriteFlag"/>
+			<Item Name="InitLTECal"/>
+			<Item Name="ESCal_LTE_B1"/>
+			<Item Name="ESCal_LTE_B2"/>
+			<Item Name="ESCal_LTE_B3"/>
+			<Item Name="ESCal_LTE_B4"/>
+			<Item Name="ESCal_LTE_B5"/>
+			<Item Name="ESCal_LTE_B7"/>
+			<Item Name="ESCal_LTE_B8"/>
+			<Item Name="ESCal_LTE_B12"/>
+			<Item Name="ESCal_LTE_B14"/>
+			<Item Name="ESCal_LTE_B17"/>
+			<Item Name="ESCal_LTE_B20"/>
+			<Item Name="ESCal_LTE_B25"/>
+			<Item Name="ESCal_LTE_B26"/>
+			<Item Name="ESCal_LTE_B38"/>
+			<Item Name="ESCal_LTE_B41"/>
+			<Item Name="ESCal_WCDMA_B1"/>
+			<Item Name="ESCal_WCDMA_B2"/>
+			<Item Name="ESCal_WCDMA_B5"/>
+			<Item Name="ESCal_WCDMA_B8"/>
+			<Item Name="EndLTECal"/>
+		</ALLItems>
+	</MainObject>
+	<ProcessObjectSet>
+		<CommonProcessObjects>
+			<ProcessObject ClassName="CBaseBandTestProc" Name="ReadSN">
+				<!--Main Function is necessary-->
+				<MainFunc Editable="TRUE" Type="String">CommonTestMainFunc</MainFunc>
+				<!--Parameters-->
+				<List>
+					<Item Name="ReadSNFunc_QRD" Enabled="TRUE"/>
+				</List>
+				<QRD_NV_ID Editable="TRUE" Type="Integer">2497</QRD_NV_ID>
+				<DelayForNextItemMs Editable="TRUE" Type="Integer">0</DelayForNextItemMs>
+				<!--End of Parameters-->
+			</ProcessObject>
+			<ProcessObject ClassName="CBaseBandTestProc" Name="WriteFlag">
+				<!--Main Function is necessary-->
+				<MainFunc Editable="TRUE" Type="String">CommonTestMainFunc</MainFunc>
+				<!--Parameters-->
+				<List>
+					<Item Name="QRD_FlagOp" Enabled="true"/>
+				</List>
+				<FlagNVID Editable="TRUE" Type="Integer">2499</FlagNVID>
+				<BytePos_QRD Editable="TRUE" Type="Integer">11</BytePos_QRD>
+				<Flag_Op_type Editable="TRUE" Type="Integer">1</Flag_Op_type>
+				<!--End of Parameters-->
+			</ProcessObject>
+			<ProcessObject ClassName="CBaseBandTestProc" Name="ClearFlag">
+				<!--Main Function is necessary-->
+				<MainFunc Editable="TRUE" Type="String">CommonTestMainFunc</MainFunc>
+				<!--Parameters-->
+				<List>
+					<Item Name="QRD_FlagOp" Enabled="true"/>
+				</List>
+				<FlagNVID Editable="TRUE" Type="Integer">2499</FlagNVID>
+				<BytePos_QRD Editable="TRUE" Type="Integer">11</BytePos_QRD>
+				<Flag_Op_type Editable="TRUE" Type="Integer">2</Flag_Op_type>
+				<!--End of Parameters-->
+			</ProcessObject>
+		</CommonProcessObjects>
+		<LTECalibrationProcessObjects>
+			<ProcessObject ClassName="CInitLTECal" Name="InitLTECal">
+				<!--Main Function is necessary-->
+				<MainFunc Editable="TRUE" Type="String">InitLTECalMainFunc</MainFunc>
+				<!--Parameters-->
+				<List>
+					<Item Name="InitLTECalFunc" Enabled="TRUE"/>
+				</List>
+				<LTECalDevicePort Editable="TRUE" Type="Integer">1</LTECalDevicePort>
+				<!--End of Parameters-->
+			</ProcessObject>
+			<ProcessObject ClassName="CEndLTECal" Name="EndLTECal">
+				<!--Main Function is necessary-->
+				<MainFunc Editable="TRUE" Type="String">EndLTECalMainFunc</MainFunc>
+				<!--Parameters-->
+				<List>
+					<Item Name="EndLTECalFunc" Enabled="TRUE"/>
+				</List>
+				<EnterOnline Editable="TRUE" Type="Integer">1</EnterOnline>
+				<!--End of Parameters-->
+			</ProcessObject>
+			<ProcessObject ClassName="CESCalLTE" Name="ESCal_LTE_B1">
+				<!--Main Function is necessary-->
+				<MainFunc Editable="TRUE" Type="String">ESCalLTEMainFunc</MainFunc>
+				<!--Parameters-->
+				<List>
+					<Item Name="TxLinearizerFunc" Enabled="FALSE"/>
+					<Item Name="TxRxFreqCompFunc" Enabled="FALSE"/>
+					<Item Name="RxFreqCompFunc" Enabled="TRUE"/>
+					<Item Name="GenerateAndWriteNV" Enabled="FALSE"/>
+				</List>
+				<Band Editable="TRUE" Type="Integer">1</Band>
+				<TxLinChannel Editable="TRUE" Type="Integer">18300</TxLinChannel>
+				<UpperBoundChan Editable="TRUE" Type="Integer">18599</UpperBoundChan>
+				<TxWaveform Editable="TRUE" Type="Integer">1</TxWaveform>
+				<TxPurpose Editable="TRUE" Type="Integer">2</TxPurpose>
+				<PAState Editable="TRUE" Type="Integer">0,3,3</PAState>
+				<StartRGI Editable="TRUE" Type="Integer">92,76,49</StartRGI>
+				<StopRGI Editable="TRUE" Type="Integer">56,50,1</StopRGI>
+				<RGIStep Editable="TRUE" Type="Integer">-1,-1,-2</RGIStep>
+				<StartPower Editable="TRUE" Type="Integer">23,7,-15</StartPower>
+				<StopPower Editable="TRUE" Type="Integer">3,-10,-40</StopPower>
+				<ExpectPower Editable="TRUE" Type="Integer">30,18,-10</ExpectPower>
+				<RFDevices Editable="TRUE" Type="Integer">0,-1</RFDevices>
+				<HDETSample Editable="TRUE" Type="Integer">1,0,0</HDETSample>
+				<PABiasValue Editable="TRUE" Type="Integer">3400,3400,3400</PABiasValue>
+				<APTenabled Editable="TRUE" Type="Integer">true</APTenabled>
+				<BiasIniname Editable="TRUE" Type="Integer">sonim.ini</BiasIniname>
+				<Channellist Editable="TRUE" Type="Integer">18001,18038,18076,18114,18152,18190,18228,18266,18300,18342,18380,18418,18456,18494,18532,18570</Channellist>
+				<TxFreqPAState Editable="TRUE" Type="Integer">0,0,3</TxFreqPAState>
+				<TxFreqPower Editable="TRUE" Type="Integer">23,7,4</TxFreqPower>
+				<TFPLimitMax Editable="TRUE" Type="Integer">32,16,13</TFPLimitMax>
+				<TFPLimitMin Editable="TRUE" Type="Integer">16,0,-3</TFPLimitMin>
+				<FreqTxPurpose Editable="TRUE" Type="Integer">5,4,4</FreqTxPurpose>
+				<FreqHDETSample Editable="TRUE" Type="Integer">1,0,0</FreqHDETSample>
+				<RxAction Editable="TRUE" Type="Integer">0,1,2,3,4,5</RxAction>
+				<RXPath Editable="TRUE" Type="Integer">1</RXPath>
+				<RxPM Editable="TRUE" Type="Integer">0</RxPM>
+				<RxPower Editable="TRUE" Type="Integer">-61,-60,-50,-40,-33,-33</RxPower>
+				<LNAOffsetMax Editable="TRUE" Type="Integer">380,380,380,380,380,380</LNAOffsetMax>
+				<LNAOffsetMin Editable="TRUE" Type="Integer">-180,-180,-180,-180,-180,-180</LNAOffsetMin>
+				<!--End of Parameters-->
+			</ProcessObject>
+			<ProcessObject ClassName="CESCalLTE" Name="ESCal_LTE_B2">
+				<!--Main Function is necessary-->
+				<MainFunc Editable="TRUE" Type="String">ESCalLTEMainFunc</MainFunc>
+				<!--Parameters-->
+				<List>
+					<Item Name="TxLinearizerFunc" Enabled="FALSE"/>
+					<Item Name="TxRxFreqCompFunc" Enabled="FALSE"/>
+					<Item Name="RxFreqCompFunc" Enabled="TRUE"/>
+					<Item Name="GenerateAndWriteNV" Enabled="FALSE"/>
+				</List>
+				<Band Editable="TRUE" Type="Integer">2</Band>
+				<TxLinChannel Editable="TRUE" Type="Integer">18900</TxLinChannel>
+				<UpperBoundChan Editable="TRUE" Type="Integer">19199</UpperBoundChan>
+				<TxWaveform Editable="TRUE" Type="Integer">1</TxWaveform>
+				<TxPurpose Editable="TRUE" Type="Integer">2</TxPurpose>
+				<PAState Editable="TRUE" Type="Integer">0,3,3</PAState>
+				<StartRGI Editable="TRUE" Type="Integer">88,82,49</StartRGI>
+				<StopRGI Editable="TRUE" Type="Integer">56,50,10</StopRGI>
+				<RGIStep Editable="TRUE" Type="Integer">-1,-1,-2</RGIStep>
+				<StartPower Editable="TRUE" Type="Integer">23,7,-15</StartPower>
+				<StopPower Editable="TRUE" Type="Integer">3,-10,-40</StopPower>
+				<ExpectPower Editable="TRUE" Type="Integer">30,18,-10</ExpectPower>
+				<RFDevices Editable="TRUE" Type="Integer">0,-1</RFDevices>
+				<HDETSample Editable="TRUE" Type="Integer">1,0,0</HDETSample>
+				<PABiasValue Editable="TRUE" Type="Integer">3400,3400,3400</PABiasValue>
+				<APTenabled Editable="TRUE" Type="Integer">true</APTenabled>
+				<BiasIniname Editable="TRUE" Type="Integer">sonim.ini</BiasIniname>
+				<Channellist Editable="TRUE" Type="Integer">18620,18657,18694,18731,18768,18805,18860,18900,18925,18953,18990,19027,19064,19101,19138,19175</Channellist>
+				<TxFreqPAState Editable="TRUE" Type="Integer">0,0,3</TxFreqPAState>
+				<TxFreqPower Editable="TRUE" Type="Integer">23,7,4</TxFreqPower>
+				<TFPLimitMax Editable="TRUE" Type="Integer">32,16,13</TFPLimitMax>
+				<TFPLimitMin Editable="TRUE" Type="Integer">16,0,-3</TFPLimitMin>
+				<FreqTxPurpose Editable="TRUE" Type="Integer">5,4,4</FreqTxPurpose>
+				<FreqHDETSample Editable="TRUE" Type="Integer">1,0,0</FreqHDETSample>
+				<RxAction Editable="TRUE" Type="Integer">0,1,2,3,4,5</RxAction>
+				<RXPath Editable="TRUE" Type="Integer">1</RXPath>
+				<RxPM Editable="TRUE" Type="Integer">0</RxPM>
+				<RxPower Editable="TRUE" Type="Integer">-61,-60,-50,-40,-33,-33</RxPower>
+				<LNAOffsetMax Editable="TRUE" Type="Integer">380,380,380,380,380,380</LNAOffsetMax>
+				<LNAOffsetMin Editable="TRUE" Type="Integer">-180,-180,-180,-180,-180,-180</LNAOffsetMin>
+				<!--End of Parameters-->
+			</ProcessObject>
+			<ProcessObject ClassName="CESCalLTE" Name="ESCal_LTE_B3">
+				<!--Main Function is necessary-->
+				<MainFunc Editable="TRUE" Type="String">ESCalLTEMainFunc</MainFunc>
+				<!--Parameters-->
+				<List>
+					<Item Name="TxLinearizerFunc" Enabled="FALSE"/>
+					<Item Name="TxRxFreqCompFunc" Enabled="FALSE"/>
+					<Item Name="RxFreqCompFunc" Enabled="TRUE"/>
+					<Item Name="GenerateAndWriteNV" Enabled="FALSE"/>
+				</List>
+				<Band Editable="TRUE" Type="Integer">3</Band>
+				<TxLinChannel Editable="TRUE" Type="Integer">19575</TxLinChannel>
+				<UpperBoundChan Editable="TRUE" Type="Integer">19949</UpperBoundChan>
+				<TxWaveform Editable="TRUE" Type="Integer">1</TxWaveform>
+				<TxPurpose Editable="TRUE" Type="Integer">2</TxPurpose>
+				<PAState Editable="TRUE" Type="Integer">0,3,3</PAState>
+				<StartRGI Editable="TRUE" Type="Integer">92,74,49</StartRGI>
+				<StopRGI Editable="TRUE" Type="Integer">56,50,1</StopRGI>
+				<RGIStep Editable="TRUE" Type="Integer">-1,-1,-2</RGIStep>
+				<StartPower Editable="TRUE" Type="Integer">23,7,-15</StartPower>
+				<StopPower Editable="TRUE" Type="Integer">3,-10,-35</StopPower>
+				<ExpectPower Editable="TRUE" Type="Integer">30,18,-10</ExpectPower>
+				<RFDevices Editable="TRUE" Type="Integer">0,-1</RFDevices>
+				<HDETSample Editable="TRUE" Type="Integer">1,0,0</HDETSample>
+				<PABiasValue Editable="TRUE" Type="Integer">3400,3400,3400</PABiasValue>
+				<APTenabled Editable="TRUE" Type="Integer">true</APTenabled>
+				<BiasIniname Editable="TRUE" Type="Integer">sonim.ini</BiasIniname>
+				<Channellist Editable="TRUE" Type="Integer">19207,19265,19322,19375,19425,19475,19525,19575,19621,19667,19713,19759,19805,19851,19897,19943</Channellist>
+				<TxFreqPAState Editable="TRUE" Type="Integer">0,0,3</TxFreqPAState>
+				<TxFreqPower Editable="TRUE" Type="Integer">23,7,4</TxFreqPower>
+				<TFPLimitMax Editable="TRUE" Type="Integer">32,16,13</TFPLimitMax>
+				<TFPLimitMin Editable="TRUE" Type="Integer">16,0,-3</TFPLimitMin>
+				<FreqTxPurpose Editable="TRUE" Type="Integer">5,4,4</FreqTxPurpose>
+				<FreqHDETSample Editable="TRUE" Type="Integer">1,0,0</FreqHDETSample>
+				<RxAction Editable="TRUE" Type="Integer">0,1,2,3,4,5</RxAction>
+				<RXPath Editable="TRUE" Type="Integer">1</RXPath>
+				<RxPM Editable="TRUE" Type="Integer">0</RxPM>
+				<RxPower Editable="TRUE" Type="Integer">-61,-60,-50,-40,-33,-33</RxPower>
+				<LNAOffsetMax Editable="TRUE" Type="Integer">600,600,600,600,600,600</LNAOffsetMax>
+				<LNAOffsetMin Editable="TRUE" Type="Integer">-300,-300,-300,-300,-300,-300</LNAOffsetMin>
+				<!--End of Parameters-->
+			</ProcessObject>
+			<ProcessObject ClassName="CESCalLTE" Name="ESCal_LTE_B4">
+				<!--Main Function is necessary-->
+				<MainFunc Editable="TRUE" Type="String">ESCalLTEMainFunc</MainFunc>
+				<!--Parameters-->
+				<List>
+					<Item Name="TxLinearizerFunc" Enabled="FALSE"/>
+					<Item Name="TxRxFreqCompFunc" Enabled="FALSE"/>
+					<Item Name="RxFreqCompFunc" Enabled="TRUE"/>
+					<Item Name="GenerateAndWriteNV" Enabled="FALSE"/>
+				</List>
+				<Band Editable="TRUE" Type="Integer">4</Band>
+				<TxLinChannel Editable="TRUE" Type="Integer">20160</TxLinChannel>
+				<UpperBoundChan Editable="TRUE" Type="Integer">20399</UpperBoundChan>
+				<TxWaveform Editable="TRUE" Type="Integer">1</TxWaveform>
+				<TxPurpose Editable="TRUE" Type="Integer">2</TxPurpose>
+				<PAState Editable="TRUE" Type="Integer">0,3,3</PAState>
+				<StartRGI Editable="TRUE" Type="Integer">92,74,49</StartRGI>
+				<StopRGI Editable="TRUE" Type="Integer">56,50,1</StopRGI>
+				<RGIStep Editable="TRUE" Type="Integer">-1,-1,-2</RGIStep>
+				<StartPower Editable="TRUE" Type="Integer">23,7,-15</StartPower>
+				<StopPower Editable="TRUE" Type="Integer">3,-10,-38</StopPower>
+				<ExpectPower Editable="TRUE" Type="Integer">30,18,-10</ExpectPower>
+				<RFDevices Editable="TRUE" Type="Integer">0,-1</RFDevices>
+				<HDETSample Editable="TRUE" Type="Integer">1,0,0</HDETSample>
+				<PABiasValue Editable="TRUE" Type="Integer">3400,3400,3400</PABiasValue>
+				<APTenabled Editable="TRUE" Type="Integer">true</APTenabled>
+				<BiasIniname Editable="TRUE" Type="Integer">sonim.ini</BiasIniname>
+				<Channellist Editable="TRUE" Type="Integer">19950,19980,20010,20040,20070,20100,20130,20160,20190,20220,20250,20280,20310,20340,20370,20399</Channellist>
+				<TxFreqPAState Editable="TRUE" Type="Integer">0,0,3</TxFreqPAState>
+				<TxFreqPower Editable="TRUE" Type="Integer">23,7,4</TxFreqPower>
+				<TFPLimitMax Editable="TRUE" Type="Integer">32,16,13</TFPLimitMax>
+				<TFPLimitMin Editable="TRUE" Type="Integer">16,0,-3</TFPLimitMin>
+				<FreqTxPurpose Editable="TRUE" Type="Integer">5,4,4</FreqTxPurpose>
+				<FreqHDETSample Editable="TRUE" Type="Integer">1,0,0</FreqHDETSample>
+				<RxAction Editable="TRUE" Type="Integer">0,1,2,3,4,5</RxAction>
+				<RXPath Editable="TRUE" Type="Integer">1</RXPath>
+				<RxPM Editable="TRUE" Type="Integer">0</RxPM>
+				<RxPower Editable="TRUE" Type="Integer">-61,-60,-50,-40,-33,-33</RxPower>
+				<LNAOffsetMax Editable="TRUE" Type="Integer">380,380,380,380,380,380</LNAOffsetMax>
+				<LNAOffsetMin Editable="TRUE" Type="Integer">-180,-180,-180,-180,-180,-180</LNAOffsetMin>
+				<!--End of Parameters-->
+			</ProcessObject>
+			<ProcessObject ClassName="CESCalLTE" Name="ESCal_LTE_B5">
+				<!--Main Function is necessary-->
+				<MainFunc Editable="TRUE" Type="String">ESCalLTEMainFunc</MainFunc>
+				<!--Parameters-->
+				<List>
+					<Item Name="TxLinearizerFunc" Enabled="FALSE"/>
+					<Item Name="TxRxFreqCompFunc" Enabled="FALSE"/>
+					<Item Name="RxFreqCompFunc" Enabled="TRUE"/>
+					<Item Name="GenerateAndWriteNV" Enabled="FALSE"/>
+				</List>
+				<Band Editable="TRUE" Type="Integer">5</Band>
+				<TxLinChannel Editable="TRUE" Type="Integer">20512</TxLinChannel>
+				<UpperBoundChan Editable="TRUE" Type="Integer">20649</UpperBoundChan>
+				<TxWaveform Editable="TRUE" Type="Integer">1</TxWaveform>
+				<TxPurpose Editable="TRUE" Type="Integer">2</TxPurpose>
+				<PAState Editable="TRUE" Type="Integer">0,3,3</PAState>
+				<StartRGI Editable="TRUE" Type="Integer">92,78,49</StartRGI>
+				<StopRGI Editable="TRUE" Type="Integer">56,50,10</StopRGI>
+				<RGIStep Editable="TRUE" Type="Integer">-1,-1,-2</RGIStep>
+				<StartPower Editable="TRUE" Type="Integer">23,7,-15</StartPower>
+				<StopPower Editable="TRUE" Type="Integer">3,-10,-40</StopPower>
+				<ExpectPower Editable="TRUE" Type="Integer">30,18,-10</ExpectPower>
+				<RFDevices Editable="TRUE" Type="Integer">0,-1</RFDevices>
+				<HDETSample Editable="TRUE" Type="Integer">1,0,0</HDETSample>
+				<PABiasValue Editable="TRUE" Type="Integer">3400,3400,3400</PABiasValue>
+				<APTenabled Editable="TRUE" Type="Integer">true</APTenabled>
+				<BiasIniname Editable="TRUE" Type="Integer">sonim.ini</BiasIniname>
+				<Channellist Editable="TRUE" Type="Integer">20400,20416,20432,20448,20464,20480,20496,20512,20528,20544,20560,20576,20592,20608,20624,20640</Channellist>
+				<TxFreqPAState Editable="TRUE" Type="Integer">0,0,3</TxFreqPAState>
+				<TxFreqPower Editable="TRUE" Type="Integer">23,7,4</TxFreqPower>
+				<TFPLimitMax Editable="TRUE" Type="Integer">32,16,13</TFPLimitMax>
+				<TFPLimitMin Editable="TRUE" Type="Integer">16,0,-3</TFPLimitMin>
+				<FreqTxPurpose Editable="TRUE" Type="Integer">5,4,4</FreqTxPurpose>
+				<FreqHDETSample Editable="TRUE" Type="Integer">1,0,0</FreqHDETSample>
+				<RxAction Editable="TRUE" Type="Integer">0,1,2,3,4,5</RxAction>
+				<RXPath Editable="TRUE" Type="Integer">1</RXPath>
+				<RxPM Editable="TRUE" Type="Integer">0</RxPM>
+				<RxPower Editable="TRUE" Type="Integer">-61,-60,-50,-40,-33,-33</RxPower>
+				<LNAOffsetMax Editable="TRUE" Type="Integer">380,380,380,380,380,380</LNAOffsetMax>
+				<LNAOffsetMin Editable="TRUE" Type="Integer">-180,-180,-180,-180,-180,-180</LNAOffsetMin>
+				<!--End of Parameters-->
+			</ProcessObject>
+			<ProcessObject ClassName="CESCalLTE" Name="ESCal_LTE_B7">
+				<!--Main Function is necessary-->
+				<MainFunc Editable="TRUE" Type="String">ESCalLTEMainFunc</MainFunc>
+				<!--Parameters-->
+				<List>
+					<Item Name="TxLinearizerFunc" Enabled="FALSE"/>
+					<Item Name="TxRxFreqCompFunc" Enabled="FALSE"/>
+					<Item Name="RxFreqCompFunc" Enabled="TRUE"/>
+					<Item Name="GenerateAndWriteNV" Enabled="FALSE"/>
+				</List>
+				<Band Editable="TRUE" Type="Integer">7</Band>
+				<TxLinChannel Editable="TRUE" Type="Integer">21102</TxLinChannel>
+				<UpperBoundChan Editable="TRUE" Type="Integer">21449</UpperBoundChan>
+				<TxWaveform Editable="TRUE" Type="Integer">1</TxWaveform>
+				<TxPurpose Editable="TRUE" Type="Integer">2</TxPurpose>
+				<PAState Editable="TRUE" Type="Integer">0,3,3</PAState>
+				<StartRGI Editable="TRUE" Type="Integer">92,82,49</StartRGI>
+				<StopRGI Editable="TRUE" Type="Integer">44,50,6</StopRGI>
+				<RGIStep Editable="TRUE" Type="Integer">-1,-1,-2</RGIStep>
+				<StartPower Editable="TRUE" Type="Integer">23,7,-15</StartPower>
+				<StopPower Editable="TRUE" Type="Integer">3,-10,-40</StopPower>
+				<ExpectPower Editable="TRUE" Type="Integer">30,18,-10</ExpectPower>
+				<RFDevices Editable="TRUE" Type="Integer">0,-1</RFDevices>
+				<HDETSample Editable="TRUE" Type="Integer">1,0,0</HDETSample>
+				<PABiasValue Editable="TRUE" Type="Integer">3400,3400,3400</PABiasValue>
+				<APTenabled Editable="TRUE" Type="Integer">true</APTenabled>
+				<BiasIniname Editable="TRUE" Type="Integer">sonim.ini</BiasIniname>
+				<Channellist Editable="TRUE" Type="Integer">20750,20794,20838,20882,20926,20970,21014,21058,21102,21146,21190,21234,21278,21322,21366,21410</Channellist>
+				<TxFreqPAState Editable="TRUE" Type="Integer">0,0,3</TxFreqPAState>
+				<TxFreqPower Editable="TRUE" Type="Integer">23,7,4</TxFreqPower>
+				<TFPLimitMax Editable="TRUE" Type="Integer">32,16,13</TFPLimitMax>
+				<TFPLimitMin Editable="TRUE" Type="Integer">16,0,-3</TFPLimitMin>
+				<FreqTxPurpose Editable="TRUE" Type="Integer">5,4,4</FreqTxPurpose>
+				<FreqHDETSample Editable="TRUE" Type="Integer">1,0,0</FreqHDETSample>
+				<RxAction Editable="TRUE" Type="Integer">0,1,2,3,4,5</RxAction>
+				<RXPath Editable="TRUE" Type="Integer">1</RXPath>
+				<RxPM Editable="TRUE" Type="Integer">0</RxPM>
+				<RxPower Editable="TRUE" Type="Integer">-61,-60,-50,-40,-33,-33</RxPower>
+				<LNAOffsetMax Editable="TRUE" Type="Integer">600,600,600,600,600,600</LNAOffsetMax>
+				<LNAOffsetMin Editable="TRUE" Type="Integer">-300,-300,-300,-300,-300,-300</LNAOffsetMin>
+				<!--End of Parameters-->
+			</ProcessObject>
+			<ProcessObject ClassName="CESCalLTE" Name="ESCal_LTE_B8">
+				<!--Main Function is necessary-->
+				<MainFunc Editable="TRUE" Type="String">ESCalLTEMainFunc</MainFunc>
+				<!--Parameters-->
+				<List>
+					<Item Name="TxLinearizerFunc" Enabled="FALSE"/>
+					<Item Name="TxRxFreqCompFunc" Enabled="FALSE"/>
+					<Item Name="RxFreqCompFunc" Enabled="TRUE"/>
+					<Item Name="GenerateAndWriteNV" Enabled="FALSE"/>
+				</List>
+				<Band Editable="TRUE" Type="Integer">8</Band>
+				<TxLinChannel Editable="TRUE" Type="Integer">21604</TxLinChannel>
+				<UpperBoundChan Editable="TRUE" Type="Integer">21799</UpperBoundChan>
+				<TxWaveform Editable="TRUE" Type="Integer">1</TxWaveform>
+				<TxPurpose Editable="TRUE" Type="Integer">2</TxPurpose>
+				<PAState Editable="TRUE" Type="Integer">0,3,3</PAState>
+				<StartRGI Editable="TRUE" Type="Integer">88,76,49</StartRGI>
+				<StopRGI Editable="TRUE" Type="Integer">56,50,1</StopRGI>
+				<RGIStep Editable="TRUE" Type="Integer">-1,-1,-2</RGIStep>
+				<StartPower Editable="TRUE" Type="Integer">23,7,-15</StartPower>
+				<StopPower Editable="TRUE" Type="Integer">3,-10,-40</StopPower>
+				<ExpectPower Editable="TRUE" Type="Integer">30,18,-10</ExpectPower>
+				<RFDevices Editable="TRUE" Type="Integer">0,-1</RFDevices>
+				<HDETSample Editable="TRUE" Type="Integer">1,0,0</HDETSample>
+				<PABiasValue Editable="TRUE" Type="Integer">3400,3400,3400</PABiasValue>
+				<APTenabled Editable="TRUE" Type="Integer">true</APTenabled>
+				<BiasIniname Editable="TRUE" Type="Integer">sonim.ini</BiasIniname>
+				<Channellist Editable="TRUE" Type="Integer">21450,21472,21494,21516,21538,21560,21582,21604,21625,21648,21670,21692,21714,21736,21758,21780</Channellist>
+				<TxFreqPAState Editable="TRUE" Type="Integer">0,0,3</TxFreqPAState>
+				<TxFreqPower Editable="TRUE" Type="Integer">23,7,4</TxFreqPower>
+				<TFPLimitMax Editable="TRUE" Type="Integer">32,16,13</TFPLimitMax>
+				<TFPLimitMin Editable="TRUE" Type="Integer">16,0,-3</TFPLimitMin>
+				<FreqTxPurpose Editable="TRUE" Type="Integer">5,4,4</FreqTxPurpose>
+				<FreqHDETSample Editable="TRUE" Type="Integer">1,0,0</FreqHDETSample>
+				<RxAction Editable="TRUE" Type="Integer">0,1,2,3,4,5</RxAction>
+				<RXPath Editable="TRUE" Type="Integer">1</RXPath>
+				<RxPM Editable="TRUE" Type="Integer">0</RxPM>
+				<RxPower Editable="TRUE" Type="Integer">-61,-60,-50,-40,-33,-33</RxPower>
+				<LNAOffsetMax Editable="TRUE" Type="Integer">380,380,380,380,380,380</LNAOffsetMax>
+				<LNAOffsetMin Editable="TRUE" Type="Integer">-180,-180,-180,-180,-180,-180</LNAOffsetMin>
+				<!--End of Parameters-->
+			</ProcessObject>
+			<ProcessObject ClassName="CESCalLTE" Name="ESCal_LTE_B12">
+				<!--Main Function is necessary-->
+				<MainFunc Editable="TRUE" Type="String">ESCalLTEMainFunc</MainFunc>
+				<!--Parameters-->
+				<List>
+					<Item Name="TxLinearizerFunc" Enabled="FALSE"/>
+					<Item Name="TxRxFreqCompFunc" Enabled="FALSE"/>
+					<Item Name="RxFreqCompFunc" Enabled="TRUE"/>
+					<Item Name="GenerateAndWriteNV" Enabled="FALSE"/>
+				</List>
+				<Band Editable="TRUE" Type="Integer">12</Band>
+				<TxLinChannel Editable="TRUE" Type="Integer">23100</TxLinChannel>
+				<UpperBoundChan Editable="TRUE" Type="Integer">23179</UpperBoundChan>
+				<TxWaveform Editable="TRUE" Type="Integer">1</TxWaveform>
+				<TxPurpose Editable="TRUE" Type="Integer">2</TxPurpose>
+				<PAState Editable="TRUE" Type="Integer">0,3,3</PAState>
+				<StartRGI Editable="TRUE" Type="Integer">92,84,57</StartRGI>
+				<StopRGI Editable="TRUE" Type="Integer">52,58,10</StopRGI>
+				<RGIStep Editable="TRUE" Type="Integer">-1,-1,-2</RGIStep>
+				<StartPower Editable="TRUE" Type="Integer">23,7,-15</StartPower>
+				<StopPower Editable="TRUE" Type="Integer">3,-10,-40</StopPower>
+				<ExpectPower Editable="TRUE" Type="Integer">30,18,-10</ExpectPower>
+				<RFDevices Editable="TRUE" Type="Integer">0,-1</RFDevices>
+				<HDETSample Editable="TRUE" Type="Integer">1,0,0</HDETSample>
+				<PABiasValue Editable="TRUE" Type="Integer">3400,3400,3400</PABiasValue>
+				<APTenabled Editable="TRUE" Type="Integer">true</APTenabled>
+				<BiasIniname Editable="TRUE" Type="Integer">sonim.ini</BiasIniname>
+				<Channellist Editable="TRUE" Type="Integer">23010,23021,23033,23044,23055,23066,23078,23089,23100,23111,23123,23134,23145,23156,23168,23179</Channellist>
+				<TxFreqPAState Editable="TRUE" Type="Integer">0,0,3</TxFreqPAState>
+				<TxFreqPower Editable="TRUE" Type="Integer">23,7,4</TxFreqPower>
+				<TFPLimitMax Editable="TRUE" Type="Integer">32,16,13</TFPLimitMax>
+				<TFPLimitMin Editable="TRUE" Type="Integer">16,0,-3</TFPLimitMin>
+				<FreqTxPurpose Editable="TRUE" Type="Integer">5,4,4</FreqTxPurpose>
+				<FreqHDETSample Editable="TRUE" Type="Integer">1,0,0</FreqHDETSample>
+				<RxAction Editable="TRUE" Type="Integer">0,1,2,3,4,5</RxAction>
+				<RXPath Editable="TRUE" Type="Integer">1</RXPath>
+				<RxPM Editable="TRUE" Type="Integer">0</RxPM>
+				<RxPower Editable="TRUE" Type="Integer">-61,-60,-50,-40,-33,-33</RxPower>
+				<LNAOffsetMax Editable="TRUE" Type="Integer">380,380,380,380,380,380</LNAOffsetMax>
+				<LNAOffsetMin Editable="TRUE" Type="Integer">-180,-180,-180,-180,-180,-180</LNAOffsetMin>
+				<!--End of Parameters-->
+			</ProcessObject>
+			<ProcessObject ClassName="CESCalLTE" Name="ESCal_LTE_B14">
+				<!--Main Function is necessary-->
+				<MainFunc Editable="TRUE" Type="String">ESCalLTEMainFunc</MainFunc>
+				<!--Parameters-->
+				<List>
+					<Item Name="TxLinearizerFunc" Enabled="FALSE"/>
+					<Item Name="TxRxFreqCompFunc" Enabled="FALSE"/>
+					<Item Name="RxFreqCompFunc" Enabled="TRUE"/>
+					<Item Name="GenerateAndWriteNV" Enabled="FALSE"/>
+				</List>
+				<Band Editable="TRUE" Type="Integer">14</Band>
+				<TxLinChannel Editable="TRUE" Type="Integer">23322</TxLinChannel>
+				<UpperBoundChan Editable="TRUE" Type="Integer">23379</UpperBoundChan>
+				<TxWaveform Editable="TRUE" Type="Integer">1</TxWaveform>
+				<TxPurpose Editable="TRUE" Type="Integer">2</TxPurpose>
+				<PAState Editable="TRUE" Type="Integer">0,3,3</PAState>
+				<StartRGI Editable="TRUE" Type="Integer">92,82,55</StartRGI>
+				<StopRGI Editable="TRUE" Type="Integer">56,56,1</StopRGI>
+				<RGIStep Editable="TRUE" Type="Integer">-1,-1,-2</RGIStep>
+				<StartPower Editable="TRUE" Type="Integer">23,7,-15</StartPower>
+				<StopPower Editable="TRUE" Type="Integer">3,-10,-40</StopPower>
+				<ExpectPower Editable="TRUE" Type="Integer">30,18,-10</ExpectPower>
+				<RFDevices Editable="TRUE" Type="Integer">0,-1</RFDevices>
+				<HDETSample Editable="TRUE" Type="Integer">1,0,0</HDETSample>
+				<PABiasValue Editable="TRUE" Type="Integer">3400,3400,3400</PABiasValue>
+				<APTenabled Editable="TRUE" Type="Integer">true</APTenabled>
+				<BiasIniname Editable="TRUE" Type="Integer">sonim.ini</BiasIniname>
+				<Channellist Editable="TRUE" Type="Integer">23280,23286,23292,23298,23304,23310,23316,23322,23328,23334,23340,23346,23352,23358,23364,23370</Channellist>
+				<TxFreqPAState Editable="TRUE" Type="Integer">0,0,3</TxFreqPAState>
+				<TxFreqPower Editable="TRUE" Type="Integer">23,7,4</TxFreqPower>
+				<TFPLimitMax Editable="TRUE" Type="Integer">32,16,13</TFPLimitMax>
+				<TFPLimitMin Editable="TRUE" Type="Integer">16,0,-3</TFPLimitMin>
+				<FreqTxPurpose Editable="TRUE" Type="Integer">5,4,4</FreqTxPurpose>
+				<FreqHDETSample Editable="TRUE" Type="Integer">1,0,0</FreqHDETSample>
+				<RxAction Editable="TRUE" Type="Integer">0,1,2,3,4,5</RxAction>
+				<RXPath Editable="TRUE" Type="Integer">1</RXPath>
+				<RxPM Editable="TRUE" Type="Integer">0</RxPM>
+				<RxPower Editable="TRUE" Type="Integer">-61,-60,-50,-40,-33,-33</RxPower>
+				<LNAOffsetMax Editable="TRUE" Type="Integer">380,380,380,380,380,380</LNAOffsetMax>
+				<LNAOffsetMin Editable="TRUE" Type="Integer">-180,-180,-250,-180,-180,-180</LNAOffsetMin>
+				<!--End of Parameters-->
+			</ProcessObject>
+			<ProcessObject ClassName="CESCalLTE" Name="ESCal_LTE_B17">
+				<!--Main Function is necessary-->
+				<MainFunc Editable="TRUE" Type="String">ESCalLTEMainFunc</MainFunc>
+				<!--Parameters-->
+				<List>
+					<Item Name="TxLinearizerFunc" Enabled="FALSE"/>
+					<Item Name="TxRxFreqCompFunc" Enabled="FALSE"/>
+					<Item Name="RxFreqCompFunc" Enabled="TRUE"/>
+					<Item Name="GenerateAndWriteNV" Enabled="FALSE"/>
+				</List>
+				<Band Editable="TRUE" Type="Integer">17</Band>
+				<TxLinChannel Editable="TRUE" Type="Integer">23779</TxLinChannel>
+				<UpperBoundChan Editable="TRUE" Type="Integer">23849</UpperBoundChan>
+				<TxWaveform Editable="TRUE" Type="Integer">1</TxWaveform>
+				<TxPurpose Editable="TRUE" Type="Integer">2</TxPurpose>
+				<PAState Editable="TRUE" Type="Integer">0,3,3</PAState>
+				<StartRGI Editable="TRUE" Type="Integer">88,83,55</StartRGI>
+				<StopRGI Editable="TRUE" Type="Integer">50,56,10</StopRGI>
+				<RGIStep Editable="TRUE" Type="Integer">-1,-1,-2</RGIStep>
+				<StartPower Editable="TRUE" Type="Integer">23,7,-15</StartPower>
+				<StopPower Editable="TRUE" Type="Integer">3,-10,-35</StopPower>
+				<ExpectPower Editable="TRUE" Type="Integer">30,18,-10</ExpectPower>
+				<RFDevices Editable="TRUE" Type="Integer">0,-1</RFDevices>
+				<HDETSample Editable="TRUE" Type="Integer">1,0,0</HDETSample>
+				<PABiasValue Editable="TRUE" Type="Integer">3400,3400,3400</PABiasValue>
+				<APTenabled Editable="TRUE" Type="Integer">true</APTenabled>
+				<BiasIniname Editable="TRUE" Type="Integer">sonim.ini</BiasIniname>
+				<Channellist Editable="TRUE" Type="Integer">23730,23737,23744,23751,23758,23765,23772,23779,23786,23790,23800,23807,23814,23821,23828,23835</Channellist>
+				<TxFreqPAState Editable="TRUE" Type="Integer">0,0,3</TxFreqPAState>
+				<TxFreqPower Editable="TRUE" Type="Integer">23,7,4</TxFreqPower>
+				<TFPLimitMax Editable="TRUE" Type="Integer">32,16,13</TFPLimitMax>
+				<TFPLimitMin Editable="TRUE" Type="Integer">16,0,-3</TFPLimitMin>
+				<FreqTxPurpose Editable="TRUE" Type="Integer">5,4,4</FreqTxPurpose>
+				<FreqHDETSample Editable="TRUE" Type="Integer">1,0,0</FreqHDETSample>
+				<RxAction Editable="TRUE" Type="Integer">0,1,2,3,4,5</RxAction>
+				<RXPath Editable="TRUE" Type="Integer">1</RXPath>
+				<RxPM Editable="TRUE" Type="Integer">0</RxPM>
+				<RxPower Editable="TRUE" Type="Integer">-61,-60,-50,-40,-33,-33</RxPower>
+				<LNAOffsetMax Editable="TRUE" Type="Integer">380,380,380,380,380,380</LNAOffsetMax>
+				<LNAOffsetMin Editable="TRUE" Type="Integer">-180,-180,-180,-180,-180,-180</LNAOffsetMin>
+				<!--End of Parameters-->
+			</ProcessObject>
+			<ProcessObject ClassName="CESCalLTE" Name="ESCal_LTE_B20">
+				<!--Main Function is necessary-->
+				<MainFunc Editable="TRUE" Type="String">ESCalLTEMainFunc</MainFunc>
+				<!--Parameters-->
+				<List>
+					<Item Name="TxLinearizerFunc" Enabled="FALSE"/>
+					<Item Name="TxRxFreqCompFunc" Enabled="FALSE"/>
+					<Item Name="RxFreqCompFunc" Enabled="TRUE"/>
+					<Item Name="GenerateAndWriteNV" Enabled="FALSE"/>
+				</List>
+				<Band Editable="TRUE" Type="Integer">20</Band>
+				<TxLinChannel Editable="TRUE" Type="Integer">24290</TxLinChannel>
+				<UpperBoundChan Editable="TRUE" Type="Integer">24449</UpperBoundChan>
+				<TxWaveform Editable="TRUE" Type="Integer">1</TxWaveform>
+				<TxPurpose Editable="TRUE" Type="Integer">2</TxPurpose>
+				<PAState Editable="TRUE" Type="Integer">0,3,3</PAState>
+				<StartRGI Editable="TRUE" Type="Integer">84,90,58</StartRGI>
+				<StopRGI Editable="TRUE" Type="Integer">50,59,20</StopRGI>
+				<RGIStep Editable="TRUE" Type="Integer">-1,-1,-2</RGIStep>
+				<StartPower Editable="TRUE" Type="Integer">23,7,-15</StartPower>
+				<StopPower Editable="TRUE" Type="Integer">3,-10,-35</StopPower>
+				<ExpectPower Editable="TRUE" Type="Integer">30,18,-10</ExpectPower>
+				<RFDevices Editable="TRUE" Type="Integer">0,-1</RFDevices>
+				<HDETSample Editable="TRUE" Type="Integer">1,0,0</HDETSample>
+				<PABiasValue Editable="TRUE" Type="Integer">3400,3400,3400</PABiasValue>
+				<APTenabled Editable="TRUE" Type="Integer">true</APTenabled>
+				<BiasIniname Editable="TRUE" Type="Integer">sonim.ini</BiasIniname>
+				<Channellist Editable="TRUE" Type="Integer">24170,24187,24204,24221,24238,24255,24272,24290,24306,24323,24340,24357,24374,24391,24408,24425</Channellist>
+				<TxFreqPAState Editable="TRUE" Type="Integer">0,0,3</TxFreqPAState>
+				<TxFreqPower Editable="TRUE" Type="Integer">23,7,4</TxFreqPower>
+				<TFPLimitMax Editable="TRUE" Type="Integer">32,16,13</TFPLimitMax>
+				<TFPLimitMin Editable="TRUE" Type="Integer">16,0,-3</TFPLimitMin>
+				<FreqTxPurpose Editable="TRUE" Type="Integer">5,4,4</FreqTxPurpose>
+				<FreqHDETSample Editable="TRUE" Type="Integer">1,0,0</FreqHDETSample>
+				<RxAction Editable="TRUE" Type="Integer">0,1,2,3,4,5</RxAction>
+				<RXPath Editable="TRUE" Type="Integer">1</RXPath>
+				<RxPM Editable="TRUE" Type="Integer">0</RxPM>
+				<RxPower Editable="TRUE" Type="Integer">-61,-60,-50,-40,-33,-33</RxPower>
+				<LNAOffsetMax Editable="TRUE" Type="Integer">380,380,380,380,380,380</LNAOffsetMax>
+				<LNAOffsetMin Editable="TRUE" Type="Integer">-180,-180,-180,-180,-180,-180</LNAOffsetMin>
+				<!--End of Parameters-->
+			</ProcessObject>
+			<ProcessObject ClassName="CESCalLTE" Name="ESCal_LTE_B25">
+				<!--Main Function is necessary-->
+				<MainFunc Editable="TRUE" Type="String">ESCalLTEMainFunc</MainFunc>
+				<!--Parameters-->
+				<List>
+					<Item Name="TxLinearizerFunc" Enabled="FALSE"/>
+					<Item Name="TxRxFreqCompFunc" Enabled="FALSE"/>
+					<Item Name="RxFreqCompFunc" Enabled="TRUE"/>
+					<Item Name="GenerateAndWriteNV" Enabled="FALSE"/>
+				</List>
+				<Band Editable="TRUE" Type="Integer">25</Band>
+				<TxLinChannel Editable="TRUE" Type="Integer">26343</TxLinChannel>
+				<UpperBoundChan Editable="TRUE" Type="Integer">26689</UpperBoundChan>
+				<TxWaveform Editable="TRUE" Type="Integer">1</TxWaveform>
+				<TxPurpose Editable="TRUE" Type="Integer">2</TxPurpose>
+				<PAState Editable="TRUE" Type="Integer">0,3,3</PAState>
+				<StartRGI Editable="TRUE" Type="Integer">88,74,49</StartRGI>
+				<StopRGI Editable="TRUE" Type="Integer">56,50,10</StopRGI>
+				<RGIStep Editable="TRUE" Type="Integer">-1,-1,-2</RGIStep>
+				<StartPower Editable="TRUE" Type="Integer">23,7,-15</StartPower>
+				<StopPower Editable="TRUE" Type="Integer">3,-10,-35</StopPower>
+				<ExpectPower Editable="TRUE" Type="Integer">30,18,-10</ExpectPower>
+				<RFDevices Editable="TRUE" Type="Integer">0,-1</RFDevices>
+				<HDETSample Editable="TRUE" Type="Integer">1,0,0</HDETSample>
+				<PABiasValue Editable="TRUE" Type="Integer">3400,3400,3400</PABiasValue>
+				<APTenabled Editable="TRUE" Type="Integer">true</APTenabled>
+				<BiasIniname Editable="TRUE" Type="Integer">sonim.ini</BiasIniname>
+				<Channellist Editable="TRUE" Type="Integer">26040,26083,26127,26170,26213,26256,26300,26343,26386,26429,26473,26516,26559,26602,26646,26689</Channellist>
+				<TxFreqPAState Editable="TRUE" Type="Integer">0,0,3</TxFreqPAState>
+				<TxFreqPower Editable="TRUE" Type="Integer">23,7,4</TxFreqPower>
+				<TFPLimitMax Editable="TRUE" Type="Integer">32,16,13</TFPLimitMax>
+				<TFPLimitMin Editable="TRUE" Type="Integer">16,0,-3</TFPLimitMin>
+				<FreqTxPurpose Editable="TRUE" Type="Integer">5,4,4</FreqTxPurpose>
+				<FreqHDETSample Editable="TRUE" Type="Integer">1,0,0</FreqHDETSample>
+				<RxAction Editable="TRUE" Type="Integer">0,1,2,3,4,5</RxAction>
+				<RXPath Editable="TRUE" Type="Integer">1</RXPath>
+				<RxPM Editable="TRUE" Type="Integer">0</RxPM>
+				<RxPower Editable="TRUE" Type="Integer">-61,-60,-50,-40,-33,-33</RxPower>
+				<LNAOffsetMax Editable="TRUE" Type="Integer">380,380,380,380,380,380</LNAOffsetMax>
+				<LNAOffsetMin Editable="TRUE" Type="Integer">-180,-180,-180,-180,-180,-180</LNAOffsetMin>
+				<!--End of Parameters-->
+			</ProcessObject>
+			<ProcessObject ClassName="CESCalLTE" Name="ESCal_LTE_B26">
+				<!--Main Function is necessary-->
+				<MainFunc Editable="TRUE" Type="String">ESCalLTEMainFunc</MainFunc>
+				<!--Parameters-->
+				<List>
+					<Item Name="TxLinearizerFunc" Enabled="FALSE"/>
+					<Item Name="TxRxFreqCompFunc" Enabled="FALSE"/>
+					<Item Name="RxFreqCompFunc" Enabled="TRUE"/>
+					<Item Name="GenerateAndWriteNV" Enabled="FALSE"/>
+				</List>
+				<Band Editable="TRUE" Type="Integer">26</Band>
+				<TxLinChannel Editable="TRUE" Type="Integer">26837</TxLinChannel>
+				<UpperBoundChan Editable="TRUE" Type="Integer">27039</UpperBoundChan>
+				<TxWaveform Editable="TRUE" Type="Integer">1</TxWaveform>
+				<TxPurpose Editable="TRUE" Type="Integer">2</TxPurpose>
+				<PAState Editable="TRUE" Type="Integer">0,3,3</PAState>
+				<StartRGI Editable="TRUE" Type="Integer">92,80,52</StartRGI>
+				<StopRGI Editable="TRUE" Type="Integer">56,53,10</StopRGI>
+				<RGIStep Editable="TRUE" Type="Integer">-1,-1,-2</RGIStep>
+				<StartPower Editable="TRUE" Type="Integer">23,7,-15</StartPower>
+				<StopPower Editable="TRUE" Type="Integer">3,-10,-40</StopPower>
+				<ExpectPower Editable="TRUE" Type="Integer">30,18,-10</ExpectPower>
+				<RFDevices Editable="TRUE" Type="Integer">0,-1</RFDevices>
+				<HDETSample Editable="TRUE" Type="Integer">1,0,0</HDETSample>
+				<PABiasValue Editable="TRUE" Type="Integer">3400,3400,3400</PABiasValue>
+				<APTenabled Editable="TRUE" Type="Integer">true</APTenabled>
+				<BiasIniname Editable="TRUE" Type="Integer">sonim.ini</BiasIniname>
+				<Channellist Editable="TRUE" Type="Integer">26690,26711,26732,26753,26774,26795,26816,26837,26858,26879,26900,26921,26942,26963,26984,27005</Channellist>
+				<TxFreqPAState Editable="TRUE" Type="Integer">0,0,3</TxFreqPAState>
+				<TxFreqPower Editable="TRUE" Type="Integer">23,7,4</TxFreqPower>
+				<TFPLimitMax Editable="TRUE" Type="Integer">32,16,13</TFPLimitMax>
+				<TFPLimitMin Editable="TRUE" Type="Integer">16,0,-3</TFPLimitMin>
+				<FreqTxPurpose Editable="TRUE" Type="Integer">5,4,4</FreqTxPurpose>
+				<FreqHDETSample Editable="TRUE" Type="Integer">1,0,0</FreqHDETSample>
+				<RxAction Editable="TRUE" Type="Integer">0,1,2,3,4,5</RxAction>
+				<RXPath Editable="TRUE" Type="Integer">1</RXPath>
+				<RxPM Editable="TRUE" Type="Integer">0</RxPM>
+				<RxPower Editable="TRUE" Type="Integer">-61,-60,-50,-40,-33,-33</RxPower>
+				<LNAOffsetMax Editable="TRUE" Type="Integer">380,380,380,380,380,380</LNAOffsetMax>
+				<LNAOffsetMin Editable="TRUE" Type="Integer">-180,-180,-180,-180,-180,-180</LNAOffsetMin>
+				<!--End of Parameters-->
+			</ProcessObject>
+			<ProcessObject ClassName="CESCalLTE" Name="ESCal_LTE_B38">
+				<!--Main Function is necessary-->
+				<MainFunc Editable="TRUE" Type="String">ESCalLTEMainFunc</MainFunc>
+				<!--Parameters-->
+				<List>
+					<Item Name="TxLinearizerFunc" Enabled="TRUE"/>
+					<Item Name="TxRxFreqCompFunc" Enabled="TRUE"/>
+					<Item Name="RxFreqCompFunc" Enabled="TRUE"/>
+					<Item Name="GenerateAndWriteNV" Enabled="TRUE"/>
+				</List>
+				<Band Editable="TRUE" Type="Integer">38</Band>
+				<TxLinChannel Editable="TRUE" Type="Integer">37981</TxLinChannel>
+				<UpperBoundChan Editable="TRUE" Type="Integer">38249</UpperBoundChan>
+				<TxWaveform Editable="TRUE" Type="Integer">1</TxWaveform>
+				<TxPurpose Editable="TRUE" Type="Integer">2</TxPurpose>
+				<PAState Editable="TRUE" Type="Integer">0,3,3</PAState>
+				<StartRGI Editable="TRUE" Type="Integer">88,74,43</StartRGI>
+				<StopRGI Editable="TRUE" Type="Integer">50,44,10</StopRGI>
+				<RGIStep Editable="TRUE" Type="Integer">-1,-1,-2</RGIStep>
+				<StartPower Editable="TRUE" Type="Integer">23,7,-15</StartPower>
+				<StopPower Editable="TRUE" Type="Integer">3,-10,-40</StopPower>
+				<ExpectPower Editable="TRUE" Type="Integer">30,18,-10</ExpectPower>
+				<RFDevices Editable="TRUE" Type="Integer">0,-1</RFDevices>
+				<HDETSample Editable="TRUE" Type="Integer">1,0,0</HDETSample>
+				<PABiasValue Editable="TRUE" Type="Integer">3400,3400,3400</PABiasValue>
+				<APTenabled Editable="TRUE" Type="Integer">true</APTenabled>
+				<BiasIniname Editable="TRUE" Type="Integer">sonim.ini</BiasIniname>
+				<Channellist Editable="TRUE" Type="Integer">37750,37783,37816,37849,37882,37915,37948,37981,38014,38047,38080,38113,38146,38179,38212,38245</Channellist>
+				<TxFreqPAState Editable="TRUE" Type="Integer">0,0,3</TxFreqPAState>
+				<TxFreqPower Editable="TRUE" Type="Integer">23,7,4</TxFreqPower>
+				<TFPLimitMax Editable="TRUE" Type="Integer">32,16,13</TFPLimitMax>
+				<TFPLimitMin Editable="TRUE" Type="Integer">16,0,-3</TFPLimitMin>
+				<FreqTxPurpose Editable="TRUE" Type="Integer">5,4,4</FreqTxPurpose>
+				<FreqHDETSample Editable="TRUE" Type="Integer">1,0,0</FreqHDETSample>
+				<RxAction Editable="TRUE" Type="Integer">0,1,2,3,4,5</RxAction>
+				<RXPath Editable="TRUE" Type="Integer">0</RXPath>
+				<RxPM Editable="TRUE" Type="Integer">0</RxPM>
+				<RxPower Editable="TRUE" Type="Integer">-61,-60,-50,-40,-33,-33</RxPower>
+				<LNAOffsetMax Editable="TRUE" Type="Integer">600,600,600,600,600,600</LNAOffsetMax>
+				<LNAOffsetMin Editable="TRUE" Type="Integer">-300,-300,-300,-300,-300,-300</LNAOffsetMin>
+				<!--End of Parameters-->
+			</ProcessObject>
+			<ProcessObject ClassName="CESCalLTE" Name="ESCal_LTE_B41">
+				<!--Main Function is necessary-->
+				<MainFunc Editable="TRUE" Type="String">ESCalLTEMainFunc</MainFunc>
+				<!--Parameters-->
+				<List>
+					<Item Name="TxLinearizerFunc" Enabled="TRUE"/>
+					<Item Name="TxRxFreqCompFunc" Enabled="TRUE"/>
+					<Item Name="RxFreqCompFunc" Enabled="TRUE"/>
+					<Item Name="GenerateAndWriteNV" Enabled="TRUE"/>
+				</List>
+				<Band Editable="TRUE" Type="Integer">41</Band>
+				<TxLinChannel Editable="TRUE" Type="Integer">40650</TxLinChannel>
+				<UpperBoundChan Editable="TRUE" Type="Integer">41589</UpperBoundChan>
+				<TxWaveform Editable="TRUE" Type="Integer">1</TxWaveform>
+				<TxPurpose Editable="TRUE" Type="Integer">2</TxPurpose>
+				<PAState Editable="TRUE" Type="Integer">0,3,3</PAState>
+				<StartRGI Editable="TRUE" Type="Integer">86,72,44</StartRGI>
+				<StopRGI Editable="TRUE" Type="Integer">50,45,10</StopRGI>
+				<RGIStep Editable="TRUE" Type="Integer">-1,-1,-2</RGIStep>
+				<StartPower Editable="TRUE" Type="Integer">23,7,-15</StartPower>
+				<StopPower Editable="TRUE" Type="Integer">3,-10,-35</StopPower>
+				<ExpectPower Editable="TRUE" Type="Integer">30,18,-10</ExpectPower>
+				<RFDevices Editable="TRUE" Type="Integer">0,-1</RFDevices>
+				<HDETSample Editable="TRUE" Type="Integer">1,0,0</HDETSample>
+				<PABiasValue Editable="TRUE" Type="Integer">3400,3400,3400</PABiasValue>
+				<APTenabled Editable="TRUE" Type="Integer">true</APTenabled>
+				<BiasIniname Editable="TRUE" Type="Integer">sonim.ini</BiasIniname>
+				<Channellist Editable="TRUE" Type="Integer">39700,39750,39800,39850,39900,40050,40200,40350,40500,40650,40800,40950,41100,41250,41400,41540</Channellist>
+				<TxFreqPAState Editable="TRUE" Type="Integer">0,0,3</TxFreqPAState>
+				<TxFreqPower Editable="TRUE" Type="Integer">23,7,4</TxFreqPower>
+				<TFPLimitMax Editable="TRUE" Type="Integer">32,16,13</TFPLimitMax>
+				<TFPLimitMin Editable="TRUE" Type="Integer">16,0,-3</TFPLimitMin>
+				<FreqTxPurpose Editable="TRUE" Type="Integer">5,4,4</FreqTxPurpose>
+				<FreqHDETSample Editable="TRUE" Type="Integer">1,0,0</FreqHDETSample>
+				<RxAction Editable="TRUE" Type="Integer">0,1,2,3,4,5</RxAction>
+				<RXPath Editable="TRUE" Type="Integer">0</RXPath>
+				<RxPM Editable="TRUE" Type="Integer">0</RxPM>
+				<RxPower Editable="TRUE" Type="Integer">-61,-60,-50,-40,-33,-33</RxPower>
+				<LNAOffsetMax Editable="TRUE" Type="Integer">400,400,400,400,400,400</LNAOffsetMax>
+				<LNAOffsetMin Editable="TRUE" Type="Integer">-400,-400,-400,-400,-400,-400</LNAOffsetMin>
+				<!--End of Parameters-->
+			</ProcessObject>
+			<ProcessObject ClassName="CESCalWCDMA" Name="ESCal_WCDMA_B1">
+				<!--Main Function is necessary-->
+				<MainFunc Editable="TRUE" Type="String">ESCalWCDMAMainFunc</MainFunc>
+				<!--Parameters-->
+				<List>
+					<Item Name="TxLinearizerFunc" Enabled="FALSE"/>
+					<Item Name="TxLinOldFunc" Enabled="FALSE"/>
+					<Item Name="TxRxFreqCompFunc" Enabled="FALSE"/>
+					<Item Name="TxFreqCompFunc" Enabled="FALSE"/>
+					<Item Name="RxFreqCompFunc" Enabled="TRUE"/>
+					<Item Name="GenerateAndWriteNV" Enabled="FALSE"/>
+				</List>
+				<Band Editable="TRUE" Type="Integer">2100</Band>
+				<TxLinChannel Editable="TRUE" Type="Integer">9750</TxLinChannel>
+				<UpperBoundChan Editable="TRUE" Type="Integer">9892</UpperBoundChan>
+				<TxWaveform Editable="TRUE" Type="Integer">0</TxWaveform>
+				<TxPurpose Editable="TRUE" Type="Integer">1</TxPurpose>
+				<PAState Editable="TRUE" Type="Integer">1,0,0</PAState>
+				<StartRGI Editable="TRUE" Type="Integer">98,77,50</StartRGI>
+				<StopRGI Editable="TRUE" Type="Integer">52,51,6</StopRGI>
+				<RGIStep Editable="TRUE" Type="Integer">-1,-1,-2</RGIStep>
+				<StartPower Editable="TRUE" Type="Integer">23,5,-20</StartPower>
+				<StopPower Editable="TRUE" Type="Integer">2,-10,-50</StopPower>
+				<ExpectPower Editable="TRUE" Type="Integer">30,18,-10</ExpectPower>
+				<RFDevices Editable="TRUE" Type="Integer">0,-1</RFDevices>
+				<HDETSample Editable="TRUE" Type="Integer">2,0,0</HDETSample>
+				<PABiasValue Editable="TRUE" Type="Integer">3400,3400,3400</PABiasValue>
+				<APTenabled Editable="TRUE" Type="Integer">true</APTenabled>
+				<BiasIniname Editable="TRUE" Type="Integer">sonim.ini</BiasIniname>
+				<Channellist Editable="TRUE" Type="Integer">9621,9638,9656,9673,9691,9708,9726,9750,9761,9778,9796,9813,9831,9848,9866,9883</Channellist>
+				<TxFreqPAState Editable="TRUE" Type="Integer">1,1,0</TxFreqPAState>
+				<TxFreqPower Editable="TRUE" Type="Integer">23,5,2</TxFreqPower>
+				<TFPLimitMax Editable="TRUE" Type="Integer">32,14,11</TFPLimitMax>
+				<TFPLimitMin Editable="TRUE" Type="Integer">15,-2,-5</TFPLimitMin>
+				<FreqTxPurpose Editable="TRUE" Type="Integer">5,4,4</FreqTxPurpose>
+				<FreqHDETSample Editable="TRUE" Type="Integer">2,0,0</FreqHDETSample>
+				<RxAction Editable="TRUE" Type="Integer">0,1,2,3</RxAction>
+				<RXPath Editable="TRUE" Type="Integer">1</RXPath>
+				<RxPM Editable="TRUE" Type="Integer">0</RxPM>
+				<RxPower Editable="TRUE" Type="Integer">-74,-74,-70,-51</RxPower>
+				<LNAOffsetMax Editable="TRUE" Type="Integer">450,450,450,450</LNAOffsetMax>
+				<LNAOffsetMin Editable="TRUE" Type="Integer">-450,-450,-450,-450</LNAOffsetMin>
+				<!--End of Parameters-->
+			</ProcessObject>
+			<ProcessObject ClassName="CESCalWCDMA" Name="ESCal_WCDMA_B2">
+				<!--Main Function is necessary-->
+				<MainFunc Editable="TRUE" Type="String">ESCalWCDMAMainFunc</MainFunc>
+				<!--Parameters-->
+				<List>
+					<Item Name="TxLinearizerFunc" Enabled="FALSE"/>
+					<Item Name="TxLinOldFunc" Enabled="FALSE"/>
+					<Item Name="TxRxFreqCompFunc" Enabled="FALSE"/>
+					<Item Name="TxFreqCompFunc" Enabled="FALSE"/>
+					<Item Name="RxFreqCompFunc" Enabled="TRUE"/>
+					<Item Name="GenerateAndWriteNV" Enabled="FALSE"/>
+				</List>
+				<Band Editable="TRUE" Type="Integer">1900</Band>
+				<TxLinChannel Editable="TRUE" Type="Integer">9400</TxLinChannel>
+				<UpperBoundChan Editable="TRUE" Type="Integer">9542</UpperBoundChan>
+				<TxWaveform Editable="TRUE" Type="Integer">0</TxWaveform>
+				<TxPurpose Editable="TRUE" Type="Integer">1</TxPurpose>
+				<PAState Editable="TRUE" Type="Integer">1,0,0</PAState>
+				<StartRGI Editable="TRUE" Type="Integer">82,74,48</StartRGI>
+				<StopRGI Editable="TRUE" Type="Integer">52,49,6</StopRGI>
+				<RGIStep Editable="TRUE" Type="Integer">-1,-1,-2</RGIStep>
+				<StartPower Editable="TRUE" Type="Integer">23,5,-20</StartPower>
+				<StopPower Editable="TRUE" Type="Integer">2,-10,-50</StopPower>
+				<ExpectPower Editable="TRUE" Type="Integer">30,18,-10</ExpectPower>
+				<RFDevices Editable="TRUE" Type="Integer">0,-1</RFDevices>
+				<HDETSample Editable="TRUE" Type="Integer">2,0,0</HDETSample>
+				<PABiasValue Editable="TRUE" Type="Integer">3400,3400,3400</PABiasValue>
+				<APTenabled Editable="TRUE" Type="Integer">true</APTenabled>
+				<BiasIniname Editable="TRUE" Type="Integer">sonim.ini</BiasIniname>
+				<Channellist Editable="TRUE" Type="Integer">9262,9288,9306,9323,9341,9358,9376,9400,9411,9428,9446,9463,9481,9498,9516,9538</Channellist>
+				<TxFreqPAState Editable="TRUE" Type="Integer">1,1,0</TxFreqPAState>
+				<TxFreqPower Editable="TRUE" Type="Integer">23,5,2</TxFreqPower>
+				<TFPLimitMax Editable="TRUE" Type="Integer">32,14,11</TFPLimitMax>
+				<TFPLimitMin Editable="TRUE" Type="Integer">15,-2,-5</TFPLimitMin>
+				<FreqTxPurpose Editable="TRUE" Type="Integer">5,4,4</FreqTxPurpose>
+				<FreqHDETSample Editable="TRUE" Type="Integer">2,0,0</FreqHDETSample>
+				<RxAction Editable="TRUE" Type="Integer">0,1,2,3</RxAction>
+				<RXPath Editable="TRUE" Type="Integer">1</RXPath>
+				<RxPM Editable="TRUE" Type="Integer">0</RxPM>
+				<RxPower Editable="TRUE" Type="Integer">-74,-74,-70,-51</RxPower>
+				<LNAOffsetMax Editable="TRUE" Type="Integer">550,550,550,550</LNAOffsetMax>
+				<LNAOffsetMin Editable="TRUE" Type="Integer">-450,-450,-450,-450</LNAOffsetMin>
+				<!--End of Parameters-->
+			</ProcessObject>
+			<ProcessObject ClassName="CESCalWCDMA" Name="ESCal_WCDMA_B5">
+				<!--Main Function is necessary-->
+				<MainFunc Editable="TRUE" Type="String">ESCalWCDMAMainFunc</MainFunc>
+				<!--Parameters-->
+				<List>
+					<Item Name="TxLinearizerFunc" Enabled="FALSE"/>
+					<Item Name="TxLinOldFunc" Enabled="FALSE"/>
+					<Item Name="TxRxFreqCompFunc" Enabled="FALSE"/>
+					<Item Name="TxFreqCompFunc" Enabled="FALSE"/>
+					<Item Name="RxFreqCompFunc" Enabled="TRUE"/>
+					<Item Name="GenerateAndWriteNV" Enabled="FALSE"/>
+				</List>
+				<Band Editable="TRUE" Type="Integer">850</Band>
+				<TxLinChannel Editable="TRUE" Type="Integer">4175</TxLinChannel>
+				<UpperBoundChan Editable="TRUE" Type="Integer">4242</UpperBoundChan>
+				<TxWaveform Editable="TRUE" Type="Integer">0</TxWaveform>
+				<TxPurpose Editable="TRUE" Type="Integer">1</TxPurpose>
+				<PAState Editable="TRUE" Type="Integer">1,0,0</PAState>
+				<StartRGI Editable="TRUE" Type="Integer">78,72,48</StartRGI>
+				<StopRGI Editable="TRUE" Type="Integer">48,49,2</StopRGI>
+				<RGIStep Editable="TRUE" Type="Integer">-1,-1,-2</RGIStep>
+				<StartPower Editable="TRUE" Type="Integer">23,5,-20</StartPower>
+				<StopPower Editable="TRUE" Type="Integer">2,-10,-50</StopPower>
+				<ExpectPower Editable="TRUE" Type="Integer">30,18,-10</ExpectPower>
+				<RFDevices Editable="TRUE" Type="Integer">0,-1</RFDevices>
+				<HDETSample Editable="TRUE" Type="Integer">2,0,0</HDETSample>
+				<PABiasValue Editable="TRUE" Type="Integer">3400,3400,3400</PABiasValue>
+				<APTenabled Editable="TRUE" Type="Integer">true</APTenabled>
+				<BiasIniname Editable="TRUE" Type="Integer">sonim.ini</BiasIniname>
+				<Channellist Editable="TRUE" Type="Integer">4135,4142,4149,4156,4163,4170,4175,4184,4190,4197,4204,4211,4218,4225,4232,4233</Channellist>
+				<TxFreqPAState Editable="TRUE" Type="Integer">1,1,0</TxFreqPAState>
+				<TxFreqPower Editable="TRUE" Type="Integer">23,5,2</TxFreqPower>
+				<TFPLimitMax Editable="TRUE" Type="Integer">32,14,11</TFPLimitMax>
+				<TFPLimitMin Editable="TRUE" Type="Integer">15,-2,-5</TFPLimitMin>
+				<FreqTxPurpose Editable="TRUE" Type="Integer">5,4,4</FreqTxPurpose>
+				<FreqHDETSample Editable="TRUE" Type="Integer">2,0,0</FreqHDETSample>
+				<RxAction Editable="TRUE" Type="Integer">0,1,2,3</RxAction>
+				<RXPath Editable="TRUE" Type="Integer">1</RXPath>
+				<RxPM Editable="TRUE" Type="Integer">0</RxPM>
+				<RxPower Editable="TRUE" Type="Integer">-74,-74,-70,-51</RxPower>
+				<LNAOffsetMax Editable="TRUE" Type="Integer">450,450,450,550</LNAOffsetMax>
+				<LNAOffsetMin Editable="TRUE" Type="Integer">-450,-450,-450,-450</LNAOffsetMin>
+				<!--End of Parameters-->
+			</ProcessObject>
+			<ProcessObject ClassName="CESCalWCDMA" Name="ESCal_WCDMA_B8">
+				<!--Main Function is necessary-->
+				<MainFunc Editable="TRUE" Type="String">ESCalWCDMAMainFunc</MainFunc>
+				<!--Parameters-->
+				<List>
+					<Item Name="TxLinearizerFunc" Enabled="FALSE"/>
+					<Item Name="TxLinOldFunc" Enabled="FALSE"/>
+					<Item Name="TxRxFreqCompFunc" Enabled="FALSE"/>
+					<Item Name="TxFreqCompFunc" Enabled="FALSE"/>
+					<Item Name="RxFreqCompFunc" Enabled="TRUE"/>
+					<Item Name="GenerateAndWriteNV" Enabled="FALSE"/>
+				</List>
+				<Band Editable="TRUE" Type="Integer">900</Band>
+				<TxLinChannel Editable="TRUE" Type="Integer">2788</TxLinChannel>
+				<UpperBoundChan Editable="TRUE" Type="Integer">2872</UpperBoundChan>
+				<TxWaveform Editable="TRUE" Type="Integer">0</TxWaveform>
+				<TxPurpose Editable="TRUE" Type="Integer">1</TxPurpose>
+				<PAState Editable="TRUE" Type="Integer">1,0,0</PAState>
+				<StartRGI Editable="TRUE" Type="Integer">85,74,48</StartRGI>
+				<StopRGI Editable="TRUE" Type="Integer">48,49,2</StopRGI>
+				<RGIStep Editable="TRUE" Type="Integer">-1,-1,-2</RGIStep>
+				<StartPower Editable="TRUE" Type="Integer">23,5,-20</StartPower>
+				<StopPower Editable="TRUE" Type="Integer">2,-10,-50</StopPower>
+				<ExpectPower Editable="TRUE" Type="Integer">30,18,-10</ExpectPower>
+				<RFDevices Editable="TRUE" Type="Integer">0,-1</RFDevices>
+				<HDETSample Editable="TRUE" Type="Integer">2,0,0</HDETSample>
+				<PABiasValue Editable="TRUE" Type="Integer">3400,3400,3400</PABiasValue>
+				<APTenabled Editable="TRUE" Type="Integer">true</APTenabled>
+				<BiasIniname Editable="TRUE" Type="Integer">sonim.ini</BiasIniname>
+				<Channellist Editable="TRUE" Type="Integer">2712,2722,2733,2743,2754,2765,2776,2788,2796,2806,2815,2825,2834,2844,2853,2863</Channellist>
+				<TxFreqPAState Editable="TRUE" Type="Integer">1,1,0</TxFreqPAState>
+				<TxFreqPower Editable="TRUE" Type="Integer">23,5,2</TxFreqPower>
+				<TFPLimitMax Editable="TRUE" Type="Integer">32,14,11</TFPLimitMax>
+				<TFPLimitMin Editable="TRUE" Type="Integer">15,-2,-5</TFPLimitMin>
+				<FreqTxPurpose Editable="TRUE" Type="Integer">5,4,4</FreqTxPurpose>
+				<FreqHDETSample Editable="TRUE" Type="Integer">2,0,0</FreqHDETSample>
+				<RxAction Editable="TRUE" Type="Integer">0,1,2,3</RxAction>
+				<RXPath Editable="TRUE" Type="Integer">1</RXPath>
+				<RxPM Editable="TRUE" Type="Integer">0</RxPM>
+				<RxPower Editable="TRUE" Type="Integer">-74,-74,-70,-51</RxPower>
+				<LNAOffsetMax Editable="TRUE" Type="Integer">450,450,450,550</LNAOffsetMax>
+				<LNAOffsetMin Editable="TRUE" Type="Integer">-450,-450,-450,-450</LNAOffsetMin>
+				<!--End of Parameters-->
+			</ProcessObject>
+		</LTECalibrationProcessObjects>
+	</ProcessObjectSet>
+</Configurations>

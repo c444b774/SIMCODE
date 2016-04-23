@@ -1,0 +1,240 @@
+<Configurations>
+	<PreObjects>
+		<DeviceObject ClassName="CCMU200" Name="CMU200">
+			<RFin Editable="TRUE" Type="Integer">2</RFin>
+			<RFout Editable="TRUE" Type="Integer">2</RFout>
+		</DeviceObject>
+		<DeviceObject ClassName="CCMW500" Name="CMW500">
+			<RFin Editable="TRUE" Type="Integer">1</RFin>
+			<RFout Editable="TRUE" Type="Integer">1</RFout>
+			<RFChannel Editable="TRUE" Type="Integer">1</RFChannel>
+		</DeviceObject>
+		<DeviceObject ClassName="N5182A" Name="N5182A">
+			<RFin Editable="TRUE" Type="Integer">1</RFin>
+			<RFout Editable="TRUE" Type="Integer">1</RFout>
+		</DeviceObject>
+		<PhoneObject ClassName="CRFNVItems" Name="CRFNVItemsObj">
+		</PhoneObject>
+		<PhoneObject ClassName="CQualPhone" Name="QualPhone">
+			<RFNVItemObject Editable="TRUE" Type="Integer">CRFNVItemsObj</RFNVItemObject>
+		</PhoneObject>
+	</PreObjects>
+	<MainObject>
+		<RFNVItem Editable="TRUE" Type="String">GeneralNV</RFNVItem>
+		<Phone Editable="TRUE" Type="String">QualPhone</Phone>
+		<TesterDeviceCommon Editable="TRUE" Type="String">CMW500</TesterDeviceCommon>
+		<TesterDevice1 Editable="TRUE" Type="String">N5182A</TesterDevice1>
+		<List>
+			<Item Name="ReadSN" Enabled="True"/>
+			<Item Name="ClearGPSFlag" Enabled="True"/>
+			<Item Name="GPStest" Enabled="True"/>
+			<Item Name="WriteGPSFlag" Enabled="True"/>
+			</List>
+		<ALLItems>
+			<Item Name="ReadSN"/>
+			<Item Name="ClearBTFlag"/>
+			<Item Name="ClearWLANFlag"/>
+			<Item Name="ClearGPSFlag"/>
+			<Item Name="ClearDTVFlag"/>
+			<Item Name="BTtest"/>
+			<Item Name="WLANtest"/>
+			<Item Name="GPStest"/>
+			<Item Name="DTVTest"/>
+			<Item Name="WriteBTFlag"/>
+			<Item Name="WriteWLANFlag"/>
+			<Item Name="WriteGPSFlag"/>
+			<Item Name="WriteDTVFlag"/>
+		</ALLItems>
+	</MainObject>
+	<ProcessObjectSet>
+		<WBGDProcessObjects>
+			<ProcessObject ClassName="CBTTestProc" Name="BTtest">
+				<!--Main Function is necessary-->
+				<MainFunc Editable="TRUE" Type="String">BTTestCallMainFunc</MainFunc>
+				<!--Parameters-->
+				<List>
+					<Item Name="BTTestTXFunc" Enabled="TRUE"/>
+				</List>
+				<TXPerformaceList Editable="TRUE" Type="String">TXPOWER,DEVMRMS</TXPerformaceList>
+				<TXPerformaceListBitMask Editable="TRUE" Type="Integer">1,1</TXPerformaceListBitMask>
+				<BTADDR Editable="TRUE" Type="Integer">1111111111111</BTADDR>
+				<BTDevicePort Editable="TRUE" Type="Integer">2</BTDevicePort>
+				<!--1: DH1 2: DH3 3: DH5 4: 2-DH1 5: 2-DH3 6: 2-DH5 7: 3-DH1 8: 3-DH3 9: 3-DH5-->
+				<BTSignalTypeList Editable="TRUE" Type="Integer">9</BTSignalTypeList>
+				<BTChannelList Editable="TRUE" Type="Integer">0</BTChannelList>
+				<TXPOWERSpec Editable="TRUE" Type="Integer">-5,1</TXPOWERSpec>
+				<DEVMRMSSpec Editable="TRUE" Type="Integer">-99,0.2</DEVMRMSSpec>
+				<!--End of Parameters-->
+			</ProcessObject>
+			<ProcessObject ClassName="CWLANTestProc" Name="WLANtest">
+				<!--Main Function is necessary-->
+				<MainFunc Editable="TRUE" Type="String">WLANTestCallMainFunc</MainFunc>
+				<!--Parameters-->
+				<List>
+					<Item Name="WLANTestTXFunc" Enabled="TRUE"/>
+					<Item Name="WLANTestRXFunc" Enabled="TRUE"/>
+				</List>
+				<TXPerformaceList Editable="TRUE" Type="String">TXPOWER,EVMALLCARR</TXPerformaceList>
+				<TXPerformaceListBitMask Editable="TRUE" Type="Integer">1,1</TXPerformaceListBitMask>
+				<WLANADDR Editable="TRUE" Type="String">00:90:4C:C5:00:D8</WLANADDR>
+				<WLANDevicePort Editable="TRUE" Type="Integer">2</WLANDevicePort>
+				<CellPower Editable="TRUE" Type="Integer">-65</CellPower>
+				<TargetPower Editable="TRUE" Type="Integer">12</TargetPower>
+				<!--//1: 80211a(OFDM) 2: 80211b 3:80211g (DSSS) 4: 80211g (OFDM) 5:80211n -->
+				<WLANSignalTypeList Editable="TRUE" Type="Integer">4</WLANSignalTypeList>
+				<WLANWaveFormNameList Editable="TRUE" Type="String">Wifi_g_54Mbps_1000Byte_001122334455_100ns.wv</WLANWaveFormNameList>
+				<WLANChannelList Editable="TRUE" Type="Integer">1</WLANChannelList>
+				<TXPOWERSpec Editable="TRUE" Type="Integer">9.5,14.5</TXPOWERSpec>
+				<EVMALLCARRSpec Editable="TRUE" Type="Integer">-99,-25</EVMALLCARRSpec>
+				<RXFerSpec Editable="TRUE" Type="Integer">0,0.1</RXFerSpec>
+				<WLANRXRootWaveFilePath Editable="TRUE" Type="Integer">D:\BT_WLAN_WaveFormFiles</WLANRXRootWaveFilePath>
+				<!--End of Parameters-->
+			</ProcessObject>
+			<ProcessObject ClassName="CGPSTestProc" Name="GPStest">
+				<!--Main Function is necessary-->
+				<MainFunc Editable="TRUE" Type="String">GPSTestCallMainFunc</MainFunc>
+				<!--Parameters-->
+				<List>
+					<Item Name="GPSTestRXFunc" Enabled="TRUE"/>
+				</List>
+				<UseTestSet Editable="TRUE" Type="Integer">0</UseTestSet>
+				<GPSDevicePort Editable="TRUE" Type="Integer">1</GPSDevicePort>
+				<CellPower Editable="TRUE" Type="Integer">-127</CellPower>
+				<GPSWaveFileRootPath Editable="TRUE" Type="String">D:\BT_WLAN_WaveFormFiles</GPSWaveFileRootPath>
+				<GPSWaveFileName Editable="TRUE" Type="Integer">GPS_RF1_SV2.wv</GPSWaveFileName>
+				<GPSCNOSpec Editable="TRUE" Type="Integer">42,100</GPSCNOSpec>
+				<!--End of Parameters-->
+			</ProcessObject>
+			<ProcessObject ClassName="CDTVTestProc" Name="DTVTest">
+				<!--Main Function is necessary-->
+				<MainFunc Editable="TRUE" Type="String">DTVTestCallMainFunc</MainFunc>
+				<!--Parameters-->
+				<List>
+					<Item Name="DTVTestRXFunc" Enabled="TRUE"/>
+				</List>
+				<UseTestSet Editable="TRUE" Type="Integer">1</UseTestSet>
+				<GPSDevicePort Editable="TRUE" Type="Integer">1</GPSDevicePort>
+				<CellPower Editable="TRUE" Type="Integer">-96</CellPower>
+				<RXPerformaceList Editable="TRUE" Type="String">BER,CN</RXPerformaceList>
+				<RXPerformaceListBitMask Editable="TRUE" Type="Integer">1,1</RXPerformaceListBitMask>
+				<DTVWaveFileRootPath Editable="TRUE" Type="Integer"></DTVWaveFileRootPath>
+				<DTVDevicePort Editable="TRUE" Type="Integer">1</DTVDevicePort>
+				<DTVBERSpec Editable="TRUE" Type="Integer">0,0.01</DTVBERSpec>
+				<DTVCNSpec Editable="TRUE" Type="Integer">20,50</DTVCNSpec>
+				<DTVChannelList Editable="TRUE" Type="Integer">27</DTVChannelList>
+				<DTVWaveFileList Editable="TRUE" Type="Integer">WFM1:DTV.WFM</DTVWaveFileList>
+				<TestDeviceUse Editable="TRUE" Type="Integer">TesterDevice1</TestDeviceUse>
+				<!--End of Parameters-->
+			</ProcessObject>
+		</WBGDProcessObjects>
+		<CommonProcessObjects>
+			<ProcessObject ClassName="CBaseBandTestProc" Name="ReadSN">
+				<!--Main Function is necessary-->
+				<MainFunc Editable="TRUE" Type="String">CommonTestMainFunc</MainFunc>
+				<!--Parameters-->
+				<List>
+					<Item Name="ReadSNFunc" Enabled="TRUE"/>
+				</List>
+				<NVID1 Editable="TRUE" Type="Integer">567</NVID1>
+				<NVID2 Editable="TRUE" Type="Integer">569</NVID2>
+				<!--End of Parameters-->
+			</ProcessObject>
+			<ProcessObject ClassName="CBaseBandTestProc" Name="ClearBTFlag">
+				<!--Main Function is necessary-->
+				<MainFunc Editable="TRUE" Type="String">CommonTestMainFunc</MainFunc>
+				<!--Parameters-->
+				<List>
+					<Item Name="WriteFlagFunc" Enabled="TRUE"/>
+				</List>
+				<FlagNVID Editable="TRUE" Type="Integer">570</FlagNVID>
+				<StationFlag Editable="TRUE" Type="Integer">2</StationFlag>
+				<IsSetFlag Editable="TRUE" Type="Integer">0</IsSetFlag>
+				<!--End of Parameters-->
+			</ProcessObject>
+			<ProcessObject ClassName="CBaseBandTestProc" Name="ClearWLANFlag">
+				<!--Main Function is necessary-->
+				<MainFunc Editable="TRUE" Type="String">CommonTestMainFunc</MainFunc>
+				<!--Parameters-->
+				<List>
+					<Item Name="WriteFlagFunc" Enabled="TRUE"/>
+				</List>
+				<FlagNVID Editable="TRUE" Type="Integer">570</FlagNVID>
+				<StationFlag Editable="TRUE" Type="Integer">56</StationFlag>
+				<IsSetFlag Editable="TRUE" Type="Integer">0</IsSetFlag>
+				<!--End of Parameters-->
+			</ProcessObject>
+			<ProcessObject ClassName="CBaseBandTestProc" Name="ClearGPSFlag">
+				<!--Main Function is necessary-->
+				<MainFunc Editable="TRUE" Type="String">CommonTestMainFunc</MainFunc>
+				<!--Parameters-->
+				<List>
+					<Item Name="WriteFlagFunc" Enabled="TRUE"/>
+				</List>
+				<FlagNVID Editable="TRUE" Type="Integer">570</FlagNVID>
+				<StationFlag Editable="TRUE" Type="Integer">6</StationFlag>
+				<IsSetFlag Editable="TRUE" Type="Integer">0</IsSetFlag>
+				<!--End of Parameters-->
+			</ProcessObject>
+			<ProcessObject ClassName="CBaseBandTestProc" Name="ClearDTVFlag">
+				<!--Main Function is necessary-->
+				<MainFunc Editable="TRUE" Type="String">CommonTestMainFunc</MainFunc>
+				<!--Parameters-->
+				<List>
+					<Item Name="WriteFlagFunc" Enabled="TRUE"/>
+				</List>
+				<FlagNVID Editable="TRUE" Type="Integer">570</FlagNVID>
+				<StationFlag Editable="TRUE" Type="Integer">57</StationFlag>
+				<IsSetFlag Editable="TRUE" Type="Integer">0</IsSetFlag>
+				<!--End of Parameters-->
+			</ProcessObject>
+			<ProcessObject ClassName="CBaseBandTestProc" Name="WriteBTFlag">
+				<!--Main Function is necessary-->
+				<MainFunc Editable="TRUE" Type="String">CommonTestMainFunc</MainFunc>
+				<!--Parameters-->
+				<List>
+					<Item Name="WriteFlagFunc" Enabled="TRUE"/>
+				</List>
+				<FlagNVID Editable="TRUE" Type="Integer">570</FlagNVID>
+				<StationFlag Editable="TRUE" Type="Integer">2</StationFlag>
+				<IsSetFlag Editable="TRUE" Type="Integer">1</IsSetFlag>
+				<!--End of Parameters-->
+			</ProcessObject>
+			<ProcessObject ClassName="CBaseBandTestProc" Name="WriteWLANFlag">
+				<!--Main Function is necessary-->
+				<MainFunc Editable="TRUE" Type="String">CommonTestMainFunc</MainFunc>
+				<!--Parameters-->
+				<List>
+					<Item Name="WriteFlagFunc" Enabled="TRUE"/>
+				</List>
+				<FlagNVID Editable="TRUE" Type="Integer">570</FlagNVID>
+				<StationFlag Editable="TRUE" Type="Integer">56</StationFlag>
+				<IsSetFlag Editable="TRUE" Type="Integer">1</IsSetFlag>
+				<!--End of Parameters-->
+			</ProcessObject>
+			<ProcessObject ClassName="CBaseBandTestProc" Name="WriteGPSFlag">
+				<!--Main Function is necessary-->
+				<MainFunc Editable="TRUE" Type="String">CommonTestMainFunc</MainFunc>
+				<!--Parameters-->
+				<List>
+					<Item Name="WriteFlagFunc" Enabled="TRUE"/>
+				</List>
+				<FlagNVID Editable="TRUE" Type="Integer">570</FlagNVID>
+				<StationFlag Editable="TRUE" Type="Integer">6</StationFlag>
+				<IsSetFlag Editable="TRUE" Type="Integer">1</IsSetFlag>
+				<!--End of Parameters-->
+			</ProcessObject>
+			<ProcessObject ClassName="CBaseBandTestProc" Name="WriteDTVFlag">
+				<!--Main Function is necessary-->
+				<MainFunc Editable="TRUE" Type="String">CommonTestMainFunc</MainFunc>
+				<!--Parameters-->
+				<List>
+					<Item Name="WriteFlagFunc" Enabled="TRUE"/>
+				</List>
+				<FlagNVID Editable="TRUE" Type="Integer">570</FlagNVID>
+				<StationFlag Editable="TRUE" Type="Integer">57</StationFlag>
+				<IsSetFlag Editable="TRUE" Type="Integer">1</IsSetFlag>
+				<!--End of Parameters-->
+			</ProcessObject>
+		</CommonProcessObjects>
+	</ProcessObjectSet>
+</Configurations>

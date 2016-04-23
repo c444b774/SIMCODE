@@ -1,0 +1,256 @@
+<Configurations>
+	<PreObjects>
+		<DeviceObject ClassName="A8960" Name="A8960">
+			<RFin Editable="TRUE" Type="Integer">10</RFin>
+			<RFout Editable="TRUE" Type="Integer">10</RFout>
+			<ScreenOff Editable="TRUE" Type="Integer">1</ScreenOff>
+		</DeviceObject>
+		<DeviceObject ClassName="CCMU200" Name="CMU200">
+			<RFin Editable="TRUE" Type="Integer">2</RFin>
+			<RFout Editable="TRUE" Type="Integer">2</RFout>
+		</DeviceObject>
+		<DeviceObject ClassName="CCMW500" Name="CMW500">
+			<RFin Editable="TRUE" Type="Integer">1</RFin>
+			<RFout Editable="TRUE" Type="Integer">1</RFout>
+			<RFChannel Editable="TRUE" Type="Integer">1</RFChannel>
+		</DeviceObject>
+		<DeviceObject ClassName="N5182A" Name="N5182A">
+			<RFin Editable="TRUE" Type="Integer">1</RFin>
+			<RFout Editable="TRUE" Type="Integer">1</RFout>
+		</DeviceObject>
+		<DeviceObject ClassName="MT8820" Name="MT8820">
+			<RFin Editable="TRUE" Type="Integer">1</RFin>
+			<RFout Editable="TRUE" Type="Integer">1</RFout>
+			<ScreenOff Editable="TRUE" Type="Integer">1</ScreenOff>
+		</DeviceObject>
+		<PhoneObject ClassName="CRFNVItems" Name="CRFNVItemsObj">
+		</PhoneObject>
+		<PhoneObject ClassName="CQualPhone" Name="QualPhone">
+			<RFNVItemObject Editable="TRUE" Type="Integer">CRFNVItemsObj</RFNVItemObject>
+			<IsEFS Editable="TRUE" Type="Integer">1</IsEFS>
+		</PhoneObject>
+	</PreObjects>
+	<MainObject>
+		<RFNVItem Editable="TRUE" Type="String">GeneralNV</RFNVItem>
+		<Phone Editable="TRUE" Type="String">QualPhone</Phone>
+		<TesterDeviceCommon Editable="TRUE" Type="String">MT8820</TesterDeviceCommon>
+		<TesterDevice1 Editable="TRUE" Type="String">N5182A</TesterDevice1>
+		<List>
+			<Item Name="LteLossCal_B38" Enabled="True"/></List>
+		<ALLItems>
+			<Item Name="TDLossCal_B34"/>
+			<Item Name="TDLossCal_B39"/>
+			<Item Name="LteLossCal_B38"/>
+			<Item Name="CDMALossCal_BC0"/>
+			<Item Name="CDMALossCal_BC1"/>
+			<Item Name="WCDMALossCal_2100"/>
+			<Item Name="WCDMALossCal_1900"/>
+			<Item Name="WCDMALossCal_850"/>
+			<Item Name="WCDMALossCal_900"/>
+			<Item Name="GsmLossCal_EGSM"/>
+			<Item Name="GsmLossCal_DCS"/>
+			<Item Name="GsmLossCal_PCS"/>
+			<Item Name="GsmLossCal_850"/>
+		</ALLItems>
+	</MainObject>
+	<ProcessObjectSet>
+		<LossCalProcessObjects>
+			<ProcessObject ClassName="CTDSCableLossCal" Name="TDLossCal_B34">
+				<!--Main Function is necessary-->
+				<MainFunc Editable="TRUE" Type="String">TdCableLossMainFunc</MainFunc>
+				<!--Parameters-->
+				<List>
+					<Item Name="TdMakeGoldenSemple" Enabled="FALSE"/>
+					<Item Name="TdSetCableLoss" Enabled="TRUE"/>
+				</List>
+				<TestBand Editable="TRUE" Type="Integer">34</TestBand>
+				<TestChannelList Editable="TRUE" Type="Integer">10088,10121,10054</TestChannelList>
+				<MeasureCount Editable="TRUE" Type="Integer">40</MeasureCount>
+				<MaxPowerLimit Editable="TRUE" Type="Integer">15,25</MaxPowerLimit>
+				<!--End of Parameters-->
+			</ProcessObject>
+			<ProcessObject ClassName="CLteCableLossCal" Name="LteLossCal_B38">
+				<!--Main Function is necessary-->
+				<MainFunc Editable="TRUE" Type="String">CableLossMainFunc</MainFunc>
+				<!--Parameters-->
+				<List>
+					<Item Name="MakeGoldenSemple" Enabled="FALSE"/>
+					<Item Name="SetCableLoss" Enabled="TRUE"/>
+				</List>
+				<TestBand Editable="TRUE" Type="Integer">38</TestBand>
+				<TestChannelList Editable="TRUE" Type="Integer">37800,38000,38200</TestChannelList>
+				<MeasureCount Editable="TRUE" Type="Integer">40</MeasureCount>
+				<PARange Editable="TRUE" Type="Integer">1</PARange>
+				<PDM Editable="TRUE" Type="Integer">60</PDM>
+				<MaxPowerLimit Editable="TRUE" Type="Integer">2,8</MaxPowerLimit>
+				<!--End of Parameters-->
+			</ProcessObject>
+			<ProcessObject ClassName="CTDSCableLossCal" Name="TDLossCal_B39">
+				<!--Main Function is necessary-->
+				<MainFunc Editable="TRUE" Type="String">TdCableLossMainFunc</MainFunc>
+				<!--Parameters-->
+				<List>
+					<Item Name="TdMakeGoldenSemple" Enabled="FALSE"/>
+					<Item Name="TdSetCableLoss" Enabled="TRUE"/>
+				</List>
+				<TestBand Editable="TRUE" Type="Integer">34</TestBand>
+				<TestChannelList Editable="TRUE" Type="Integer">9408,9488,9574</TestChannelList>
+				<MeasureCount Editable="TRUE" Type="Integer">40</MeasureCount>
+				<MaxPowerLimit Editable="TRUE" Type="Integer">15,25</MaxPowerLimit>
+				<!--End of Parameters-->
+			</ProcessObject>
+			<ProcessObject ClassName="CCDMACableLossCal" Name="CDMALossCal_BC0">
+				<!--Main Function is necessary-->
+				<MainFunc Editable="TRUE" Type="String">CDMAMeasMainFunc</MainFunc>
+				<!--Parameters-->
+				<List>
+					<Item Name="MakeGoldenSemple" Enabled="FALSE"/>
+					<Item Name="SetCableLoss" Enabled="TRUE"/>
+				</List>
+				<TestBand Editable="TRUE" Type="Integer">800</TestBand>
+				<TestChan Editable="TRUE" Type="Integer">384,777,1013</TestChan>
+				<iPwrCount Editable="TRUE" Type="Integer">40</iPwrCount>
+				<MaxPower Editable="TRUE" Type="Integer">15,25</MaxPower>
+				<!--End of Parameters-->
+			</ProcessObject>
+			<ProcessObject ClassName="CCDMACableLossCal" Name="CDMALossCal_BC1">
+				<!--Main Function is necessary-->
+				<MainFunc Editable="TRUE" Type="String">CDMAMeasMainFunc</MainFunc>
+				<!--Parameters-->
+				<List>
+					<Item Name="MakeGoldenSemple" Enabled="FALSE"/>
+					<Item Name="SetCableLoss" Enabled="TRUE"/>
+				</List>
+				<TestBand Editable="TRUE" Type="Integer">1900</TestBand>
+				<TestChan Editable="TRUE" Type="Integer">25,600,1175</TestChan>
+				<iPwrCount Editable="TRUE" Type="Integer">40</iPwrCount>
+				<MaxPower Editable="TRUE" Type="Integer">15,25</MaxPower>
+				<!--End of Parameters-->
+			</ProcessObject>
+			<ProcessObject ClassName="CWCDMACableLossCal" Name="WCDMALossCal_2100">
+				<!--Main Function is necessary-->
+				<MainFunc Editable="TRUE" Type="String">CWCDMALossMainFunc</MainFunc>
+				<!--Parameters-->
+				<List>
+					<Item Name="MakeGoldenSemple" Enabled="FALSE"/>
+					<Item Name="SetCableLoss" Enabled="TRUE"/>
+				</List>
+				<TestBand Editable="TRUE" Type="Integer">2100</TestBand>
+				<ChannelList Editable="TRUE" Type="Integer">9613,9750,9887</ChannelList>
+				<MeasureCount Editable="TRUE" Type="Integer">40</MeasureCount>
+				<MaxPowerLimit Editable="TRUE" Type="Integer">15,25</MaxPowerLimit>
+				<!--End of Parameters-->
+			</ProcessObject>
+			<ProcessObject ClassName="CWCDMACableLossCal" Name="WCDMALossCal_1900">
+				<!--Main Function is necessary-->
+				<MainFunc Editable="TRUE" Type="String">CWCDMALossMainFunc</MainFunc>
+				<!--Parameters-->
+				<List>
+					<Item Name="MakeGoldenSemple" Enabled="FALSE"/>
+					<Item Name="SetCableLoss" Enabled="TRUE"/>
+				</List>
+				<TestBand Editable="TRUE" Type="Integer">1900</TestBand>
+				<ChannelList Editable="TRUE" Type="Integer">9271,9400,9533</ChannelList>
+				<MeasureCount Editable="TRUE" Type="Integer">40</MeasureCount>
+				<MaxPowerLimit Editable="TRUE" Type="Integer">15,25</MaxPowerLimit>
+				<!--End of Parameters-->
+			</ProcessObject>
+			<ProcessObject ClassName="CWCDMACableLossCal" Name="WCDMALossCal_850">
+				<!--Main Function is necessary-->
+				<MainFunc Editable="TRUE" Type="String">CWCDMALossMainFunc</MainFunc>
+				<!--Parameters-->
+				<List>
+					<Item Name="MakeGoldenSemple" Enabled="FALSE"/>
+					<Item Name="SetCableLoss" Enabled="TRUE"/>
+				</List>
+				<TestBand Editable="TRUE" Type="Integer">850</TestBand>
+				<ChannelList Editable="TRUE" Type="Integer">4135,4175,4225</ChannelList>
+				<MeasureCount Editable="TRUE" Type="Integer">40</MeasureCount>
+				<MaxPowerLimit Editable="TRUE" Type="Integer">15,25</MaxPowerLimit>
+				<!--End of Parameters-->
+			</ProcessObject>
+			<ProcessObject ClassName="CWCDMACableLossCal" Name="WCDMALossCal_900">
+				<!--Main Function is necessary-->
+				<MainFunc Editable="TRUE" Type="String">CWCDMALossMainFunc</MainFunc>
+				<!--Parameters-->
+				<List>
+					<Item Name="MakeGoldenSemple" Enabled="FALSE"/>
+					<Item Name="SetCableLoss" Enabled="TRUE"/>
+				</List>
+				<TestBand Editable="TRUE" Type="Integer">900</TestBand>
+				<ChannelList Editable="TRUE" Type="Integer">2713,2788,2862</ChannelList>
+				<MeasureCount Editable="TRUE" Type="Integer">40</MeasureCount>
+				<MaxPowerLimit Editable="TRUE" Type="Integer">15,25</MaxPowerLimit>
+				<!--End of Parameters-->
+			</ProcessObject>
+			<ProcessObject ClassName="CGSMCableLossCal" Name="GsmLossCal_EGSM">
+				<!--Main Function is necessary-->
+				<MainFunc Editable="TRUE" Type="String">CGSMCableLossCalMainFunc</MainFunc>
+				<!--Parameters-->
+				<List>
+					<Item Name="MakeGoldenSemple" Enabled="FALSE"/>
+					<Item Name="SetCableLoss" Enabled="TRUE"/>
+				</List>
+				<TestBand Editable="TRUE" Type="Integer">EGSM</TestBand>
+				<TestChan Editable="TRUE" Type="Integer">975,38,124</TestChan>
+				<TestPCL_CH1 Editable="TRUE" Type="Integer">5</TestPCL_CH1>
+				<TestPCL_CH2 Editable="TRUE" Type="Integer">5</TestPCL_CH2>
+				<TestPCL_CH3 Editable="TRUE" Type="Integer">5</TestPCL_CH3>
+				<PwrRangMax Editable="TRUE" Type="Integer">35,35,35</PwrRangMax>
+				<PwrRangMin Editable="TRUE" Type="Integer">15,15,15</PwrRangMin>
+				<!--End of Parameters-->
+			</ProcessObject>
+			<ProcessObject ClassName="CGSMCableLossCal" Name="GsmLossCal_DCS">
+				<!--Main Function is necessary-->
+				<MainFunc Editable="TRUE" Type="String">CGSMCableLossCalMainFunc</MainFunc>
+				<!--Parameters-->
+				<List>
+					<Item Name="MakeGoldenSemple" Enabled="FALSE"/>
+					<Item Name="SetCableLoss" Enabled="TRUE"/>
+				</List>
+				<TestBand Editable="TRUE" Type="Integer">DCS</TestBand>
+				<TestChan Editable="TRUE" Type="Integer">512,698,885</TestChan>
+				<TestPCL_CH1 Editable="TRUE" Type="Integer">0</TestPCL_CH1>
+				<TestPCL_CH2 Editable="TRUE" Type="Integer">0</TestPCL_CH2>
+				<TestPCL_CH3 Editable="TRUE" Type="Integer">0</TestPCL_CH3>
+				<PwrRangMax Editable="TRUE" Type="Integer">35,35,35</PwrRangMax>
+				<PwrRangMin Editable="TRUE" Type="Integer">15,15,15</PwrRangMin>
+				<!--End of Parameters-->
+			</ProcessObject>
+			<ProcessObject ClassName="CGSMCableLossCal" Name="GsmLossCal_PCS">
+				<!--Main Function is necessary-->
+				<MainFunc Editable="TRUE" Type="String">CGSMCableLossCalMainFunc</MainFunc>
+				<!--Parameters-->
+				<List>
+					<Item Name="MakeGoldenSemple" Enabled="FALSE"/>
+					<Item Name="SetCableLoss" Enabled="TRUE"/>
+				</List>
+				<TestBand Editable="TRUE" Type="Integer">PCS</TestBand>
+				<TestChan Editable="TRUE" Type="Integer">512,661,810</TestChan>
+				<TestPCL_CH1 Editable="TRUE" Type="Integer">0</TestPCL_CH1>
+				<TestPCL_CH2 Editable="TRUE" Type="Integer">0</TestPCL_CH2>
+				<TestPCL_CH3 Editable="TRUE" Type="Integer">0</TestPCL_CH3>
+				<PwrRangMax Editable="TRUE" Type="Integer">35,35,35</PwrRangMax>
+				<PwrRangMin Editable="TRUE" Type="Integer">15,15,15</PwrRangMin>
+				<!--End of Parameters-->
+			</ProcessObject>
+			<ProcessObject ClassName="CGSMCableLossCal" Name="GsmLossCal_850">
+				<!--Main Function is necessary-->
+				<MainFunc Editable="TRUE" Type="String">CGSMCableLossCalMainFunc</MainFunc>
+				<!--Parameters-->
+				<List>
+					<Item Name="MakeGoldenSemple" Enabled="FALSE"/>
+					<Item Name="SetCableLoss" Enabled="TRUE"/>
+				</List>
+				<TestBand Editable="TRUE" Type="Integer">GSM850</TestBand>
+				<TestChan Editable="TRUE" Type="Integer">128,190,251</TestChan>
+				<TestPCL_CH1 Editable="TRUE" Type="Integer">5</TestPCL_CH1>
+				<TestPCL_CH2 Editable="TRUE" Type="Integer">5</TestPCL_CH2>
+				<TestPCL_CH3 Editable="TRUE" Type="Integer">5</TestPCL_CH3>
+				<PwrRangMax Editable="TRUE" Type="Integer">35,35,35</PwrRangMax>
+				<PwrRangMin Editable="TRUE" Type="Integer">15,15,15</PwrRangMin>
+				<!--End of Parameters-->
+			</ProcessObject>
+		</LossCalProcessObjects>
+	</ProcessObjectSet>
+</Configurations>
